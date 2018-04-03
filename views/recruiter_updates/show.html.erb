@@ -1,0 +1,108 @@
+<div class="space-60"></div>
+<div class="space-60"></div>
+
+<div style="min-height: fit-content;">
+
+  <div id="side-bar">
+    <%= render "side_bar" %>
+  </div>
+
+  <div id="main-content">
+
+    <%= link_to 'Edit', edit_user_recruiter_update_path(current_user, @recruiter_update) %> |
+    <%= link_to 'Back', user_recruiter_updates_path %>
+
+    <p>
+      <strong>First Name:</strong>
+      <%= click_to_edit @recruiter_update, attribute: :first_name, value: (@recruiter_update[:first_name] || "Click to add"), submit_on_blur: false, remote: false %>
+    </p>
+
+    <p>
+      <strong>Last Name:</strong>
+      <%= click_to_edit @recruiter_update, attribute: :last_name, value: (@recruiter_update[:last_name] || "Click to add"), submit_on_blur: false, remote: false %>
+    </p>
+
+    <p>
+      <strong>Name:</strong>
+      <%= click_to_edit @recruiter_update, attribute: :name, value: (@recruiter_update[:name] || "Click to add"), submit_on_blur: false, remote: false %>
+    </p>
+
+    <p>
+      <strong>Status:</strong>
+      <% status = Status.where(id: @recruiter_update.status_id).first %>
+      <%= status.name if status %>
+    </p>
+
+    <p>
+      <strong>Client account:</strong>
+      <% account = Account.where(id: @recruiter_update.account_id).first %>
+      <%= account.name if account %>
+    </p>
+
+    <p>
+      <strong>Job role:</strong>
+      <% job = Job.where(id: @recruiter_update.job_id).first %>
+      <%= job.name if job %>
+    </p>
+
+    <p>
+      <strong>Notes:</strong>
+      <%= click_to_edit @recruiter_update, attribute: :notes, value: (@recruiter_update[:notes] || "Click to add"), submit_on_blur: false, remote: false %>
+    </p>
+
+    <p>
+      <strong>Date:</strong>
+      <%= click_to_edit @recruiter_update, attribute: :date, value: (@recruiter_update[:date] || "Click to add"), submit_on_blur: false, remote: false %>
+    </p>
+
+
+    <p>
+      <strong>Lead source:</strong>
+      <%= click_to_edit @recruiter_update, attribute: :lead_source, value: (@recruiter_update[:lead_source] || "Click to add"), submit_on_blur: false, remote: false %>
+    </p>
+
+    <p>
+      <strong>Email:</strong>
+      <%= click_to_edit @recruiter_update, attribute: :email, value: (@recruiter_update[:email] || "Click to add"), submit_on_blur: false, remote: false %>
+    </p>
+
+    <p>
+      <strong>Phone number:</strong>
+      <%= click_to_edit @recruiter_update, attribute: :phone_number, value: (@recruiter_update[:phone_number] || "Click to add"), submit_on_blur: false, remote: false %>
+    </p>
+
+    <p>
+      <strong>Visa:</strong>
+      <%= click_to_edit @recruiter_update, attribute: :visa, value: (@recruiter_update[:visa] || "Click to add"), submit_on_blur: false, remote: false %>
+    </p>
+
+    <p>
+      <strong>Company:</strong>
+      <%= click_to_edit @recruiter_update, attribute: :company, value: (@recruiter_update[:company] || "Click to add"), submit_on_blur: false, remote: false %>
+    </p>
+
+    <p>
+      <strong>School:</strong>
+      <%= click_to_edit @recruiter_update, attribute: :school, value: (@recruiter_update[:school] || "Click to add"), submit_on_blur: false, remote: false %>
+    </p>
+
+    <p>
+      <strong>Linkedin url:</strong>
+      <%= click_to_edit @recruiter_update, attribute: :linkedin_url, value: (@recruiter_update[:linkedin_url] || "Click to add"), submit_on_blur: false, remote: false %>
+    </p>
+
+    <%= simple_form_for @recruiter_update.person do |f| %>
+        <%= f.input :document,
+        label: "Update or replace",
+        as: :file,
+        selected: @recruiter_update.person.document.url %>
+        <%= f.submit 'Save' %>
+    <% end %>
+    <div>
+        <iframe src="<%= @recruiter_update.person.document.url %>" style="width: 100%; height: 500px;"></iframe>
+    </div>
+
+    <%= link_to 'Edit', edit_user_recruiter_update_path(current_user, @recruiter_update) %> |
+    <%= link_to 'Back', user_recruiter_updates_path %>
+  </div>
+</div>

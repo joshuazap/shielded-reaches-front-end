@@ -1,0 +1,16 @@
+/*
+Dropdown style
+*/
+@import "_variables";
+@import "_mixins";
+
+.dropdown-menu{
+    min-width:200px;
+    padding:10px;
+    >li>a{
+        text-transform: capitalize;
+        font-family: $title-font;
+        font-weight: 400;
+        padding: 8px 20px;
+    }
+}

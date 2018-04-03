@@ -1,0 +1,28 @@
+<div class="space-40"></div>
+<div class="container" style="background: #333; color: #fff;">
+      <a>
+        <%= image_tag('Asset 2@svg.svg', alt: 'CardinalHire', class: 'logo-default', width: '30', height: '30') %>
+      </a>
+      <p style="background: #333; color: #fff;">
+          CardinalHire is where top tech talent meets top tech companies.
+      </p>
+      <ul class="list-unstyled" style="display: flex; flex-direction: column; flex-wrap: wrap;">
+          <li style="list-style-type: none;"><%= link_to "About Us", welcome_about_path %></li>
+          <li style="list-style-type: none;"><%= link_to "Careers", welcome_careers_path %></li>
+          <li style="list-style-type: none;"><%= link_to "Contact", welcome_contact_path %></li>
+      </ul>
+      <ul class="list-inline social" style="display: flex; flex-direction: row; flex-wrap: wrap;">
+        <li><a href="https://www.facebook.com/cardinalhire/"><i class="fa fa-fw fa-2x fa-facebook-square" style="background: #333; color: #fff;"></i></a></li>
+        <li><a href="https://twitter.com/CardinalHire"><i class="fa fa-fw fa-2x fa-twitter-square" style="background: #333; color: #fff;"></i></a></li>
+        <li><a href="https://plus.google.com/u/0/104478385240155193390"><i class="fa fa-fw fa-2x fa-google-plus-square" style="background: #333; color: #fff;"></i></a></li>
+        <li><a href="https://www.linkedin.com/company/cardinalhire"><i class="fa fa-fw fa-2x fa-linkedin" style="background: #333; color: #fff;"></i></a></li>
+      </ul>
+      <ul class="list-unstyled" style="display: flex; flex-direction: column; flex-wrap: wrap;">
+        <li style="list-style-type: none;"><%= link_to "Terms", welcome_tos_path %></li>
+        <li style="list-style-type: none;"><%= link_to "Privacy", welcome_privacy_path %></li>
+        <li style="list-style-type: none;"><p style="background: #333; color: #fff;">&copy; Copyright 2017 CardinalHire </p></li>
+          <!-- <li><a href="#">Blog</a></li> -->
+          <!-- <li><a href="#">Press Kit</a></li> -->
+          <!-- <li><a href="#">Support</a></li> -->
+      </ul>
+</div>

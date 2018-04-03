@@ -1,0 +1,25 @@
+<%= content_tag :div, class: 'media' do %>
+  <div class="media">
+    <div class="media-body">
+      <small>
+        <%= @user.email %> searched <%= time_ago_in_words(search.created_at) %> ago.
+        <% if current_user == @user %>
+          <%= link_to "Delete", search_path(search), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </small>
+      <p class="search">
+        <%= link_to search, target: :_blank do %>
+          <span class="label label-primary">SEARCH</span>
+        <% end %>
+        <%= search.keyword if search.keyword.present? %>
+        <%= search.locations if search.locations.present? %>
+        <%= search.employers if search.employers.present? %>
+        <%= search.titles if search.titles.present? %>
+        <%= search.schools if search.schools.present? %>
+        <%= search.degrees if search.degrees.present? %>
+        <%= search.disciplines if search.disciplines.present? %>
+        <%= search.names if search.names.present? %>
+      </p>
+    </div>
+  </div>
+<% end %>

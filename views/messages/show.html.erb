@@ -1,0 +1,15 @@
+<nav>
+  <div id="side-bar">
+    <div class="space-40"></div>
+    <%= render "side_bar" %>
+  </div>
+</nav>
+
+<article>
+  <div id="main-content">
+    <p id="notice"><%= notice %></p>
+
+    <%= link_to 'Edit', edit_message_path(@message) %> |
+    <%= link_to 'Back', messages_path %>
+  </div>
+</article>

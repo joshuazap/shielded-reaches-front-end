@@ -1,0 +1,77 @@
+<%= form_for(linkedin_profile_position) do |f| %>
+  <% if linkedin_profile_position.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(linkedin_profile_position.errors.count, "error") %> prohibited this linkedin_profile_position from being saved:</h2>
+
+      <ul>
+      <% linkedin_profile_position.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :linkedin_profile_id %>
+    <%= f.number_field :linkedin_profile_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :company_name %>
+    <%= f.text_field :company_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :is_current %>
+    <%= f.check_box :is_current %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_date %>
+    <%= f.date_select :start_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_date_year %>
+    <%= f.number_field :start_date_year %>
+  </div>
+
+  <div class="field">
+    <%= f.label :start_date_month %>
+    <%= f.number_field :start_date_month %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_date %>
+    <%= f.date_select :end_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_date_year %>
+    <%= f.number_field :end_date_year %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_date_month %>
+    <%= f.number_field :end_date_month %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :summary %>
+    <%= f.text_field :summary %>
+  </div>
+
+  <div class="field">
+    <%= f.label :locality %>
+    <%= f.text_field :locality %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

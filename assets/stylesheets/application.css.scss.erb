@@ -1,0 +1,406 @@
+/*
+* This is a manifest file that'll be compiled into application.css, which will include all the files
+* listed below.
+*
+* Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+* or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+*
+* You're free to add application-wide styles to this file and they'll appear at the bottom of the
+* compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+* files in this directory. Styles in this file should be added after the last require_* statement.
+* It is generally better to create a new file per style scope.
+*
+*= require_self
+*= require bootstrap
+*= require font-awesome
+*= require abracadabra
+*= require dropzone
+*= require_tree .
+*/
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "bootstrap/theme";
+@import "font-awesome";
+@import "font-awesome-sprockets";
+@import "abracadabra";
+@import "dropzone/dropzone";
+@import "_variables";
+@import "_mixins";
+@import "_accordions.scss";
+@import "_base.scss";
+@import "_blog.scss";
+@import "_buttons.scss";
+@import "_cta.scss";
+@import "_dropdown.scss";
+@import "_features-service-box.scss";
+@import "_footer.scss";
+@import "_menu.scss";
+@import "_misc-pages.scss";
+@import "_pagination.scss";
+@import "_pricing.scss";
+@import "_sidebar.scss";
+@import "_steps.scss";
+@import "_tabs.scss";
+@import "_team.scss";
+@import "_testimonials.scss";
+
+html, body {
+  height: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+}
+
+h1, h2, h3, h4, h5 {
+  color: #333;
+}
+
+h6 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+}
+
+img {
+  max-width: 100%;
+}
+
+a img {
+  border: none;
+}
+
+a {
+  color: #0000FF;
+}
+
+form .field, form .actions {
+  margin: 12px 0;
+}
+
+*::before, *::after {
+  -mox-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.clearfix::before,
+.clearfix::after {
+  content: " ";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+.toggle-checkbox input[type="checkbox"], .toggle-checkbox .checked {
+  display: none;
+}
+
+.toggle-checkbox input[type="checkbox"]:checked ~ .checked {
+  display: inline-block;
+}
+
+.toggle-checkbox input[type="checkbox"]:checked ~ .unchecked {
+  display: none;
+}
+
+.blockquote {
+  font-size: 1.6rem;
+  color: #333;
+  border: none;
+  padding: 0;
+}
+
+.blockquote-footer {
+  margin: 1rem 0 0;
+}
+
+.footer * {
+  color: #333;
+}
+
+.double-size {
+  height: 5em;
+}
+
+.clear {
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}
+
+.fieldWithErrors {
+  display: inline;
+}
+
+.error_messages {
+  width: 400px;
+  border: 2px solid #CF0000;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  font-size: 12px;
+}
+
+.error_messages h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 10px;
+  font-size: 12px;
+  margin: 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+.error_messages p {
+  margin: 8px 10px;
+}
+
+.error_messages ul {
+  margin: 0;
+}
+
+.call_sheet h2 {
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
+.dropzone {
+  border: 2px dashed #ddd;
+  border-radius: 5px;
+}
+
+.dz-message {
+  color: #999;
+}
+
+.dz-message:hover {
+  color: #464646;
+}
+
+.dz-message h3 {
+  font-size: 200%;
+  margin-bottom: 15px;
+}
+
+.alert-notice {
+  @extend .alert-success;
+}
+
+.alert-alert {
+  @extend .alert-warning;
+}
+
+.messages {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+#photo-collage {
+  line-height: 0;
+  -webkit-column-count: 5;
+  -webkit-column-gap:   0px;
+  -moz-column-count:    5;
+  -moz-column-gap:      0px;
+  column-count:         5;
+  column-gap:           0px;
+}
+
+#photo-collage img {
+  width: 100% !important;
+  height: auto !important;
+}
+
+#container {
+  width: 75%;
+  margin: 0 auto;
+  background-color: #FFF;
+  padding: 20px 40px;
+  border: solid 1px black;
+  margin-top: 20px;
+}
+
+#flash_notice, #flash_error, #flash_alert {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error, #flash_alert {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+.separator {
+  text-align: center;
+}
+
+.separator > span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.separator > .outer-line {
+  width: 40%;
+  border-bottom: 1px solid $skin-color;
+}
+
+.empapelar {
+  padding: 2em;
+  border-radius: 5px;
+  background-color: $skin-dark;
+  opacity: 0.5;
+}
+
+.empapelar::after {
+
+}
+
+section > #home::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background-image: url('<%= image_url('bg1a.jpg') %>');
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+article {
+  margin: 1.5em;
+  padding: 1.5em;
+  overflow: auto;
+}
+
+article > .papel {
+  background-color: #fff;
+  border-radius: 5px;
+  border-width: thin;
+  border-color: #000;
+  overflow: hidden;
+  height: 100%;
+  padding: 3.5em;
+}
+
+article > .papel-right {
+  padding: 1em;
+}
+
+article > div {
+  background-color: #fff;
+  border-radius: 5px;
+  border-width: thin;
+  border-color: #000;
+  overflow: auto;
+}
+
+.moused-search {
+  display: none;
+}
+
+@media (max-width: 62em) {
+  .navbar-nav {
+    padding-top: .425rem;
+    padding-left: 0.75rem;
+  }
+
+  .navbar-nav,
+  .nav-item {
+    float: none;
+  }
+
+  .navbar-brand {
+    float: right;
+  }
+
+  .navbar-brand,
+  .navbar-nav,
+  .nav-item {
+    display: block;
+   }
+
+   .navbar-nav .nav-item + .nav-item {
+     margin-left: 0;
+   }
+
+   .dropdown-menu {
+    position: relative;
+    float: none;
+  }
+}
+
+#custom_navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+@media (max-width: 1200px) {
+  #photo-collage {
+  -moz-column-count:    4;
+  -webkit-column-count: 4;
+  column-count:         4;
+  }
+}
+
+@media (max-width: 1000px) {
+  #photo-collage {
+  -moz-column-count:    3;
+  -webkit-column-count: 3;
+  column-count:         3;
+  }
+}
+
+@media (max-width: 800px) {
+  #photo-collage {
+  -moz-column-count:    2;
+  -webkit-column-count: 2;
+  column-count:         2;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #custom_navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+
+@media (max-width: 640px) {
+  #photo-collage {
+  -moz-column-count:    1;
+  -webkit-column-count: 1;
+  column-count:         1;
+  }
+
+  #main, #page {
+    flex-direction: column;
+  }
+
+  #main > article, #main > nav, #main > aside {
+    /* Return them to document order */
+    order: 0;
+  }
+
+  #main > nav, #main > aside, header, footer {
+    min-height: 50px;
+    max-height: 50px;
+  }
+}

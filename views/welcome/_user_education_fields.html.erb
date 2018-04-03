@@ -1,0 +1,8 @@
+<div class="nested-fields">
+  <%= f.input :name %>
+  <%= f.input :degree %>
+  <%= f.input :year, :as => :date, html5: true, discard_month: true, discard_day: true %>
+  <%= link_to_remove_association f, class: "btn btn-default btn-xs" do %>
+    <i class="fa fa-trash"></i>
+  <% end %>
+</div>

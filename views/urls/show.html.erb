@@ -1,0 +1,16 @@
+<div class="space-180"></div>
+
+<nav>
+  <div id="side-bar">
+    <div class="space-40"></div>
+    <%= render "side_bar" %>
+  </div>
+</nav>
+
+<article>
+  <div id="main-content">
+<%= link_to 'Edit', edit_url_path(@url) %> |
+<%= link_to 'Back', urls_path %>
+
+</div>
+</article>

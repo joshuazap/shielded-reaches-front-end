@@ -1,0 +1,160 @@
+<div class="row">
+  <div class="col-4 col-sm-4 col-md-4">
+    <article>
+      <div class="clearfix">
+        <div class="container-fluid">
+          <% if @account_manager %>
+            <%= render partial: 'small_card', object: @account_manager %>
+          <% else %>
+            <%= render partial: 'small_card_template' %>
+          <% end %>
+        </div>
+      </div>
+    </article>
+  </div>
+  <div class="col-8 col-sm-8 col-md-8">
+    <article>
+      <div class="papel clearfix">
+        <div class="container-fluid">
+          <div>
+            <h2 style="text-transform: uppercase;">Your Talent Profile</h2>
+            <p>We respect that your time is valuable, so we review every profile promptly. In the meantime, view and edit your profile to make sure it matches your needs.</p>
+          </div>
+          <div>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist" style="margin-bottom: 0; bottom: 0;">
+              <li role="presentation" class="active"><a href="#about-me" aria-controls="about-me" role="tab" data-toggle="tab">About Me</a></li>
+              <li role="presentation"><a href="#search-info" aria-controls="search-info" role="tab" data-toggle="tab">About My Search</a></li>
+              <li role="presentation"><a href="#resume-info" aria-controls="resume-info" role="tab" data-toggle="tab">My Resume/CV</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content" style="margin-top: 0; top: 0;">
+              <div role="tabpanel" class="tab-pane active" id="about-me">
+
+                <div class="tab-pane active" id="about-info">
+                    <%= simple_form_for @user do |f| %>
+                      <div class="space-10"></div>
+                        <h3 style="">Are you interested in working remotely?</h3>
+                        <%= f.input :remote_interest,
+                            collection: [
+                                "Not interested",
+                                "Interested",
+                                "Remote only"
+                                ],
+                            selected: @user.remote_interest %>
+                        <h3 style="">Showing off your best work with optional links to your GitHub, personal portfolio, or other sites can really supercharge your candidacy!</h3>
+                        <%= f.input :linkedin_profile_url, selected: @user.linkedin_profile_url %>
+                        <%= f.input :github_url, selected: @user.github_url %>
+                        <%= f.input :personal_site, selected: @user.personal_site %>
+                        <%= f.input :stack_overflow_url, selected: @user.stack_overflow_url %>
+                        <%= f.submit 'Save' %>
+                    <% end %>
+                </div>
+
+              </div>
+              <div role="tabpanel" class="tab-pane" id="search-info">
+                <div class="space-10"></div>
+                <%= simple_form_for @user do |f| %>
+                    <%= f.input :position_interest,
+                        label: "What type of position are you most interested in pursuing?",
+                        collection: [
+                            "Software Engineering",
+                            "DevOps",
+                            "Design",
+                            "Data Science",
+                            "Product Management",
+                            "Finance/Operations",
+                            "Recruiting/People Ops",
+                            "Sales",
+                            "Other"
+                            ],
+                        selected: @user.position_interest,
+                        input_html: { value: @user.position_interest } %>
+                    <%= f.input :position_desc,
+                        label: "Describe what you are looking for in a new position",
+                        hint: "Feel free to include any info that describes your ideal position",
+                        selected: @user.position_desc,
+                        input_html: { value: @user.position_desc } %>
+                    <%= f.input :skills,
+                        label: "What do you consider your strongest skills?",
+                        selected: @user.skills,
+                        input_html: { value: @user.skills } %>
+                    <%= f.input :experience_years,
+                        label: "How many years of experience (overall) do you have in your strongest set of skills?",
+                        hint: "Please exclude internships and school projects",
+                        selected: @user.experience_years,
+                        input_html: { value: @user.experience_years } %>
+                    <%= f.input :supervising_num,
+                        label: "How many people currently report to you, including direct reports, departments, and teams?",
+                        selected: @user.supervising_num,
+                        input_html: { value: @user.supervising_num } %>
+                    <%= f.input :salary_expectations,
+                        label: "What are your base salary expectations?",
+                        hint: "Feel free to use the terms you feel comfortable expressing, including annual, monthly, or hourly terms.",
+                        selected: @user.salary_expectations,
+                        input_html: { value: @user.salary_expectations } %>
+                    <%= f.input :employment_sought,
+                        label: "What type of employment are you seeking?",
+                        collection: [
+                            "Permanent (Full-Time)",
+                            "Contract",
+                            "Intern",
+                            "Other"
+                            ],
+                        selected: @user.employment_sought,
+                        input_html: { value: @user.employment_sought } %>
+                    <%= f.input :job_search_stage,
+                        label: "Where are you in your job search?",
+                        hint: "Select one",
+                        collection: [
+                            "Ready to interview and actively searching",
+                            "Open to exploring new opportunities",
+                            "In early stages of interviews",
+                            "In final stages of interviews",
+                            "At offer stage with one or more companies",
+                            "Not open to considering new opportunities"
+                        ],
+                        selected: @user.job_search_stage,
+                        input_html: { value: @user.job_search_stage } %>
+                    <%= f.input :work_authorization_status,
+                        label: "Are you authorized to work lawfully in the United States?",
+                        as: :radio_buttons,
+                        selected: @user.work_authorization_status,
+                        input_html: { value: @user.work_authorization_status } %>
+                    <%= f.input :visa_status,
+                        label: "Will you now, or in the future, require sponsorship for employment visa status (e.g. H-1B Visa)?",
+                        as: :radio_buttons,
+                        selected: @user.visa_status,
+                        input_html: { value: @user.visa_status } %>
+                    <%= f.submit 'Save' %>
+                <% end %>
+
+              </div>
+              <div role="tabpanel" class="tab-pane" id="resume-info">
+                <div class="space-10"></div>
+                <%= simple_form_for @user, html: { multipart: true, class: "dropzone" } do |f| %>
+                  <div class="field dropzone-previews">
+                    <%= f.input :resume,
+                    label: 'Attach resume/CV/document',
+                    as: :file,
+                    selected: @user.resume_file_name,
+                    input_html: { value: @user.resume_file_name } %>
+                  </div>
+                  <%= f.submit "Save", class: 'btn btn-success' %>
+                <% end %>
+                <div>
+                    <%= link_to "Resume Document", @user.resume.url, target: :_blank %>
+                    <iframe src="https://docs.google.com/viewer?url=<%= @user.resume.url %>&embedded=true" width="100%" height="800" frameborder="0" >
+                      <p>Your browser does not support iframes.</p>
+                    </iframe>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>

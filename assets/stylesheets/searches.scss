@@ -1,0 +1,218 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+img.rounded {
+  border-radius: 50%;
+}
+
+#advanced-search-menu {
+  float: left;
+  width: 240px;
+  height: inherit;
+}
+
+#search-results {
+  margin-left: 250px;
+}
+
+i.fa {
+  font-size: 1em;
+}
+
+.full-height-window {
+  min-height: 1300px;
+}
+
+.fill-height-card {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  > div {
+    // these are flex items
+
+    // flex: 1; same as:
+    // flex-grow: 1;
+    // flex-shrink: 1;
+    // flex-basis: auto;
+    // flex: 1 1 auto;
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    > div {
+      // also flex items
+    }
+  }
+}
+
+.results-area {
+  > div {
+    &:nth-child(2n+2) {
+      // background: hsla(0, 0%, 90%, 1);
+    }
+    &:nth-child(2) {
+      // background: hsla(200, 50%, 65%, 1);
+    }
+    &:nth-child(3) {
+      // background: hsla(200, 50%, 70%, 1);
+    }
+    &:nth-child(4) {
+      // background: hsla(200, 50%, 75%, 1);
+    }
+    &:nth-child(5) {
+      // background: hsla(200, 50%, 80%, 1);
+    }
+    h1, h2 {
+      margin: 0 0 0.2rem 0;
+    }
+    p {
+      margin: 0;
+    }
+  }
+}
+
+html, body {
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.letter {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.a {
+  grid-column: 1;
+  grid-row: 2;
+  justify-items: end;
+}
+
+.b {
+  grid-column: 1;
+  grid-row: 1;
+  justify-items: end;
+}
+
+.c {
+  grid-column: 1;
+  grid-row: auto;
+}
+
+.d {
+  grid-column: 1;
+  grid-row: auto;
+}
+
+.e {
+  grid-column: 1;
+  grid-row: auto;
+}
+
+.f {
+  grid-column: 1;
+  grid-row: auto;
+}
+
+.g {
+  grid-column: 2;
+  grid-row: 1;
+  padding: 0.5em;
+  justify-items: end;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.h {
+  grid-column: 2;
+  grid-row: 2;
+  padding: 0.5em;
+  justify-items: end;
+}
+
+.i {
+  grid-column: 2;
+  grid-row: 3;
+  padding: 0.5em;
+  justify-items: end;
+}
+
+.j {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.post {
+  display: flex;
+}
+
+.postUser {
+  flex: 0 1 auto;
+
+  padding-bottom: 10px;
+}
+
+  .postUser__portrait {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .postUser__name {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+.postBody {
+  flex: 1 1 auto;
+
+  padding: 15px;
+  border: 1px solid #CAD0D2;
+  border-radius: 4px;
+}
+
+.postBody:after,
+.postBody:before {
+  pointer-events: none;
+}
+
+.postBody:after {
+  border-color: transparent;
+  border-right-color: #ffffff;
+  border-width: 8px;
+  margin-top: -8px;
+}
+
+.postBody:before {
+  border-color: transparent;
+  border-right-color: #CAD0D2;
+  border-width: 9px;
+  margin-top: -9px;
+}
+
+  .postBody__content {
+    color: #57727C;
+    font-size: 12px;
+  }
+
+  .postBody__date {
+    margin-top: 5px;
+    color: black;
+  }
+
+.postUser__portrait a img {
+  object-fit: cover;
+  width: 125px;
+  height: 125px;
+  min-height: 125px;
+  min-width: 125px;
+}

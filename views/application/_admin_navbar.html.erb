@@ -1,0 +1,84 @@
+<% if current_user && (current_user.member? || current_user.admin?) %>
+  <%= link_to new_person_path do %>
+    <button type="button" class="btn btn-success">Add candidate</button>
+  <% end %>
+<% end %>
+<ul class="nav navbar-nav navbar-right flexbox-container">
+  <% if current_user && (current_user.role == "member") %>
+    <li><%= link_to "Search Candidates", new_search_path %></li>
+  <% elsif current_user && (current_user.role == "employer") %>
+    <li><%= link_to "Search Candidates", new_search_path %></li>
+  <% elsif current_user && (current_user.role == "admin") %>
+    <li><%= link_to "Search Candidates", new_search_path %></li>
+  <% end %>
+  <% if current_user %>
+    <%= link_to url_for(user_dashboard_path(current_user)), class: 'btn btn-secondary btn-block fa fa-fw fa-2x fa-desktop icon-badge', style: 'align-self: flex-end;', alt: 'Dashboard', height: '30', width: '30' do %>
+      <i></i>
+      <% unless current_user.follow_count == 0 %>
+        <span class="badge"><%= current_user.follow_count %></span>
+      <% end %>
+    <% end %>
+  <% end %>
+  <% if current_user && (current_user.member? || current_user.admin?) %>
+    <%= link_to url_for(user_recruiter_updates_path(current_user)), class: 'btn btn-secondary btn-block fa fa-fw fa-2x fa-list-ol', style: 'align-self: flex-end;', alt: 'Candidates', height: '30', width: '30' do %>
+      <i></i>
+    <% end %>
+  <% end %>
+  <% if current_user && current_user.signuprole == 'talent' %>
+    <%= link_to welcome_talent_intro_path, class: 'btn btn-secondary btn-block fa fa-fw fa-2x fa-user', style: 'align-self: flex-end;', alt: 'Profile', height: '30', width: '30' do %>
+      <i></i>
+    <% end %>
+  <% end %>
+  <% if current_user && current_user.signuprole == 'employer' %>
+    <%= link_to welcome_employer_intro_path, class: 'btn btn-secondary btn-block fa fa-fw fa-2x fa-user', style: 'align-self: flex-end;', alt: 'Profile', height: '30', width: '30' do %>
+      <i></i>
+    <% end %>
+  <% end %>
+  <%= link_to url_for(edit_user_registration_path), class: 'btn btn-secondary btn-block fa fa-fw fa-2x fa-cog', style: 'align-self: flex-end;', alt: 'Settings', height: '30', width: '30'  do %>
+    <i></i>
+  <% end %>
+  <% if current_user %>
+    <%= link_to :back, class: 'btn btn-secondary btn-block fa fa-fw fa-arrow-left', style: 'color: #fff; text-shadow: 1px 1px 2px rgb(255, 255, 255, 0.1);', alt: 'Back', height: '30', width: '30' do %>
+      <i></i>
+    <% end %>
+  <li class="dropdown show">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <%= current_user.first_name + ' ' + current_user.last_name[0] + '.' %> <span class="fa fa-caret-down" style="margin-right: 1em;" title="Toggle dropdown menu"></span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+            <% if current_user && current_user.role == "admin" %>
+            <p class="dropdown-header">Admin menu</p><br />
+            <a class="dropdown-item"><%= link_to 'Admin panel', rails_admin.dashboard_path %></a><br />
+            <% end %>
+            <% if current_user %>
+            <a class="dropdown-item"><%= link_to 'Dashboard', user_dashboard_path(current_user) %></a><br />
+            <% end %>
+            <% if current_user && current_user.signuprole == 'employer' %>
+            <a class="dropdown-item"><%= link_to 'Profile', welcome_employer_intro_path %></a><br />
+            <% end %>
+            <% if current_user && current_user.signuprole == 'talent' %>
+            <a class="dropdown-item"><%= link_to 'Profile', welcome_talent_intro_path %></a><br />
+            <% end %>
+            <a class="dropdown-item"><%= link_to 'Settings', edit_user_registration_path(current_user) %></a><br />
+            <a class="dropdown-item"><%= link_to 'Logout', destroy_user_session_path, method: :delete %></a><br />
+          </div>
+      </li>
+      <% else %>
+      <li><%= link_to "Login", new_user_session_path %></li>
+      <% end %>
+    <% unless current_user %>
+      <li><%= link_to "Job Seekers", welcome_new_talent_path %></li>
+      <li><%= link_to "Employers", welcome_lev1_path %></li>
+      <li><%= link_to "Careers", welcome_careers_path %></li>
+      <li class="dropdown show">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          About
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item"><%= link_to 'Company', welcome_about_path %></a><br />
+          <a class="dropdown-item"><%= link_to 'Contact Us', welcome_contact_path %></a><br />
+          <a class="dropdown-item"><%= link_to 'Events', welcome_events_path %></a><br />
+        </div>
+      </li>
+    <% end %>
+</ul>

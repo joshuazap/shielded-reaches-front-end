@@ -1,0 +1,39 @@
+<% message_default_body = "Are you ready to take the next steps in your career? CardinalHire has a client looking for candidates just like you. If you are interested in pursuing a new and exciting opportunity, please send a reply with your latest resume, or go ahead and forward this email to anyone else who would be interested." %>
+<% message_alternate_body = "A great client of mine is looking for a new hire. You seem to have the right skills, but I may be referencing an old resume of yours. What do you think? [link to job] If you're interested in exploring this opportunity, feel free to attach your updated resume in a response. Looking forward to hearing from you!" %>
+
+<nav>
+  <div id="side-bar">
+    <div class="space-40"></div>
+    <%= render "side_bar" %>
+  </div>
+</nav>
+
+<article>
+  <div id="main-content">
+    <div class="space-40"></div>
+
+    <%= form_tag("/messages/send_email_message", method: "post", url: send_email_message_path) do %>
+      <% hidden_field_tag :user_id, "#{current_user.id}" %>
+      <%= hidden_field_tag 'authenticity_token', form_authenticity_token %>
+
+      <div class="form-group">
+        <%= label_tag 'recipients', 'Choose recipients' %>
+        <%= select_tag 'recipients', recipients_options(@chosen_recipient), multiple: true, class: 'form-control chosen-it' %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag 'message[subject]', 'Subject' %>
+        <%= text_field_tag 'message[subject]', nil, class: 'form-control', required: true %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag 'message[body]', 'Message' %>
+        <%= text_area_tag 'message[body]', message_default_body, cols: 3, class: 'form-control', required: true, size: '25x10' %>
+      </div>
+
+      <%= submit_tag 'Send', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</article>
+
+<script src="<%= asset_path('chosen.jquery.js') %>"></script>

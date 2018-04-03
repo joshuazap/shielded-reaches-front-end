@@ -1,0 +1,20 @@
+<div class="col-xs-8 col-sm-8 col-md-8">
+  <article>
+    <div class="space-40"></div>
+    <div class="space-40"></div>
+    <div class="space-40"></div>
+    <div style="justify-content: left; align-items: left;">
+          <h2>Step 2:</h2>
+          <h3>Showing off your company with a profile that is visible to the candidates <b>you choose</b> can help draw interest to your recruitment efforts!</h3>
+          <%= simple_form_for @user.employer_company_profiles.first_or_initialize, url: wizard_path, method: :put) do |f| %>
+            <%= f.input :company_url, label: 'Company web address' %>
+            <%= f.input :crunchbase_url, label: 'Company Crunchbase profile URL' %>
+            <%= f.input :angellist_url, label: 'Company AngelList profile URL' %>
+            <br />
+            <%= f.submit 'Next', :class => 'btn btn-primary' %><br />
+            <%= link_to 'Previous step', previous_wizard_path %> | <%= link_to 'Skip for now', next_wizard_path %>
+          <% end %>
+      <div class="space-10"></div>
+    </div>
+  </article>
+</div>

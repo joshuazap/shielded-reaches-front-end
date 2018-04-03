@@ -1,0 +1,115 @@
+<div style="margin: 1em;">
+<div class="space-90"></div>
+<div class="container" style="display: flex; flex-flow: column;">
+  <div><h2 style="text-transform: uppercase;">Sign Up</h2></div>
+  <div class="tabbable">
+    <ul class="nav nav-tabs">
+      <li class=""><a href="#talent-info" data-toggle="tab">Job Seekers</a></li>
+      <li class="active"><a href="#employer-info" data-toggle="tab">Employers</a></li>
+      <li class=""><a href="#recruiter-info" data-toggle="tab">Recruiters</a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane" id="talent-info" style="justify-content: center; padding: 1em;">
+        <p style="text-align: center; justify-content: center; padding: 1em;">If you are a job seeker, get connected with hard-working recruiters to discuss your next career moves.</p>
+        <div class="" style="text-align: center; justify-content: center; padding: 1em;">
+          <p><%= link_to "Sign up as a job seeker", welcome_new_talent_path, class: "btn btn-xl btn-info" %></p>
+        </div>
+
+        <div class="space-10"></div>
+
+        <div class="" style="text-align: center; justify-content: center; padding: 1em;">
+          <p>Already have an account? <%= link_to "Sign in instead.", new_user_session_path %></p>
+        </div>
+      </div>
+      <div class="tab-pane active" id="employer-info">
+        <p style="text-align: left; justify-content: center; padding: 1em;">If you are an employer, sign up to gain access to a recruiter network that fulfills your staffing and leverages your time better.</p>
+        <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div class="field" style="">
+            <%= f.input :email, as: :email, autofocus: true, class: "full-wid" %>
+          </div>
+
+          <div class="field" style="">
+            <%= f.input :first_name, class: "full-wid" %>
+          </div>
+
+          <div class="field" style="">
+            <%= f.input :last_name, class: "full-wid" %>
+          </div>
+
+          <div class="field" style="">
+            <%= f.input :phone_number, as: :tel, class: "full-wid" %>
+          </div>
+
+          <div class="field" style="">
+            <%= f.input :job_title, class: "full-wid" %>
+          </div>
+
+          <div class="field" style="">
+            <%= f.input :company_name, class: "full-wid" %>
+          </div>
+
+          <div class="field" style="">
+            <%= f.input :company_url, as: :url, class: "full-wid" %>
+          </div>
+
+          <div class="field" style="">
+            <%= f.input :company_size, collection: [ "1-10", "11-50", "51-100", "101-500", "501-1000", "1001+"], class: "full-wid" %>
+          </div>
+
+          <div class="field" style="">
+            <%= f.input :location, class: "full-wid" %>
+          </div>
+
+          <div class="field" style="">
+            <%= f.label :password %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "off", style: "text-align: left", class: "full-wid" %>
+          </div>
+
+          <div class="field" style="">
+            <%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off", style: "text-align: left", class: "full-wid" %>
+          </div>
+
+          <div class="" style="">
+            <p><em>By indicating your acceptance and signing up, you agree to CardinalHire's <%= link_to "Privacy Policy", welcome_privacy_path %> and <%= link_to "Terms of Service", welcome_tos_path %>. You also agree to receive subsequent email and third-party communications, which you may opt out of at any time.</em></p>
+          </div>
+
+          <div class="field" style="">
+            <%= f.input :accepts, inline_label: 'I accept' %>
+            <%= f.hidden_field :accepts_date, value: Date.today %>
+          </div>
+
+          <div class="actions" style="">
+            <%= f.hidden_field :signuprole, value: 'employer' %>
+            <%= f.submit "Sign up", class: 'btn btn-xl btn-primary btn-block' %>
+          </div>
+
+          <div class="" style="">
+            <p>Already have an account? <%= link_to "Sign in instead.", new_user_session_path %></p>
+          </div>
+        <% end %>
+      </div>
+
+      <div class="tab-pane" id="recruiter-info" style="justify-content: center; padding: 1em;">
+        <p style="text-align: center; justify-content: center; padding: 1em;">If you are a recruiter interested in working as a contractor with CardinalHire, sign up to gain access to our recruiter network. Additional terms and conditions apply. Recruiter accounts must be reviewed and approved.</p>
+
+        <div class="" style="text-align: center; justify-content: center; padding: 1em;">
+          <p><%= link_to "Sign up as recruiter", welcome_new_recruiter_path, class: "btn btn-xl btn-info" %></p>
+        </div>
+
+        <div class="space-10"></div>
+
+        <div class="" style="text-align: center; justify-content: center; padding: 1em;">
+          <p>Already have an account? <%= link_to "Sign in instead.", new_user_session_path %></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>

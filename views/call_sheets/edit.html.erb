@@ -1,0 +1,14 @@
+<div class="space-90"></div>
+  <div id="side-bar">
+    <%= render "side_bar" %>
+  </div>
+
+  <div id="main-content">
+    <h1>Editing status update <%= @call_sheet.created_at.to_formatted_s(:long_ordinal) %></h1>
+
+    <%= render 'form', call_sheet: @call_sheet %>
+
+    <%= link_to 'Show', @call_sheet %> |
+    <%= link_to 'Back', call_sheets_path %>
+    <div class="space-10"></div>
+  </div>

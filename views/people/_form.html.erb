@@ -1,0 +1,61 @@
+<div id="content">
+  <h1>Add a candidate</h1>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="well">
+        <p>Guidelines for inputting new candidates</p>
+        <ul>
+          <li>1. Make sure ALL information is accurate!</li>
+          <li>2. Don't use special formatting. If you must copy-paste information, always 'paste as plain text.'</li>
+          <li>3. Name, email address, and phone number are required.</li>
+          <li>4. Document/resume is required only if LinkedIn profile URL is blank.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <%= simple_form_for @person, url: people_path, html: { multipart: true, class: "dropzone" } do |f| %>
+        <div class="field dropzone-previews">
+          <%= f.input :document,
+          label: 'Attach resume/CV/document',
+          as: :file %>
+        </div>
+      <% end %>
+      <%= simple_form_for @person, url: people_path, html: { multipart: true } do |f| %>
+        <div class="field">
+          <%= f.input :user_id, as: :hidden, value: current_user.id %>
+        </div>
+        <div class="field">
+          <%= f.input :salutation %>
+        </div>
+        <div class="field">
+          <%= f.input :first_name, required: true%>
+        </div>
+        <div class="field">
+          <%= f.input :last_name, required: true %>
+        </div>
+        <div class="field">
+          <%= f.input :email_address, required: true %>
+        </div>
+        <div class="field">
+          <%= f.input :phone_number, required: true %>
+        </div>
+        <div class="field">
+          <%= f.input :linkedin_profile_url %>
+        </div>
+        <div class="field">
+          <%= f.input :location %>
+        </div>
+        <div class="field">
+          <%= f.input :salary %>
+        </div>
+        <div class="field">
+          <%= f.input :salary_details %>
+        </div>
+        <div class="field">
+          <%= f.input :work_authorization_status %>
+        </div>
+        <%= f.submit "Save", class: 'btn btn-success' %>
+      <% end %>
+    </div>
+  </div>
+</div>

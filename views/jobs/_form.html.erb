@@ -1,0 +1,112 @@
+<%= simple_form_for(@job, html: {class: 'form-horizontal' }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+      <div class="field">
+        <%= f.label :name %>
+      </div>
+      <div class="field">
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.label :name %>
+      </div>
+      <div class="field">
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.label :numberofopenings %>
+      </div>
+      <div class="field">
+        <%= f.input :numberofopenings, as: :integer %>
+      </div>
+      <div class="field">
+        <%= f.label :startdate %>
+      </div>
+      <div class="field">
+        <%= f.input :startdate, as: :date %>
+      </div>
+      <div class="field">
+        <%= f.label :description %>
+      </div>
+      <div class="field">
+        <%= f.text_field :description %>
+      </div>
+      <div class="field">
+        <%= f.label :compensation %>
+      </div>
+      <div class="field">
+        <%= f.input :compensation, as: :integer %>
+      </div>
+      <div class="field">
+        <%= f.label :compensationdetails %>
+      </div>
+      <div class="field">
+        <%= f.text_field :compensationdetails %>
+      </div>
+      <div class="field">
+        <%= f.label :portaldescription %>
+      </div>
+      <div class="field">
+        <%= f.text_field :portaldescription %>
+      </div>
+      <div class="field">
+        <%= f.label :portaltitle %>
+      </div>
+      <div class="field">
+        <%= f.text_field :portaltitle %>
+      </div>
+      <div class="field">
+        <%= f.label :portalcompanyname %>
+      </div>
+      <div class="field">
+        <%= f.text_field :portalcompanyname %>
+      </div>
+      <div class="field">
+        <%= f.label :portalzip %>
+      </div>
+      <div class="field">
+        <%= f.input :portalzip, as: :integer %>
+      </div>
+      <div class="field">
+        <%= f.label :portalcompensation %>
+      </div>
+      <div class="field">
+        <%= f.text_field :portalcompensation %>
+      </div>
+      <div class="field">
+        <%= f.label :portalcity %>
+      </div>
+      <div class="field">
+        <%= f.text_field :portalcity %>
+      </div>
+      <div class="field">
+        <%= f.label :issyndicated %>
+      </div>
+      <div class="field">
+        <%= f.input :issyndicated, as: :boolean %>
+      </div>
+      <div class="field">
+        <%= f.label :portalstate %>
+      </div>
+      <div class="field">
+        <%= f.text_field :portalstate %>
+      </div>
+      <div class="field">
+        <%= f.label :portallastpostedon %>
+      </div>
+      <div class="field">
+        <%= f.input :portallastpostedon, as: :date %>
+      </div>
+      <div class="field">
+        <%= f.label :closedon %>
+      </div>
+      <div class="field">
+        <%= f.input :closedon, as: :date %>
+      </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,0 +1,74 @@
+<article>
+                                      <% if current_user.signuprole == "talent" %>
+                                        <h2>Thanks for signing up!</h2>
+                                        <h3>Step 1: Start the process</h3>
+                                        <h4>To help us connect you with the best opportunities for your chosen career path, please help us get to know you a little better.</h4>
+                                        <br />
+                                        <%= simple_form_for(current_user, :url => wizard_path, :method => :put) do |f| %>
+                                          <%= f.input :position_interest, label: "What type of position are you most interested in pursuing?", collection: [ "Software Engineering", "DevOps", "Design", "Data Science", "Product Management", "Finance/Operations", "Recruiting/People Ops", "Sales", "Other" ], selected: current_user.position_interest %>
+                                          <%= f.input :position_desc, label: "Describe what you are looking for in a new position", hint: "Feel free to include any info that describes your ideal position" %>
+                                          <%= f.input :remote_interest, label: "Are you intersted in working remotely?", collection: [ "Not interested", "Interested", "Remote only" ], selected: current_user.remote_interest %>
+                                          <%= f.input :skills, label: "What do you consider your strongest skills?" %>
+                                          <%= f.input :experience_years, label: "How many years of experience (overall) do you have in your strongest set of skills?", hint: "Please exclude internships and school projects", input_html: { min: 0 } %>
+                                          <%= f.input :supervising_num, label: "How many people currently report to you, including direct reports, departments, and teams?", input_html: { min: 0 } %>
+                                          <%= f.input :salary_expectations, label: "What are your base salary expectations?", hint: "Feel free to use the terms you feel comfortable expressing, including annual, monthly, or hourly terms.", input_html: { min: 0 } %>
+                                          <%= f.input :employment_sought, label: "What type of employment are you seeking?", collection: [ "Permanent (Full-Time)", "Contract", "Intern", "Other" ], selected: current_user.employment_sought %>
+                                          <%= f.input :job_search_stage, label: "Where are you in your job search?", hint: "Select one", collection: [ "Not open to considering new opportunities", "Open to exploring new opportunities", "Ready to interview and actively searching", "In early stages of interviews", "In final stages of interviews", "At offer stage with one or more companies"], selected: current_user.employment_sought %>
+                                          <%= f.input :work_authorization_status, label: "Are you authorized to work lawfully in the United States?", as: :radio_buttons %>
+                                          <%= f.input :visa_status, label: "Will you now, or in the future, require sponsorship for employment visa status (e.g. H-1B Visa)?", as: :radio_buttons %>
+                                          <br />
+                                          <%= f.submit 'Next', :class => 'btn btn-primary' %><br />
+                                          <%= link_to 'Skip for now', next_wizard_path %>
+                                        <% end %>
+                                      <% elsif current_user.signuprole == "employer" %>
+                                        <%= simple_form_for(current_user, :url => wizard_path, :method => :put) do |f| %>
+                                          <h2>Thanks for signing up!</h2>
+                                          <h3>Step 1: Start the process<br />
+                                            To help us connect you with the best matches, please help us get to know your organization a little better.
+                                          </h3>
+                                          <br />
+                                          <h3 style="">Where are you primarily hiring?</h3>
+                                          <%= f.input :employer_hiring_location %>
+
+                                          <h3 style="">What roles are you hiring for?</h3>
+                                          <%= f.input :employer_roles %>
+
+                                          <h3>What types of roles are you hiring?</h3>
+                                          <%= f.input :employer_roles_type, collection: [ "Full time", "Contract", "Both full time and contract" ], selected: current_user.employer_roles_type %>
+
+                                          <h3>Are you open to remote candidates?</h3>
+                                          <%= f.input :employer_remoteness, as: :radio_buttons, label: false %>
+
+                                          <h3>How soon do you need to fill these roles?</h3>
+                                          <%= f.input :employer_timeframe, collection: [ "As soon as possible", "In the next few months", "Not sure" ], selected: current_user.employer_timeframe %>
+
+                                          <h3>Are you the right person to talk to about pricing for our services?</h3>
+                                          <%= f.input :employer_pricing_authorization, as: :radio_buttons, label: false %>
+
+                                          <%= f.submit 'Submit', :class => 'btn btn-primary' %><br />
+                                          <%= link_to 'Skip for now', next_wizard_path %>
+                                        <% end %>
+                                      <% elsif current_user.signuprole == 'recruiter' %>
+                                        <%= simple_form_for(current_user, :url => wizard_path, :method => :put) do |f| %>
+                                          <h2>Thanks for signing up!</h2>
+                                          <h3>Step 1: Start the process<br />
+                                            To help us build your recruiting career on your terms through contract opportunities with forward-thinking companies, please provide us with some of your background info.
+                                          </h3>
+                                          <br />
+
+                                          <%= f.input :position_interest, label: "What type of position are you most interested in pursuing?", collection: [ "Software Engineering", "DevOps", "Design", "Data Science", "Product Management", "Finance/Operations", "Recruiting/People Ops", "Sales", "Other" ], selected: current_user.position_interest %>
+                                          <%= f.input :position_desc, label: "Describe what you are looking for in a new position", hint: "Feel free to include any info that describes your ideal position" %>
+                                          <%= f.input :remote_interest, label: "Are you intersted in working remotely?", collection: [ "Not interested", "Interested", "Remote only" ], selected: current_user.remote_interest %>
+                                          <%= f.input :skills, label: "What do you consider your strongest skills?" %>
+                                          <%= f.input :experience_years, label: "How many years of experience (overall) do you have in your strongest set of skills?", hint: "Please exclude internships and school projects", input_html: { min: 0 } %>
+                                          <%= f.input :supervising_num, label: "How many people currently report to you, including direct reports, departments, and teams?", input_html: { min: 0 } %>
+                                          <%= f.input :salary_expectations, label: "What are your base salary expectations?", hint: "Feel free to use the terms you feel comfortable expressing, including annual, monthly, or hourly terms.", input_html: { min: 0 } %>
+                                          <h3>Are you the right person to talk to about pricing for our services?</h3>
+                                          <%= f.input :employer_pricing_authorization, as: :radio_buttons, label: false %>
+
+                                          <%= f.submit 'Submit', :class => 'btn btn-primary' %><br />
+                                          <%= link_to 'Skip for now', next_wizard_path %>
+                                        <% end %>
+                                      <% end %>
+                                    <div class="space-10"></div>
+</article>

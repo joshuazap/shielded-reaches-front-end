@@ -1,0 +1,28 @@
+<h1>Edit Checked Updates</h1>
+
+<%= form_tag update_multiple_user_recruiter_updates_path, method: :put do %>
+  <% @recruiter_updates.each do |recruiter_update| %>
+  <h2><%= recruiter_update.name %></h2>
+    <%= fields_for "recruiter_updates[]", recruiter_update do |f| %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence %>
+      <div class="flexbox-form">
+          <div class="form-inputs">
+            <%= f.full_error :token %>
+            <%= f.input :date %>
+            <%= f.association :status, collection: Status.order(:name), prompt: "Choose a status" %>
+            <%= f.association :job, collection: Job.order(:name), prompt: "Choose a job role" %>
+            <%= f.association :account, collection: Account.order(:name), prompt: "Choose a client account" %>
+            <%= f.input :notes %>
+            <%= f.input :lead_source %>
+            <%= f.input :company %>
+            <%= f.input :school %>
+          </div>
+      </div>
+    <% end %>
+  <% end %>
+  <div class="flexbox-form">
+    <div class="form-actions">
+      <%= submit_tag "Save changes" %>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-4 col-sm-4 col-md-4">
+    <article>
+      <div class="clearfix">
+        <div class="container-fluid">
+        </div>
+      </div>
+    </article>
+  </div>
+  <div class="col-8 col-sm-8 col-md-8">
+    <article>
+      <div style="justify-content: left; align-items: left;">
+            <h2>Step 2:</h2>
+            <h3>When CardinalHire matches you to employers in our network, they can apply to interview you! In order to make sure you put your best foot forward, please attach your latest resume.</h3>
+            <%= simple_form_for current_user, :url => wizard_path, :method => :put, html: { multipart: true, class: "dropzone" } do |f| %>
+              <div class="field dropzone-previews">
+                <%= f.input :resume, as: :file %>
+              </div>
+              <%= f.submit 'Next', :class => 'btn btn-primary' %><br />
+              <%= link_to 'Previous step', previous_wizard_path %> | <%= link_to 'Skip for now', next_wizard_path %>
+            <% end %>
+        <div class="space-10"></div>
+      </div>
+    </article>
+  </div>

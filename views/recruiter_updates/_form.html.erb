@@ -1,0 +1,30 @@
+<%= simple_form_for [current_user, @recruiter_update] do |f| %>
+<% person = Person.find(params[:format]) %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence %>
+  <div class="flexbox-form">
+      <div class="form-inputs">
+        <%= f.full_error :token %>
+        <%= f.input :date %>
+        <%= f.input :name, input_html: { value: person.name || '' } %>
+        <%= f.hint 'Note that formatted names will be parsed to First and Last Names. If possible, enter First and Last Names separately.' %>
+        <%= f.input :first_name, input_html: { value: person.first_name || '' } %>
+        <%= f.input :last_name, input_html: { value: person.last_name || '' } %>
+        <%= f.input :linkedin_url, input_html: { value: person.linkedin_profile_url || '' }%>
+        <%= f.association :status, collection: Status.order(:name), prompt: "Choose a status" %>
+        <%= f.association :job, collection: Job.order(:name), prompt: "Choose a job role" %>
+        <%= f.association :account, collection: Account.order(:name), prompt: "Choose a client account" %>
+        <%= f.input :notes %>
+        <%= f.input :lead_source %>
+        <%= f.input :email %>
+        <%= f.input :phone_number %>
+        <%= f.input :visa %>
+        <%= f.input :company %>
+        <%= f.input :school %>
+      </div>
+  </div>
+  <div class="flexbox-form">
+    <div class="form-actions">
+      <%= f.submit 'Save changes'%>
+    </div>
+  </div>
+<% end %>

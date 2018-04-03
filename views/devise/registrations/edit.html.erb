@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-4 col-md-4">
+    <article>
+        <div class="clearfix">
+          <div class="container-fluid">
+            <% if @account_manager %>
+              <%= render partial: 'users/small_card', object: @account_manager %>
+            <% else %>
+              <%= render partial: 'users/small_card_template' %>
+            <% end %>
+          </div>
+        </div>
+    </article>
+  </div>
+  <div class="col-12 col-sm-6 col-md-8">
+    <article>
+        <div class="papel clearfix">
+          <div class="container-fluid">
+            <% if current_user.signuprole == 'employer' %>
+              <%= render "employer_edit" %>
+            <% end %>
+
+            <% if current_user.signuprole == 'talent' %>
+              <%= render "job_seeker_edit" %>
+            <% end %>
+
+            <% if current_user.role == 'admin' %>
+              <%= render "admin_edit" %>
+            <% end %>
+
+            <% if current_user.role == 'member' %>
+              <%= render "member_edit" %>
+            <% end %>
+          </div>
+        </div>
+    </article>
+  </div>
+</div>

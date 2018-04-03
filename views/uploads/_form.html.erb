@@ -1,0 +1,11 @@
+<div id="content">
+  <%= simple_form_for @upload, url: uploads_path, html: { multipart: true, class: "dropzone", id: "#area-dropzone" } do |f| %>
+    <div class="dz-message needsclick">
+      <h3>Drop file here</h3> or <strong>click</strong> to upload
+    </div>
+    <div class="fallback">
+      <%= f.file_field :document %>
+      <%= f.submit "Upload" %>
+    </div>
+  <% end %>
+</div>

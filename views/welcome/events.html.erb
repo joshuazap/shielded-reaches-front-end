@@ -1,0 +1,49 @@
+<section id="home" class="dzsparallaxer auto-init use-loading" style="position: relative; height: 400px;" data-options="{  mode_scroll: 'normal' }">
+    <div class="divimage dzsparallaxer--target " data-src="<%= image_url('bg4.jpg') %>" style="width: 100%; height: 100%; background-image: url('<%= image_url('bg4.jpg') %>'); background-size: cover;">
+        <div class="hero-parallax">
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <div class="container text-center">
+                        <div class="row">
+                            <div class="col-sm-10 col-sm-offset-1">
+                                <div class="hero-static">
+                                    <h1>EVENTS</h1>
+                                    <p class="lead">
+                                        CardinalHire is where top tech talent meets top tech companies.
+                                    </p>
+                                    <div class="buttons">
+                                      <%= link_to "Learn More", welcome_about_path, class: "btn btn-xl btn-white-border" %>
+                                      <%= link_to "See Careers", welcome_careers_path(@careers, anchor: "careers-list"), class: "btn btn-xl btn-primary" %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--container-->
+                </div><!--hero content-->
+            </div><!--hero inner-->
+
+        </div><!--parallax hero-->
+    </div><!--parallax image div-->
+</section>
+<!--intro section end-->
+<div class="space-90"></div>
+
+<div class="container">
+    <div class='row'>
+        <div class="col-sm-6 margin-b-40">
+          <div
+            class="fb-like"
+            data-share="true"
+            data-width="450"
+            data-show-faces="true">
+          </div>
+          <div style="width:195px; text-align:center;" ><iframe  src="https://www.eventbrite.com/calendar-widget?eid=33538475483" frameborder="0" height="526" width="195" marginheight="0" marginwidth="0" scrolling="no" allowtransparency="true"></iframe><div style="font-family: "Montserrat", Helvetica, Arial, sans-serif; font-size:12px; padding:10px 0 5px; margin:2px; width:195px; text-align:center;" ></div></div>
+        </div>
+        <div class="col-sm-6 margin-b-40">
+            <h3 class="margin-b-30">Job Fairs And Company Events</h3><br>
+            <p>We give hiring managers and senior staff members the opportunity to mix and mingle with prospective new hires.</p>
+            <p>If you'd like to discuss job fairs and company events, please contact us!</p>
+            <%= mail_to "contact@cardinalhire.com", "Contact Us", :subject => "Let's discuss job fairs and company events", :class => "btn btn-primary btn-lg" %>
+        </div>
+    </div>
+</div>

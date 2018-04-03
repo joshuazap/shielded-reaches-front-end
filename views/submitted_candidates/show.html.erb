@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Job:</strong>
+  <%= @submitted_candidate.job %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @submitted_candidate.user %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @submitted_candidate.account %>
+</p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @submitted_candidate.person %>
+</p>
+
+<%= link_to 'Edit', edit_submitted_candidate_path(@submitted_candidate) %> |
+<%= link_to 'Back', submitted_candidates_path %>

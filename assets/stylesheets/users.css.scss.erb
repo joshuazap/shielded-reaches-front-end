@@ -1,0 +1,102 @@
+@import "compass";
+
+* {
+  @include box-sizing(border-box);
+}
+
+#side-bar {
+  float: left;
+  width: 150px;
+}
+
+#main-content {
+  margin-left: 160px;
+  height: 100%;
+}
+
+.icon-wrapper {
+  position: relative;
+  float: left;
+}
+
+i {
+  width: 100px;
+  text-align: center;
+  vertial-align: middle;
+}
+
+.submittal-stage {
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.submittal-slide {
+  background: #eee;
+  min-height: 200px;
+  position: relative;
+  float: left;
+  padding: 20px;
+  margin-right: 4%;
+  margin-bottom: 4%;
+  &:nth-child(even) {
+    margin-right: 0;
+  }
+  box-shadow: 0 1px 3px rgba(black, 0.2);
+}
+
+.submittal-in {
+  transform: translateY(150px);
+  animation: come-in 0.8s ease forwards;
+}
+
+.submittal-in:nth-child(odd) {
+  animation-duration: 0.6s;
+}
+
+.already-visible {
+  transform: translateY(0);
+  animation: none;
+}
+
+@keyframes submittal-in {
+  to { transform: translateY(0); }
+}
+
+.submittal-table {
+  table-layout: fixed;
+  width: 100%;
+  white-space: wrap;
+}
+
+.submittal-table td {
+  white-space: wrap;
+  overflow: wrap;
+  text-overflow: ellipsis;
+}
+
+.row-1 {
+  width: 25%;
+}
+
+.row-2 {
+  width: 75%;
+}
+
+.dropzone {
+  background: #fff;
+  border: 2px dashed #ddd;
+  border-radius: 5px;
+}
+
+.dz-message {
+  color: #999;
+}
+
+.dz-message:hover {
+  color: #464646;
+}
+
+.dz-message h3 {
+  font-size: 200%;
+  margin-bottom: 15px;
+}

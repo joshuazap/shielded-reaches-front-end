@@ -1,0 +1,25 @@
+<ul class="nav navbar-nav navbar-right flexbox-container">
+  <li>
+    <%= link_to user_dashboard_path(current_user), style: 'text-shadow: 1px 1px 2px rgb(255, 255, 255, 0.1); align-self: flex-end;', alt: 'Just for you' do %>
+      <i class="fa fa-fw fa-list-alt icon-badge"></i>&nbsp;Candidates
+      <% unless current_user.follow_count == 0 %>
+        <span class="badge"><%= current_user.follow_count %></span>
+      <% end %>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to welcome_employer_intro_path, style: 'text-shadow: 1px 1px 2px rgb(255, 255, 255, 0.1); align-self: flex-end;', alt: 'Profile' do %>
+      <i class="fa fa-fw fa-users"></i>&nbsp;Profile
+    <% end %>
+  </li>
+  <li>
+    <%= link_to url_for(edit_user_registration_path), style: 'text-shadow: 1px 1px 2px rgb(255, 255, 255, 0.1); align-self: flex-end;', alt: 'Settings' do %>
+      <i class="fa fa-fw fa-cog"></i>&nbsp;<%= current_user.first_name + ' ' + current_user.last_name[0] + '.' %>
+    <% end %>
+  </li>
+  <li>
+    <%= link_to destroy_user_session_path, method: :delete do %>
+        <i class="fa fa-fw fa-sign-out"></i>&nbsp;Sign Out&nbsp;
+    <% end %>
+  </li>
+</ul>

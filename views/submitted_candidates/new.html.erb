@@ -1,0 +1,15 @@
+<div class="space-90"></div>
+<div style="min-height: fit-content;">
+
+  <div id="side-bar">
+    <%= render "side_bar" %>
+  </div>
+
+  <div id="main-content">
+    <h1>New Submittal</h1>
+
+    <%= render 'form', submitted_candidate: @submitted_candidate, user: current_user %>
+
+    <%= link_to 'Back', submitted_candidates_path %>
+  </div>
+</div>

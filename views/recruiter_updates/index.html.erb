@@ -1,0 +1,105 @@
+<div class="space-90"></div>
+<nav>
+  <div id="side-bar">
+    <%= render "side_bar" %>
+  </div>
+</nav>
+
+<article>
+  <div id="main-content">
+    <h1>My Candidates</h1>
+        <%= link_to new_user_recruiter_update_path, controller: "recruiter_updates", action: "new", id: current_user.id, method: :get do %>
+          <button type="button" class="btn btn-success" style="margin: 1em;">Create a candidate update</button>
+        <% end %>
+        <div class="flexbox-container" style="text-align: left;">
+        <h4>Or import from a file:</h4>
+          <%= form_tag import_user_recruiter_updates_path, multipart: true do %>
+            <%= file_field_tag :file %>
+            <%= submit_tag "Upload file" %>
+          <% end %>
+        </div>
+
+    <%= form_tag edit_multiple_user_recruiter_updates_path(current_user), method: :get do %>
+
+    <p>
+      <small>
+        <%= page_entries_info @recruiter_updates %>
+        <br />
+        <%= paginate(@recruiter_updates) %>
+      </small>
+    </p>
+
+    <button type="button" id="check_all"><%= "Check all/Uncheck all"%></button>
+
+    <button type="button" id="edit_selected"><%= "Edit selected" %></button>
+
+    <div class="media">
+      <div class="media-body">
+        <table class="table table-hover">
+            <tr>
+              <th></th>
+              <th>Date</th>
+              <th>Name</th>
+              <th>Status</th>
+              <th>Role</th>
+              <th>Client</th>
+              <th colspan="3"></th>
+            </tr>
+
+            <% @recruiter_updates.each do |recruiter_update| %>
+            <%= simple_fields_for(recruiter_update, html: {class: 'form-horizontal' }) do |f| %>
+            <tr>
+              <td><%= check_box_tag "recruiter_updates_id[]", recruiter_update.id %></td>
+              <td>
+                <%= recruiter_update.updated_at.to_formatted_s(:short) %>
+              </td>
+              <td><%= recruiter_update.name unless recruiter_update.name.nil? %></td>
+              <td>
+                <%= recruiter_update.status.name if recruiter_update.status %>
+              </td>
+              <td>
+                <% account = Account.where(id: recruiter_update.account_id).first %>
+                <%= account.name if account %>
+              </td>
+              <td>
+                <% job = Job.where(id: recruiter_update.job_id).first %>
+                <%= job.name if job %>
+              </td>
+              <% if recruiter_update.person && recruiter_update.person.document && recruiter_update.person.document.exists? %>
+
+              <td><%= link_to recruiter_update.person.document.url, class: 'btn btn-secondary btn-block fa fa-eye', target: :_blank do %>
+                    <i></i>
+                  <% end %>
+              </td>
+
+              <% end %>
+              <td><%= link_to user_recruiter_update_path(current_user, recruiter_update), controller: "recruiter_updates", action: "show", id: recruiter_update.id, method: :get, class: 'btn btn-secondary btn-block fa fa-pencil-square-o' do %>
+                    <i></i>
+                  <% end %>
+              </td>
+              <td><%= link_to user_recruiter_update_path(current_user, recruiter_update), controller: "recruiter_updates", action: "destroy", id: recruiter_update.id, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-secondary btn-block fa fa-trash-o' do %>
+                    <i></i>
+                  <% end %>
+              </td>
+            </tr>
+            <% end %>
+            <% end %>
+        </table>
+      </div>
+
+      <p>
+        <small>
+          <%= page_entries_info @recruiter_updates %>
+          <br />
+          <%= paginate(@recruiter_updates) %>
+        </small>
+      </p>
+
+      <% end %>
+
+    </div>
+    <div class="space-10"></div>
+  </div>
+</article>
+
+<div class="space-90"></div>

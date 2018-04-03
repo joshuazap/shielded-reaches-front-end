@@ -1,0 +1,16 @@
+<div class="media">
+  <div class="media-body">
+    <h4 class="media-heading">
+        <%= link_to person.name, person_path(person), target: :_blank %>
+        <p class="saved-candidates">
+          <%= person.keyword if person.keyword.present? %>
+          <%= person.location if person.location.present? %>
+          <%= person.employer if person.employer.present? %>
+          <%= person.title if person.title.present? %>
+          <%= person.school if person.school.present? %>
+          <%= person.degree if person.degree.present? %>
+          <%= person.discipline if person.discipline.present? %>
+        </p>
+    </h4>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="flexbox-container container-fluid clearfix" style="display: flex; flex-direction: row; justify-content: center; padding: 1em; align-items: flex-end;">
+  <%= link_to :back, class: 'btn btn-secondary btn-block fa fa-fw fa-arrow-left', style: 'color: rgb(196, 30, 58, 1); text-shadow: 1px 1px 2px rgb(196, 30, 58, 0.5);', alt: 'Back', height: '30', width: '30' do %>
+    <i></i>
+  <% end %>
+
+  <% if current_user %>
+    <%= link_to url_for(user_dashboard_path(current_user)), class: 'btn btn-secondary btn-block fa fa-fw fa-2x fa-desktop icon-badge', style: 'align-self: flex-end;', alt: 'Dashboard', height: '30', width: '30' do %>
+      <i></i>
+      <% unless current_user.follow_count == 0 %>
+        <span class="badge"><%= current_user.follow_count %></span>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <% if current_user && (current_user.member? || current_user.admin?) %>
+    <%= link_to url_for(user_recruiter_updates_path(current_user)), class: 'btn btn-secondary btn-block fa fa-fw fa-2x fa-list-ol', style: 'align-self: flex-end;', alt: 'Candidates', height: '30', width: '30' do %>
+      <i></i>
+    <% end %>
+  <% end %>
+
+  <% if current_user && current_user.signuprole == 'talent' %>
+    <%= link_to welcome_talent_intro_path, class: 'btn btn-secondary btn-block fa fa-fw fa-2x fa-user', style: 'align-self: flex-end;', alt: 'Profile', height: '30', width: '30' do %>
+      <i></i>
+    <% end %>
+  <% end %>
+
+  <% if current_user && current_user.signuprole == 'employer' %>
+    <%= link_to welcome_employer_intro_path, class: 'btn btn-secondary btn-block fa fa-fw fa-2x fa-user', style: 'align-self: flex-end;', alt: 'Profile', height: '30', width: '30' do %>
+      <i></i>
+    <% end %>
+  <% end %>
+
+    <%= link_to url_for(edit_user_registration_path), class: 'btn btn-secondary btn-block fa fa-fw fa-2x fa-cog', style: 'align-self: flex-end;', alt: 'Settings', height: '30', width: '30'  do %>
+      <i></i>
+    <% end %>
+</div>

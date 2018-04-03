@@ -1,0 +1,18 @@
+<%= javascript_include_tag 'mindmup-editabletable.js' %>
+
+<div class="space-90"></div>
+<div style="min-height: fit-content;">
+
+  <nav>
+    <div id="side-bar">
+      <%= render "side_bar" %>
+    </div>
+  </nav>
+
+  <article>
+    <div id="main-content">
+      <h1>My Status Updates</h1>
+      <%= render 'form', call_sheet: @call_sheet %>
+    </div>
+  </article>
+</div>

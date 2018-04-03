@@ -1,0 +1,101 @@
+    <section id="home" class="dzsparallaxer auto-init dzsparallaxer---window-height use-loading" style="position: relative; height: 800px;" data-options="{  mode_scroll: 'normal' }">
+        <div class="divimage dzsparallaxer--target " data-src="<%= image_url('bg1a.jpg') %>" style="width: 100%; height: 100%; background-image: url('<%= image_url('bg1a.jpg') %>'); background-size: cover;">
+            <div class="hero-parallax">
+                <div class="hero-inner">
+                    <div class="hero-content">
+                        <div class="container text-center">
+                            <div class="row">
+                                <div class="col-sm-10 col-sm-offset-1">
+                                    <div class="hero-static">
+                                      <img src="<%= image_path("Asset 1@svg.svg") %>" alt="" class="double-size">
+                                        <h1>CardinalHire</h1>
+                                        <p class="lead">
+                                            Top tech talent meets top tech companies.
+                                        </p>
+                                        <div class="buttons main">
+                                          <% if current_user %>
+                                            <%= link_to "Find a tech job", user_dashboard_path(current_user), class: "btn btn-xl btn-success" %>
+                                          <% else %>
+                                            <%= link_to "Find a tech job", welcome_careers_path, class: "btn btn-xl btn-success" %>
+                                          <% end %>
+                                          <% if current_user %>
+                                            <%= link_to "Recruit top talent", user_dashboard_path(current_user), class: "btn btn-xl btn-info" %>
+                                          <% else %>
+                                            <%= link_to "Recruit top talent", welcome_new_employer_path, class: "btn btn-xl btn-info" %>
+                                          <% end %>
+                                        </div>
+                                        <div class="buttons learn-more">
+                                          <%= link_to "Learn More", welcome_about_path, class: "btn btn-xl btn-white-border" %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--container-->
+                    </div><!--hero content-->
+                </div><!--hero inner-->
+
+            </div><!--parallax hero-->
+        </div><!--parallax image div-->
+    </section>
+    <!--intro section end-->
+
+    <div class="cta-skin">
+        <div class="container text-center">
+            <h2>Join now for free.</h2>
+            <p>Access the <b>world's largest</b> database of top candiates from Google, Stanford, Facebook, MIT and more available now for interviews!</p>
+            <% if current_user %>
+              <%= link_to "Join now for free", user_dashboard_path(current_user), class: "btn btn-xl btn-white-border" %>
+            <% else %>
+              <%= link_to "Join now for free", welcome_new_employer_path, class: "btn btn-xl btn-white-border" %>
+            <% end %>
+        </div>
+    </div>
+
+    <section class="steps">
+        <div class="space-90"></div>
+        <div class="container">
+            <div class="center-title">
+              <h1>How it works</h1>
+                <p> Credit card is required to sign up and will not be charged until the 31st day of use. Cancel any time in the first 30 days and you will not be charged.</p>
+            </div>
+            <div class="row">
+                <div class="col-sm-4 margin-b-30">
+                    <div class="step-box">
+                        <h1>01</h1>
+                        <h2>Select the candidates you would like to interview</h2>
+                        <h4>Access the <b>world's largest</b> database of top candiates from Google, Stanford, Facebook, MIT and more available now for interviews!</h4>
+                    </div>
+                </div>
+                <div class="col-sm-4 margin-b-30">
+                    <div class="step-box">
+                        <h1>02</h1>
+                        <h2>Interview the candidates</h2>
+                        <h4>Request interviews and connect with candidates on CardinalHire.</h4>
+                    </div>
+                </div>
+                <div class="col-sm-4 margin-b-30">
+                    <div class="step-box">
+                        <h1>03</h1>
+                        <h2>Hire the ones you like!</h2>
+                        <h4>Low cost pricing options include a monthly subscription and per-hire rates.</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+              <img src="<%= image_path('shot3.png') %>" alt="" class="img-responsive center-img">
+            </div>
+        </div>
+        <div class="space-60"></div>
+    </section>
+
+    <div class="cta-skin">
+        <div class="container text-center">
+            <h2>Join now for free.</h2>
+            <p>Access the <b>world's largest</b> database of top candiates from Google, Stanford, Facebook, MIT and more available now for interviews!</p>
+            <% if current_user %>
+              <%= link_to "Join now for free", user_dashboard_path(current_user), class: "btn btn-xl btn-white-border" %>
+            <% else %>
+              <%= link_to "Join now for free", welcome_new_employer_path, class: "btn btn-xl btn-white-border" %>
+            <% end %>
+        </div>
+    </div>

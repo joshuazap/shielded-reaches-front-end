@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Submitted Candidates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Job</th>
+      <th>User</th>
+      <th>Account</th>
+      <th>Person</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @submitted_candidates.each do |submitted_candidate| %>
+      <tr>
+        <td><%= submitted_candidate.job %></td>
+        <td><%= submitted_candidate.user %></td>
+        <td><%= submitted_candidate.account %></td>
+        <td><%= submitted_candidate.person %></td>
+        <td><%= link_to 'Show', submitted_candidate %></td>
+        <td><%= link_to 'Edit', edit_submitted_candidate_path(submitted_candidate) %></td>
+        <td><%= link_to 'Destroy', submitted_candidate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Submitted Candidate', new_submitted_candidate_path %>

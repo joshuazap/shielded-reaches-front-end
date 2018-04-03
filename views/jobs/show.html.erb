@@ -1,0 +1,37 @@
+
+<nav>
+  <div id="side-bar">
+    <div class="space-40"></div>
+    <%= render "side_bar" %>
+  </div>
+</nav>
+
+<article>
+  <div class="space-90"></div>
+  <div id="main-content">
+
+    <p>
+      <strong>Name:</strong>
+      <%= @job.name %>
+    </p>
+
+    <p>
+      <strong>Status:</strong>
+      <%= @job.statusid %>
+    </p>
+
+    <p>
+      <strong>Internal Description:</strong>
+      <%= @job.description %>
+    </p>
+
+    <p>
+      <strong>Portal/Syndicated Description:</strong>
+      <%= @job.portaldescription %>
+    </p>
+
+    <%= link_to 'Edit', edit_job_path(@job) %> |
+    <%= link_to 'Back', jobs_path %>
+
+</div>
+</article>

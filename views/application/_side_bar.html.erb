@@ -1,0 +1,38 @@
+<%= dropdown 'Menu' do %>
+
+  <%= link_to :back, class: 'btn btn-secondary btn-block fa fa-fw fa-2x fa-arrow-left', style: 'color: #333; text-shadow: 1px 1px 2px #C41E3A;', alt: 'Back' do %>
+    <i></i>
+  <% end %>
+
+  <% if current_user %>
+    <%= link_to url_for(user_dashboard_path(current_user)), class: 'btn btn-secondary btn-block fa fa-fw fa-2x fa-desktop icon-badge', style: 'color: #333; text-shadow: 1px 1px 2px #C41E3A;', alt: 'Dashboard' do %>
+      <i></i>
+      <% unless current_user.follow_count == 0 %>
+        <span class="badge"><%= current_user.follow_count %></span>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <% if current_user && (current_user.member? || current_user.admin?) %>
+    <%= link_to url_for(user_recruiter_updates_path(current_user)), class: 'btn btn-secondary btn-block fa fa-fw fa-2x fa-list-ol', style: 'color: #333; text-shadow: 1px 1px 2px #C41E3A;', alt: 'Candidates' do %>
+      <i></i>
+    <% end %>
+  <% end %>
+
+  <% if current_user && current_user.signuprole == 'talent' %>
+    <%= link_to welcome_talent_intro_path, class: 'btn btn-secondary btn-block fa fa-fw fa-2x fa-user', style: 'color: #333; text-shadow: 1px 1px 2px #C41E3A;', alt: 'Profile' do %>
+      <i></i>
+    <% end %>
+  <% end %>
+
+  <% if current_user && current_user.signuprole == 'employer' %>
+    <%= link_to welcome_employer_intro_path, class: 'btn btn-secondary btn-block fa fa-fw fa-2x fa-user', style: 'color: #333; text-shadow: 1px 1px 2px #C41E3A;', alt: 'Profile' do %>
+      <i></i>
+    <% end %>
+  <% end %>
+
+  <%= link_to url_for(edit_user_registration_path), class: 'btn btn-secondary btn-block fa fa-fw fa-2x fa-cog', style: 'color: #333; text-shadow: 1px 1px 2px #C41E3A;', alt: 'Settings' do %>
+    <i></i>
+  <% end %>
+
+<% end %>

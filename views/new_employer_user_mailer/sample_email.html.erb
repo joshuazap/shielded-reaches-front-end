@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      This is an automated message. CardinalHire has registered the creation of a new <%= @user.signuprole %> account. The details of the new account are below.
+    </p>
+    <p>
+      First Name: <%= @user.first_name %><br />
+      Last Name: <%= @user.last_name %><br />
+      Full Name: <%= @user.full_name %><br />
+      Email Address: <%= @user.email %><br />
+      Location: <%= @user.location %><br />
+      Permission Level: <%= @user.role %><br />
+      Sign-up Role: <%= @user.signuprole %><br />
+      Phone Number: <%= @user.phone_number %><br />
+      Job Title: <%= @user.job_title %><br />
+      Company Name: <%= @user.company_name %><br />
+      Company URL: <%= @user.company_url %><br />
+      Company Size: <%= @user.company_size %><br />
+      Employer Hiring Location: <%= @user.employer_hiring_location %><br />
+      Employer Roles: <%= @user.employer_roles %><br />
+      Employer Roles Type: <%= @user.employer_roles_type %><br />
+      Employer Remote Status: <%= @user.employer_remoteness %><br />
+      Employer Timeframe: <%= @user.employer_timeframe %><br />
+    </p>
+  </body>
+</html>

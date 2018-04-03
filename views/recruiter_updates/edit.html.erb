@@ -1,0 +1,16 @@
+<div class="space-90"></div>
+<div style="min-height: fit-content;">
+
+  <div id="side-bar">
+    <%= render "side_bar" %>
+  </div>
+
+  <div id="main-content">
+    <h1>Editing My Candidate</h1>
+    <div class="flexbox-container">
+      <%= render 'form', recruiter_update: @recruiter_update %>
+    </div>
+    <%= link_to 'Show', user_recruiter_update_path(current_user, @recruiter_update) %> |
+    <%= link_to 'Back', user_recruiter_updates_path %>
+  </div>
+</div>
