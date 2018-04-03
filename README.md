@@ -1,2 +1,2 @@
 # shielded-reaches-fe
-The private repository of the front end code for shielded-reaches
+The repository for front end code for shielded-reaches
