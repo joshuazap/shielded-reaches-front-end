@@ -18,18 +18,14 @@
           <div class="container-fluid">
             <% if current_user.signuprole == 'employer' %>
               <%= render "employer_edit" %>
-            <% end %>
-
-            <% if current_user.signuprole == 'talent' %>
+            <% elsif current_user.signuprole == 'talent' %>
               <%= render "job_seeker_edit" %>
-            <% end %>
-
-            <% if current_user.role == 'admin' %>
+            <% elsif current_user.role == 'admin' %>
               <%= render "admin_edit" %>
-            <% end %>
-
-            <% if current_user.role == 'member' %>
+            <% elsif current_user.role == 'member' %>
               <%= render "member_edit" %>
+            <% else %>
+              <%= render "job_seeker_edit" %>
             <% end %>
           </div>
         </div>
