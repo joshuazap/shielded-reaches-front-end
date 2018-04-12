@@ -1,0 +1,101 @@
+!!!
+%html
+  %head
+    %title= "CardinalHire"
+    %meta{ :charset => "utf-8" }
+    %meta{ :http-equiv="X-UA-Compatible" :content => "IE=edge,chrome=1" }
+    %meta{ :name => "viewport" content="width=device-width, initial-scale=1" }
+    %meta{ :content => "", :name => "description" }
+    %meta{ :content => "", :name => "author" }
+
+    %link{ :href => "/css/style.css", :rel => "stylesheet" }
+
+    %= csrf_meta_tags
+    %= javascript_include_tag "application"
+    %= javascript_include_tag(*webpack_asset_paths('application'))
+    %= stylesheet_link_tag "application", media: "all"
+    %= favicon_link_tag "Asset 1@0.5x.png", :rel => "apple-touch-icon", :type => "image/png"
+
+  %body
+    %header.header.clearfix#header
+      %nav
+        %ul
+          %li= "Menu Item"
+
+    <!-- Flash Notices -->
+    .flash.notice.clearfix
+      .relacion
+        <% flash.each do |key, value| %>
+          .alert.alert-= key
+          %button.close{ :type => "button", :data-dismiss => "alert" &times; }
+            = value
+        <% end %>
+    <!-- flash notices end -->
+
+    %= yield
+
+    %section
+      %article
+        %header
+          %h2= "Article Title"
+            %p
+              Posted on
+              %time{ :datetime => "2009-09-04T16:31:24+02:00" }= "September 4th 2009"
+              by
+              %a{ :href => "#" }= "Author Name"
+              -
+              %a{ :href => "#" }= "6 comments"
+
+              %article
+                %p
+                  It doesn&#39;t look so shiny to me. I just want to talk. It has nothing to do
+                  with mating. Fry, that doesn&#39;t make sense. Why would I want to know that?
+                %p
+                  They&#39;re like sex, except I&#39;m having them! You seem malnourished. Are
+                  you suffering from intestinal parasites? Yeah. Give a little credit
+                  to our public schools.
+
+    %aside
+      %h2= "The Sidebar"
+      %p
+        Michelle, I don&#39;t regret this, but I both rue and lament it. Our love isn&#39;t any
+        different from yours, except it&#39;s hotter, because I&#39;m involved. Bender, quit
+        destroying the universe! Robot 1-X, save my friends! And Zoidberg!
+
+    %footer.footer.clearfix
+      %p
+        Copyright 2018 Joshua Zapata
+
+  %script
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-92212943-1', 'auto');
+    ga('send', 'pageview');
+
+  <!-- jQuery plugins-->
+  %script{ :src => "<%= asset_path('modernizr.custom.97074.js') %>" }
+  %script{ :src => "<%= asset_path('template-custom.js') %>" }
+  %script{ :src => "<%= asset_path('dzsparallaxer.js') %>" }
+  %script{ :src => "<%= asset_path('typeahead.js') %>" }
+  <!-- end of plugins -->
+
+  %script
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '1309824625773613',
+        xfbml      : true,
+        version    : 'v2.9',
+        status     : 'true',
+        xfbml      : 'false'
+      });
+      FB.AppEvents.logPageView();
+    };
+    (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk/debug.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
