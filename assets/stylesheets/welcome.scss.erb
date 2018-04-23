@@ -120,7 +120,7 @@ div.col-lg-3.col-md-3.col-sm-3.col-xs-6 img {
 .dropzone {
   background: #fff;
   border: 2px dashed #ddd;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
 .dz-message {
@@ -134,4 +134,21 @@ div.col-lg-3.col-md-3.col-sm-3.col-xs-6 img {
 .dz-message h3 {
   font-size: 200%;
   margin-bottom: 15px;
+}
+
+.gradient-image {
+  background:
+    linear-gradient(
+      90deg,
+      white 30%,
+      rgba(255,0,0,0.00) 100%
+    ),
+    url(<%= asset_path 'dotshock_321792839.jpg' %>);
+}
+
+.stacked-figures {
+  background-image: url(<%= asset_path('figures@1x.png') %>);
+  background-position: bottom;
+  background-size: contain;
+  bottom: 0;
 }

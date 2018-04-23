@@ -76,6 +76,10 @@
                         <%= f.input :logo,
                         as: :file %>
                       </div>
+                      <div class="actions" style="display: flex; flex-flow: column wrap; justify-content: left; align-items: left;">
+                        <%= f.hidden_field :user_id, value: @user.id %>
+                        <%= f.submit "Update my company logo", class: "btn btn-success" %>
+                      </div>
                     <% end %>
                     <%= simple_form_for @user.employer_company_profiles.first_or_initialize, html: { multipart: true } do |f| %>
                       <p class="lead">Company or division name</p>
