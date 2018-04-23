@@ -5,7 +5,7 @@
   </head>
   <body>
     <p>
-      This is an automated message. CardinalHire has a new registered <%= @user.signuprole %> account. The details of the new account are below.
+      This is an automated message. CardinalHire has registered the creation of a new <%= @user.signuprole %> account. The details of the new account are below.
     </p>
     <p>
       First Name: <%= @user.first_name %><br />
@@ -25,7 +25,6 @@
       Salary Expectations: <%= @user.salary_expectations %><br />
       Work Authorization Status: <%= @user.work_authorization_status %><br />
       Visa Status: <%= @user.visa_status %><br />
-      Link to profile on platform: <%= link_to @user.people.first, people_url %><br />
     </p>
   </body>
 </html>

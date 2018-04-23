@@ -8,6 +8,7 @@
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600,700" rel="stylesheet">
     <%= javascript_include_tag(*webpack_asset_paths('application')) %>
     <%= favicon_link_tag 'Asset 1@0.5x.png', :rel => 'apple-touch-icon', :type => 'image/png' %>
     <script>
@@ -44,10 +45,9 @@
         <%= render 'header' %>
     </header>
 
-    <div id="header-div" class="clearfix"></div>
-
     <!-- Flash Notices -->
     <div class="flash notice clearfix">
+      <div class="relacion"></div>
       <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %>">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -58,7 +58,7 @@
 
     <%= yield %>
 
-    <footer class="footer clearfix">
+    <footer class="footer clearfix" style="border-top: 5px solid #4B6D90;">
         <%= render 'footer' %>
     </footer>
 

@@ -1,6 +1,8 @@
       <small style="margin-top: 1em;">
-        <h6 style="text-align: right;">Account type: <%= @user.signuprole.to_s %>
-          <i class="fa fa-fw fa-lg fa-question-circle" style="font-size: 1.75em;" aria-hidden="true" data-placement="left" data-toggle="tooltip" data-html="true" title="Your guest account must be reviewed and approved by our recruiting team before you start performing searches on our active network of candidates and begin receiving targeted candidate submittals from our team."></i>
+        <h6 style="text-align: right;">Account type: <%= current_user.signuprole.to_s %>
+          <% if current_user.role != 'employer' %>
+            <i class="fa fa-fw fa-lg fa-question-circle" style="font-size: 1.75em;" aria-hidden="true" data-placement="left" data-toggle="tooltip" data-html="true" title="Your guest account must be reviewed and approved by our recruiting team before you start performing searches on our active network of candidates and begin receiving targeted candidate submittals from our team."></i>
+          <% end %>
         </h6>
       </small>
 
@@ -13,32 +15,134 @@
       <% end %>
 
       <%= alert_box context: :warning, dismissable: true, id: 'alert', class: :en , data: {js: 1} do %>
-        <em>Awaiting new candidate submittals</em><i class="fa fa-fw fa-lg fa-question-circle" style="font-size: 1.5em;" aria-hidden="true" data-placement="left" data-toggle="tooltip" data-html="true" title="Your guest account must be reviewed and approved by our recruiting team before you begin receiving targeted candidate submittals from our team."></i>
+        <em>Awaiting new candidate submittals</em>
+        <% if current_user.role != 'employer' %>
+          <i class="fa fa-fw fa-lg fa-question-circle" style="font-size: 1.5em;" aria-hidden="true" data-placement="left" data-toggle="tooltip" data-html="true" title="Your guest account must be reviewed and approved by our recruiting team before you begin receiving targeted candidate submittals from our team."></i>
+        <% end %>
       <% end %>
-      <div class="submittal-stage">
-        <% if @candidate_submittals.any? %>
-
-          <% @candidate_submittals.each do |candidate| %>
-
-            <%= render partial: "submittal-person", object: candidate, locals: { person: Person.find(candidate.id) } %>
-
-          <% end %>
-
-        <% else %>
-
-          <h3 class="text-center">No Candidates At This Time</h3>
-
-        <% end %>
-      </div>
 
       <div class="submittal-stage">
-        <% if @candidate_submittals.any? %>
 
-        <% else %>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist" style="margin-bottom: 0; bottom: 0;">
+          <li role="presentation" class="active"><a href="#incoming-candidates" aria-controls="incoming-candidates" role="tab" data-toggle="tab">Incoming</a></li>
+          <li role="presentation"><a href="#requested-candidates" aria-controls="requested-candidates" role="tab" data-toggle="tab">Requested</a></li>
+          <li role="presentation"><a href="#accepted-candidates" aria-controls="accepted-candidates" role="tab" data-toggle="tab">Accepted</a></li>
+          <li role="presentation"><a href="#hidden-candidates" aria-controls="hidden-candidates" role="tab" data-toggle="tab">Hidden</a></li>
+        </ul>
 
-          <% 1.times do %>
-            <%= render :partial => 'submittal-slide' %>
-          <% end %>
+        <!-- Tab panes -->
+        <div class="tab-content" style="margin-top: 0; top: 0;">
+          <div role="tabpanel" class="tab-pane active" id="incoming-candidates">
 
-        <% end %>
+            <div class="tab-pane active" id="incoming-candidates">
+              <div class="space-10"></div>
+              <h3>Candidates just for you
+              <small class="text-muted">
+                <% if @candidate_submittals.any? %>
+                  <%= pluralize(@candidate_submittals.count, 'candidate') %>
+                <% else %>
+                  <%= 'No incoming candidates at this time' %>
+                <% end %>
+              </small>
+              </h3>
+              <div class="space-10"></div>
+
+              <div style="min-height: 400px;">
+                <% if @candidate_submittals.any? %>
+                  <% @candidate_submittals.each do |candidate| %>
+                    <%= render :partial => 'people/person', :locals => { :person => Person.find(candidate.followable.id) } %>
+                  <% end %>
+                <% else %>
+                  <%= render :partial => 'users/submittal-slide' %>
+                <% end %>
+              </div>
+            </div>
+
+          </div>
+
+          <div role="tabpanel" class="tab-pane" id="requested-candidates">
+
+            <div class="tab-pane" id="requested-candidates">
+              <div class="space-10"></div>
+              <h3>Candidates you requested
+              <small class="text-muted">
+                <% if @requested_candidates.any? %>
+                  <%= pluralize(@requested_candidates.count, 'candidate') %>
+                <% else %>
+                  <%= 'No incoming candidates at this time' %>
+                <% end %>
+              </small>
+              </h3>
+              <div class="space-10"></div>
+
+              <div style="min-height: 400px;">
+                <% if @requested_candidates.any? %>
+                  <% @requested_candidates.each do |candidate| %>
+                    <%= render :partial => 'people/person', :locals => { :person => Person.find(candidate.followable.id) } %>
+                  <% end %>
+                <% else %>
+                  <%= render :partial => 'users/submittal-slide' %>
+                <% end %>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div role="tabpanel" class="tab-pane" id="accepted-candidates">
+            <div class="space-10"></div>
+
+            <div class="tab-pane" id="accepted-candidates">
+              <h3>Candidates with scheduled interviews
+              <small class="text-muted">
+                <% if @candidate_interviews.any? %>
+                  <%= pluralize(@candidate_interviews.count, 'candidate') %>
+                <% else %>
+                  <%= 'No upcoming interviews' %>
+                <% end %>
+              </small>
+              </h3>
+              <div class="space-10"></div>
+
+              <div style="min-height: 400px;">
+                <% if @candidate_interviews.any? %>
+                  <% @candidate_interviews.each do |candidate| %>
+                    <%= render :partial => 'people/person', :locals => { :person => Person.find(candidate.id) } %>
+                  <% end %>
+                <% else %>
+                  <%= render :partial => 'users/submittal-slide' %>
+                <% end %>
+              </div>
+            </div>
+
+          </div>
+
+          <div role="tabpanel" class="tab-pane" id="hidden-candidates">
+            <div class="space-10"></div>
+
+            <div class="tab-pane" id="hidden-candidates">
+              <h3>Candidates you have hidden
+              <small class="text-muted">
+                <% if @hidden_candidates.any? %>
+                  <%= pluralize(@hidden_candidates, 'candidate') %>
+                <% else %>
+                  <%= 'No hidden candidates' %>
+                <% end %>
+              </small>
+              </h3>
+              <div class="space-10"></div>
+
+              <div style="min-height: 400px;">
+                <% if @hidden_candidates.any? %>
+                  <% @hidden_candidates.each do |candidate| %>
+                    <%= render :partial => 'people/person', :locals => { :person => Person.find(candidate.id) } %>
+                  <% end %>
+                <% else %>
+                  <%= render :partial => 'users/submittal-slide' %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>

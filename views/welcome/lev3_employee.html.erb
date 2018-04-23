@@ -1,0 +1,176 @@
+<section id="home" class="dzsparallaxer auto-init dzsparallaxer---window-height use-loading" style="position: relative; height: 500px;" data-options="{  mode_scroll: 'normal' }">
+    <div class="gradient-image divimage dzsparallaxer--target " style="width: 100%; height: 100%; background-size: cover;">
+        <div class="hero-parallax">
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <div class="container text-center">
+                        <div class="row">
+                            <div class="col-sm-10 col-sm-offset-1">
+                                <div class="hero-static">
+
+                                  <div class="row">
+                                      <div class="col col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-left" style="color: #003366;">
+                                        <div style="padding-bottom: 1em;"><%= image_tag('Asset 1.png', alt: 'CardinalHire', height: 'auto', width: '60em') %></div>
+
+                                        <h2 style="color: #003366;">Hire an Engineer by Friday.</h2>
+
+                                        <p style="color: #003366; font-weight: 300;" class="lead">
+                                            CardinalHire is the fastest growing technical recruiting marketplace in the San Francisco Bay Area.
+                                        </p>
+
+                                        <div class="buttons main">
+                                            <% if current_user %>
+                                                <%= link_to "Get Started", user_dashboard_path(current_user), class: "btn btn-xl btn-primary" %>
+                                            <% else %>
+                                                <%= link_to "Get Started", welcome_new_employer_path, class: "btn btn-xl btn-primary" %>
+                                            <% end %>
+                                        </div>
+
+                                      </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--container-->
+                </div><!--hero content-->
+            </div><!--hero inner-->
+        </div><!--parallax hero-->
+    </div><!--parallax image div-->
+</section>
+<!--intro section end-->
+
+<!-- <div class="container-fluid"> -->
+<!--     <div class="row"> -->
+<!--         <div class="col-sm-12 col-md-12"> -->
+<!--             <div class="row text-center" style="color: #003366; background-color: white;"> -->
+<!--                 <p style="margin-top: 4em; margin-bottom: 2em; color: #003366; font-weight: 500;">Leading companies with CardinalHire</p> -->
+<!--                 <ul class="list-inline" style="margin-top: 2em; margin-bottom: 4em;"> -->
+<!--                   <li class="list-inline-item" style="padding: 1em;"> -->
+<!--                       <%= image_tag('juniper_square@1x.png', height: 'auto', width: '100em') %> -->
+<!--                   </li> -->
+<!--                   <li class="list-inline-item" style="padding: 1em;"> -->
+<!--                       <%= image_tag('wayfair@1x.png', height: 'auto', width: '100em') %> -->
+<!--                   </li> -->
+<!--                   <li class="list-inline-item" style="padding: 1em;"> -->
+<!--                       <%= image_tag('limebike@1x.png', height: 'auto', width: '100em') %> -->
+<!--                   </li> -->
+<!--                   <li class="list-inline-item" style="padding: 1em;"> -->
+<!--                       <%= image_tag('harness-logo-lrg-blk@1x.png', height: 'auto', width: '100em') %> -->
+<!--                   </li> -->
+<!--                   <li class="list-inline-item" style="padding: 1em;"> -->
+<!--                       <%= image_tag('groupon@1x.png', height: 'auto', width: '100em') %> -->
+<!--                   </li> -->
+<!--                   <li class="list-inline-item" style="padding: 1em;"> -->
+<!--                       <%= image_tag('tubular@1x.png', height: 'auto', width: '100em') %> -->
+<!--                   </li> -->
+<!--                 </ul> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--     </div> -->
+<!-- </div> -->
+
+<div class="cta-skin">
+    <div class="row">
+        <div class="col-12 col-xs-12 col-sm-12 col-md-12 pull-right">
+          <div class="cotainer-fluid" style="align-items: center;">
+            <div class="text-center">
+            <h2 style="color: white;">Fastest Growing Recruiting Platform in the Bay Area</h2>
+            <p class="lead">
+              <ul style="color: white;">
+                <li style="list-style: none;">Get 20 awesome candidates qualified within 24-48 hours!</li>
+                <li style="list-style: none;">Browse our database of 1,000s of known active candidates from Facebook, Google, Stanford, MIT, and more, who are available for new opportunities now!</li>
+                <li style="list-style: none;">Leverage our wold-class team of AI-enabled recruiters and sourcers.</li>
+              </ul>
+                <% if current_user %>
+                <%= link_to "Learn more", user_dashboard_path(current_user), class: "btn btn-xl", style: "background-color: #003366; color: white;"%>
+                <% else %>
+                <%= link_to "Learn more", welcome_new_employer_path, class: "btn btn-xl", style: "background-color: #003366; color: white;"%>
+                <% end %>
+            </p>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+<section>
+    <div>
+        <div>
+            <div class="hero-inner">
+                <div class="hero-content">
+                    <div class="container text-center">
+                        <div class="row">
+                            <div class="col-sm-10 col-sm-offset-1">
+                                <div class="hero-static">
+                                  <div class="container-fluid">
+                                  <div class="row justify-content-xs-center justify-content-sm-center justifycontent-md-center justify-content-lg-center">
+                                    <div class="col-sm-12 col-md-12" style="justify-content: center;">
+                                        <h2 style="margin-top: 3em; margin-bottom: 1em; color: #003366;">It's simple to get started</h2>
+                                        <p class="lead">It takes 3 steps to get started. Anytime along the way feel free to contact our customer support team.</p>
+                                    </div>
+                                    <div class="col-12 col-md-12 col-sm-12" style="justify-content: center;">
+                                        <div class="space-40"></div>
+
+                                        <div class="row justify-content-xs-center justify-content-sm-center justifycontent-md-center justify-content-lg-center">
+                                            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                                                <p class="lead"><b>Sign up for an account</b></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row justify-content-xs-center justify-content-sm-center justifycontent-md-center justify-content-lg-center">
+                                            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                                              <%= image_tag('Vector_Smart_Object@1x.png', height: 'auto', width: '150em') %>
+                                            </div>
+                                        </div>
+
+                                        <div class="space-40"></div>
+
+                                        <div class="row justify-content-xs-center justify-content-sm-center justifycontent-md-center justify-content-lg-center">
+                                            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                                                <p class="lead"><b>Confirm your email address and add profile</b></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row justify-content-xs-center justify-content-sm-center justifycontent-md-center justify-content-lg-center">
+                                            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                                              <%= image_tag('confirmation@1x.png', height: 'auto', width: '150em') %>
+                                            </div>
+                                        </div>
+
+                                        <div class="space-40"></div>
+
+                                        <div class="row justify-content-xs-center justify-content-sm-center justifycontent-md-center justify-content-lg-center">
+                                            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                                                <p class="lead"><b>Hand-pick the perfect candidate for your company</b></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row justify-content-xs-center justify-content-sm-center justifycontent-md-center justify-content-lg-center">
+                                            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                                              <%= image_tag('choose@1x.png', height: 'auto', width: '150em') %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 col-md-12" style="justify-content: center;">
+                                      <p class="lead">CardinalHire is the fastest growing technical recruiting marketplace in the San Francisco Bay Area.</p>
+                                      <% if current_user %>
+                                      <%= link_to "Join CardinalHire Today", user_dashboard_path(current_user), class: "btn btn-xl btn-primary" %>
+                                      <% else %>
+                                      <%= link_to "Join CardinalHire Today", welcome_new_employer_path, class: "btn btn-xl btn-primary" %>
+                                      <% end %>
+                                      <div class="space-20"></div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--container-->
+                </div><!--hero content-->
+            </div><!--hero inner-->
+
+        </div><!--parallax hero-->
+    </div><!--parallax image div-->
+</section>
+<!--intro section end-->

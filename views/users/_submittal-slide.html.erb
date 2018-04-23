@@ -5,12 +5,12 @@
         <%= panel title: ' Johnny Engineer' do %>
             <div class='panel-body'>
                 <div class="space-10"></div>
-                <div class="col-3 col-md-3 col-sm-3">
+                <div class="col-3 col-xs-12 col-sm-12 col-md-3 col-lg-3">
                   <div class="" style="display: flex; justify-content: center;">
                     <%= image_tag "placeholder.png", class: 'rounded', width: 100, height: 100 %>
                   </div>
                 </div>
-                <div class="col-9 col-md-9 col-sm-9">
+                <div class="col-9 col-xs-12 col-sm-12 col-md-9 col-lg-9">
                   <p><b>Technical Project Manager</b> at Internet Giant</p>
                   <p class="lead">Enthusiastic Engineer interested in obtaining a Software Engineering full-time opportunity</p>
                   <ul class="list-inline">
@@ -93,7 +93,7 @@
                               <i class="fa fa-map-o" aria-hidden="true"></i>
                               </td>
                               <td>
-                                <p style="text-align: left;"></i>Located in <b><%= @user.employer_hiring_location.present? ? @user.employer_hiring_location : 'your area' %></b> and <%= (@user.employer_remoteness.present? && (@user.employer_remoteness == false)) ? 'are not' : 'are' %> interested in working remotely.</p>
+                                <p style="text-align: left;"></i>Located in <b><%= current_user.employer_hiring_location.present? ? current_user.employer_hiring_location : 'your area' %></b> and <%= (current_user.employer_remoteness.present? && (current_user.employer_remoteness == false)) ? 'are not' : 'are' %> interested in working remotely.</p>
                               </td>
                             </tr>
                             <tr>
@@ -117,7 +117,7 @@
                                   <i class="fa fa-cogs" aria-hidden="true"></i>
                                 </td>
                                 <td>
-                                  <p style="text-align: left;">Looking for <%= @user.employer_roles_type.present? ? @user.employer_roles_type : '' %> <b><%= @user.employer_roles.present? ? @user.employer_roles : '' %></b> employment roles.</p>
+                                  <p style="text-align: left;">Looking for <%= current_user.employer_roles_type.present? ? current_user.employer_roles_type : '' %> <b><%= current_user.employer_roles.present? ? current_user.employer_roles : '' %></b> employment roles.</p>
                                 </td>
                               </tr>
                           </tbody>
@@ -150,7 +150,7 @@
                     </td>
                     <td>
                       <h5 class=""></i>Your CardinalHire account manager looks for candidates that match your employer profile.&nbsp;<%= link_to 'View or update your employer profile.', welcome_employer_intro_path %></h5>
-                      <h6 class="">Account created <%= time_ago_in_words(@user.created_at) %> ago.</h6>
+                      <h6 class="">Account created <%= time_ago_in_words(current_user.created_at) %> ago.</h6>
                     </td>
                   </tr>
                 </tbody>

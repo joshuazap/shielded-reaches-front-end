@@ -43,7 +43,11 @@
     <% end %>
   <li class="dropdown show">
           <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= current_user.first_name + ' ' + current_user.last_name[0] + '.' %> <span class="fa fa-caret-down" style="margin-right: 1em;" title="Toggle dropdown menu"></span>
+            <% if current_user.first_name.present? && current_user.last_name.present? %>
+              <%= current_user.first_name + ' ' + current_user.last_name[0] + '.' %> <span class="fa fa-caret-down" style="margin-right: 1em;" title="Toggle dropdown menu"></span>
+            <% else %>
+              <%= Account %> <span class="fa fa-caret-down" style="margin-right: 1em;" title="Toggle dropdown menu"></span>
+            <% end %>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
             <% if current_user && current_user.role == "admin" %>
