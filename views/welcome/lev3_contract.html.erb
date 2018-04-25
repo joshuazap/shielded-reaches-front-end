@@ -14,7 +14,7 @@
                                     </div>
                                   </div>
                                   <div class="row">
-                                      <div class="col col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-left" style="background-color: #2B4A73; border-radius: 6px; color: #fff;">
+                                      <div class="col col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-left" style="margin: 1em; padding: 1em; background-color: #2B4A73; border-radius: 6px; color: #fff;">
                                         <div>
                                           <h2 style="color: #fff;">Find work today.</h2>
                                           <p class="lead">
@@ -26,21 +26,27 @@
 
                                   <div class="row">
                                     <div class="col col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-left" style="color: #fff;">
-                                        <div class="row">
-                                          <div class="col col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-left" style="color: #fff;">
+                                        <div class="row list-inline">
+                                          <li class="list-inline-item">
                                             <% if current_user %>
-                                                <%= link_to "Find Contract Work", user_dashboard_path(current_user), class: "btn btn-xl btn-primary" %>
+                                                <%= link_to "Recruit Top Talent", user_dashboard_path(current_user), class: "btn btn-primary", style: "margin: 1em;"%>
                                             <% else %>
-                                                <%= link_to "Find Contract Work", welcome_new_recruiter_path, class: "btn btn-xl btn-primary" %>
+                                                <%= link_to "Recruit Top Talent", welcome_new_employer_path, class: "btn btn-primary", style: "margin: 1em;"%>
                                             <% end %>
+                                          </li>
+                                          <li class="list-inline-item">
                                             <% if current_user %>
-                                                <%= link_to "Recruit Top Talent", user_dashboard_path(current_user), class: "btn btn-xl btn-primary" %>
+                                                <%= link_to "Find Contract Work", user_dashboard_path(current_user), class: "btn btn-primary", style: "margin: 1em; align-self: center;"%>
                                             <% else %>
-                                                <%= link_to "Recruit Top Talent", welcome_new_employer_path, class: "btn btn-xl btn-primary" %>
+                                                <%= link_to "Find Contract Work", welcome_new_recruiter_path, class: "btn btn-primary", style: "margin: 1em; align-self: center;"%>
                                             <% end %>
-                                          </div>
+                                          </li>
                                         </div>
 
+
+                                          </div>
+                                          </div>
+                                        </div>
                                       </div>
                                   </div>
                                 </div>
@@ -84,7 +90,7 @@
 <!--     </div> -->
 <!-- </div> -->
 
-<div class="cta-skin">
+<div class="cta-skin-blue">
     <div class="row">
         <div class="col-12 col-xs-12 col-sm-12 col-md-12 pull-right">
           <div class="cotainer-fluid" style="align-items: center;">

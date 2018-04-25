@@ -4,9 +4,9 @@ Cta and quotes css
 @import "_variables";
 @import "_mixins";
 
-.cta-skin{
+.cta-skin-blue{
     padding: 60px 0;
-    background: #c41e3a;
+    background: $skin-color-blue;
     h2{
         color: #fff;
         letter-spacing: 0px;
@@ -17,6 +17,20 @@ Cta and quotes css
         color: #fff;
         margin-bottom: 20px;
     }
+}
+.cta-skin-red{
+  padding: 60px 0;
+  background: $skin-color;
+  h2{
+      color: #fff;
+      letter-spacing: 0px;
+      font-weight: 500;
+      margin-bottom: 15px;
+  }
+  p{
+      color: #fff;
+      margin-bottom: 20px;
+  }
 }
 .cta-bg{
     background-attachment: fixed;

@@ -1,5 +1,5 @@
 <section id="home" class="dzsparallaxer auto-init dzsparallaxer---window-height use-loading" style="position: relative; height: 500px;" data-options="{  mode_scroll: 'normal' }">
-    <div class="gradient-image divimage dzsparallaxer--target " style="width: 100%; height: 100%; background-size: cover;">
+    <div class="gradient-image-employer divimage dzsparallaxer--target " style="width: 100%; height: 100%; background-size: cover;">
         <div class="hero-parallax">
             <div class="hero-inner">
                 <div class="hero-content">
@@ -10,7 +10,9 @@
 
                                   <div class="row">
                                       <div class="col col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-left" style="color: #003366;">
-                                        <div style="padding-bottom: 1em;"><%= image_tag('Asset 1.png', alt: 'CardinalHire', height: 'auto', width: '60em') %></div>
+                                        <div style="padding-bottom: 1em;">
+                                          <%= image_tag('Asset 1.png', alt: 'CardinalHire', height: 'auto', width: '60em') %>
+                                        </div>
 
                                         <h2 style="color: #003366;">Hire an Engineer by Friday.</h2>
 
@@ -20,9 +22,9 @@
 
                                         <div class="buttons main">
                                             <% if current_user %>
-                                                <%= link_to "Get Started", user_dashboard_path(current_user), class: "btn btn-xl btn-primary" %>
+                                                <%= link_to "Get Started", user_dashboard_path(current_user), class: "btn btn-xl btn-primary", style: "color: #fff;"%>
                                             <% else %>
-                                                <%= link_to "Get Started", welcome_new_employer_path, class: "btn btn-xl btn-primary" %>
+                                                <%= link_to "Get Started", welcome_new_employer_path, class: "btn btn-xl btn-primary", style: "color: #fff;"%>
                                             <% end %>
                                         </div>
 
@@ -37,45 +39,16 @@
         </div><!--parallax hero-->
     </div><!--parallax image div-->
 </section>
-<!--intro section end-->
-
-<!-- <div class="container-fluid"> -->
-<!--     <div class="row"> -->
-<!--         <div class="col-sm-12 col-md-12"> -->
-<!--             <div class="row text-center" style="color: #003366; background-color: white;"> -->
-<!--                 <p style="margin-top: 4em; margin-bottom: 2em; color: #003366; font-weight: 500;">Leading companies with CardinalHire</p> -->
-<!--                 <ul class="list-inline" style="margin-top: 2em; margin-bottom: 4em;"> -->
-<!--                   <li class="list-inline-item" style="padding: 1em;"> -->
-<!--                       <%= image_tag('juniper_square@1x.png', height: 'auto', width: '100em') %> -->
-<!--                   </li> -->
-<!--                   <li class="list-inline-item" style="padding: 1em;"> -->
-<!--                       <%= image_tag('wayfair@1x.png', height: 'auto', width: '100em') %> -->
-<!--                   </li> -->
-<!--                   <li class="list-inline-item" style="padding: 1em;"> -->
-<!--                       <%= image_tag('limebike@1x.png', height: 'auto', width: '100em') %> -->
-<!--                   </li> -->
-<!--                   <li class="list-inline-item" style="padding: 1em;"> -->
-<!--                       <%= image_tag('harness-logo-lrg-blk@1x.png', height: 'auto', width: '100em') %> -->
-<!--                   </li> -->
-<!--                   <li class="list-inline-item" style="padding: 1em;"> -->
-<!--                       <%= image_tag('groupon@1x.png', height: 'auto', width: '100em') %> -->
-<!--                   </li> -->
-<!--                   <li class="list-inline-item" style="padding: 1em;"> -->
-<!--                       <%= image_tag('tubular@1x.png', height: 'auto', width: '100em') %> -->
-<!--                   </li> -->
-<!--                 </ul> -->
-<!--             </div> -->
-<!--         </div> -->
-<!--     </div> -->
-<!-- </div> -->
 
 <div class="cta-skin-red">
     <div class="row">
       <div class="col-6 col-xs-12 col-sm-6 col-md-6 pull-left">
         <div class="container-fluid" style="">
           <div class="">
-            <div class="stacked-figures" style="width: 100%; height: auto; left: 0; top: 0;">
-              <%= image_tag("Choosing_arm@1x.png", width: "300", height: "300", alt: "CardinalHire") %>
+            <div>
+              <div>
+                <%= image_tag("figures@1x.png", width: "100%", height: "auto", alt: "CardinalHire") %>
+              </div>
             </div>
           </div>
         </div>

@@ -1,0 +1,6 @@
+<%= alert_box context: :warning, dismissable: true, id: 'alert', class: :en , data: {js: 1} do %>
+  <em>Awaiting new candidate submittals</em>
+  <% if current_user.role != 'employer' %>
+    <i class="fa fa-fw fa-lg fa-question-circle" style="font-size: 1.5em;" aria-hidden="true" data-placement="left" data-toggle="tooltip" data-html="true" title="Your guest account must be reviewed and approved by our recruiting team before you begin receiving targeted candidate submittals from our team."></i>
+  <% end %>
+<% end %>

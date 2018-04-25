@@ -1,11 +1,9 @@
 <div class="person inaccessible">
-
   <%= panel_row column_class: 'col-sm-12', id: 'panel-row', class: :en, data: {js: 1} do %>
-
       <%= panel do %>
           <div class='panel-body'>
               <h3>
-                <%= link_to url_for(person), target: :_blank do %>
+                <%= link_to person, target: :_blank do %>
                   <%= person.first_name unless person.first_name.nil? %>&nbsp;<%= person.last_name unless person.last_name.nil? %>
                 <% end %>
                 <small class="text-muted">
