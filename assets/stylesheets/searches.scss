@@ -1,7 +1,9 @@
 /*
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
+*= require_self
+*= require abracadabra
 */
+
+@import "abracadabra";
 
 img.rounded {
   border-radius: 50%;
@@ -215,4 +217,8 @@ html, body {
   height: 125px;
   min-height: 125px;
   min-width: 125px;
+}
+
+.emphasis-label {
+  font-size: 11px;
 }

@@ -1,133 +1,35 @@
-<div class="space-20"></div>
-<div style="margin: 2em; font-size: 0.7em;">
-  <div class="row" style="text-align: left;">
-    <div class="form">
-      <%= simple_form_for @search do |f| %>
-        <div class="actions">
-          <%= f.submit "Search", class: "btn btn-block btn-primary" %>
-          <%= button_tag "Reset fields", class: "btn btn-block btn-outline-secondary inputsubmit", type: :reset %>
-          <%= link_to "Start over", new_search_path, class: "btn btn-block btn-outline-success inputsubmit" %>
+<div class="collapseOne" id="collapseOne">
+    <div style="margin: 2em; font-size: 0.5em;">
+        <div class="row" style="text-align: left;">
+            <div class="form">
+            <%= simple_form_for @search do |f| %>
+            <%= f.submit "Search", class: "btn btn-block btn-primary" %>
+            <%= button_tag t('buttons.cancel'), type: "submit", name: "cancel", value: true, class: "btn btn-block btn-outline inputsubmit"%>
+              <div class="row">
+                <div class="col-6 col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                  <%= f.input :keyword, label: "Skills, Keywords, Titles", class: "input-sm", placeholder: "E.g. \"Java\"", label_html: { class: 'emphasis-label' } %>
+                  <%= f.input :locations, label: 'Location', class: "input-sm", placeholder: "E.g. \"San Francisco\"", label_html: { class: 'emphasis-label' } %>
+                  <%= f.input :schools, label: 'School', class: "input-sm", placeholder: "E.g. \"University of Chicago\"", label_html: { class: 'emphasis-label' } %>
+                </div>
+                <div class="col-6 col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                  <%= f.input :disciplines, label: 'Discipline/Degree', class: "input-sm", placeholder: "E.g. \"Computer Science\"", label_html: { class: 'emphasis-label' } %>
+                  <%= f.input :names, label: 'Name', class: "input-sm", placeholder: "E.g. \"Joe Engineer\"", label_html: { class: 'emphasis-label' } %>
+                  <%= f.input :experience_years, label: 'Experience (Years)', placeholder: "E.g. \"1\"", class: "input-sm", input_html: { min: '0', step: 'any' }, label_html: { class: 'emphasis-label' } %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6 col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <%= f.input :job_type_full_time, label: 'Full time candidates', as: :boolean, class: "input-sm", label_html: { class: 'emphasis-label' } %>
+                  <%= f.input :job_type_contract, label: 'Contract candidates', as: :boolean, class: "input-sm", label_html: { class: 'emphasis-label' } %>
+                </div>
+                <div class="col-6 col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                  <%= f.input :relocation, label: 'Willing to relocate', as: :boolean, class: "input-sm", label_html: { class: 'emphasis-label' } %>
+                  <%= f.input :remote, label: 'Looking for remote work', as: :boolean, class: "input-sm", label_html: { class: 'emphasis-label' } %>
+                </div>
+              </div>
+                  <%= f.submit "Search", class: "btn btn-block btn-primary" %>
+              <% end %>
+            </div>
         </div>
-        <div class="field">
-          <%= f.input :keyword, class: "input-sm", placeholder: "E.g. \"Java\"" %>
-        </div>
-        <div class="field">
-          <%= f.input :locations, class: "input-sm", placeholder: "E.g. \"San Francisco\"" %>
-        </div>
-        <div class="field">
-          <%= f.input :schools, class: "input-sm", placeholder: "E.g. \"University of Chicago\"" %>
-        </div>
-        <div class="field">
-          <%= f.input :disciplines, class: "input-sm", placeholder: "E.g. \"Computer Science\"" %>
-        </div>
-        <div class="field">
-          <%= f.input :names, class: "input-sm", placeholder: "E.g. \"Joe Engineer\"" %>
-        </div>
-        <h6>Filters</h6>
-          <label class="toggle-checkbox">
-            <div title="Email Address Available">
-              <%=  f.check_box :email_available %>
-              <i class="fa fa-fw fa-envelope-o unchecked" style="font-size: 1.6em"></i>
-              <i class="fa fa-fw fa-envelope checked text-danger" style="font-size: 1.6em; border-bottom-style: dotted; border-color: $skin-color;"></i>
-              Email Available
-            </div>
-          </label>
-          <br />
-          <label class="toggle-checkbox">
-            <div title="LinkedIn Profile Available">
-              <%= f.check_box :linkedin_available %>
-              <i class="fa fa-fw fa-linkedin unchecked" style="font-size: 1.6em"></i>
-              <i class="fa fa-fw fa-linkedin-square checked text-danger" style="font-size: 1.6em; border-bottom-style: dotted; border-color: $skin-color;"></i>
-              LinkedIn Available
-            </div>
-          </label>
-          <br />
-          <label class="toggle-checkbox">
-            <div title="Phone Number Available">
-              <%= f.check_box :phone_number_available %>
-              <i class="fa fa-fw fa-phone unchecked" style="font-size: 1.6em"></i>
-              <i class="fa fa-fw fa-phone-square checked text-danger" style="font-size: 1.6em; border-bottom-style: dotted; border-color: $skin-color;"></i>
-              Phone Available
-            </div>
-          </label>
-          <br />
-          <label class="toggle-checkbox">
-            <div title="GitHub Available">
-              <%= f.check_box :github_available %>
-              <i class="fa fa-fw fa-github unchecked" style="font-size: 1.6em"></i>
-              <i class="fa fa-fw fa-github-square checked text-danger" style="font-size: 1.6em; border-bottom-style: dotted; border-color: $skin-color;"></i>
-              GitHub Available
-            </div>
-          </label>
-          <br />
-          <label class="toggle-checkbox">
-            <div title="Limit search to candidates with top 1% schools, companies, or employers">
-              <%= f.check_box :top_one_percent_status %>
-              <i class="fa fa-fw fa-pencil-square-o unchecked" style="font-size: 1.6em"></i>
-              <i class="fa fa-fw fa-pencil-square checked text-danger" style="font-size: 1.6em; border-bottom-style: dotted; border-color: $skin-color;"></i>
-              Top 1% Candidates
-            </div>
-          </label>
-          <br />
-          <label class="toggle-checkbox">
-            <div title="Limit search to candidates with top 5% schools, companies, or employers">
-              <%= f.check_box :top_five_percent_status %>
-              <i class="fa fa-fw fa-pencil-square-o unchecked" style="font-size: 1.6em"></i>
-              <i class="fa fa-fw fa-pencil-square checked text-danger" style="font-size: 1.6em; border-bottom-style: dotted; border-color: $skin-color;"></i>
-              Top 5% Candidates
-            </div>
-          </label>
-          <br />
-          <label class="toggle-checkbox">
-            <div title="Limit search to candidates with top 10% schools, companies, or employers">
-              <%= f.check_box :top_ten_percent_status %>
-              <i class="fa fa-fw fa-pencil-square-o unchecked" style="font-size: 1.6em"></i>
-              <i class="fa fa-fw fa-pencil-square checked text-danger" style="font-size: 1.6em; border-bottom-style: dotted; border-color: $skin-color;"></i>
-              Top 10% Candidates
-            </div>
-          </label>
-          <br />
-          <label class="toggle-checkbox">
-            <div title="Candidates Without Notes Only">
-              <%= f.check_box :candidates_without_notes %>
-              <i class="fa fa-fw fa-comment-o unchecked" style="font-size: 1.6em"></i>
-              <i class="fa fa-fw fa-comment-o checked text-danger" style="font-size: 1.6em; border-bottom-style: dotted; border-color: $skin-color;"></i>
-              Without Notes
-            </div>
-          </label>
-          <br />
-          <label class="toggle-checkbox">
-            <div title="Candidates With Notes Only">
-              <%= f.check_box :candidates_with_notes %>
-              <i class="fa fa-fw fa-comments unchecked" style="font-size: 1.6em"></i>
-              <i class="fa fa-fw fa-comments checked text-danger" style="font-size: 1.6em; border-bottom-style: dotted; border-color: $skin-color;"></i>
-              With Notes
-            </div>
-          </label>
-          <br />
-          <label class="toggle-checkbox">
-            <div title="Active Candidates Only">
-              <%= f.check_box :active %>
-              <i class="fa fa-fw fa-star-o unchecked" style="font-size: 1.6em"></i>
-              <i class="fa fa-fw fa-star checked text-danger" style="font-size: 1.6em; border-bottom-style: dotted; border-color: $skin-color;"></i>
-              Active
-            </div>
-          </label>
-          <br />
-          <label class="toggle-checkbox">
-            <div title="Recently Added Candidates Only">
-              <%= f.check_box :recently_added %>
-              <i class="fa fa-fw fa-bolt unchecked" style="font-size: 1.6em"></i>
-              <i class="fa fa-fw fa-bolt checked text-danger" style="font-size: 1.6em; border-bottom-style: dotted; border-color: $skin-color;"></i>
-              Recently Added
-            </div>
-          </label>
-        <div class="actions">
-          <%= f.submit "Search", class: "btn btn-block btn-primary" %>
-          <%= button_tag "Reset fields", class: "btn btn-block btn-outline-secondary inputsubmit", type: :reset %>
-          <%= link_to "Start over", new_search_path, class: "btn btn-block btn-outline-success inputsubmit" %>
-        </div>
-      <% end %>
     </div>
-  </div>
 </div>

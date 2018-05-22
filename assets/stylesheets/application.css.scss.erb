@@ -13,7 +13,6 @@
 *= require_self
 *= require bootstrap
 *= require font-awesome
-*= require abracadabra
 *= require dropzone
 *= require_tree .
 */
@@ -23,7 +22,6 @@
 @import "bootstrap/theme";
 @import "font-awesome";
 @import "font-awesome-sprockets";
-@import "abracadabra";
 @import "dropzone/dropzone";
 @import "_variables";
 @import "_mixins";
@@ -173,7 +171,7 @@ form .field, form .actions {
 
 .dropzone {
   border: 2px dashed #ddd;
-  border-radius: 5px;
+  border-radius: 12px;
 }
 
 .dz-message {
@@ -259,8 +257,8 @@ form .field, form .actions {
 
 .empapelar {
   padding: 2em;
-  border-radius: 5px;
-  background-color: $skin-dark;
+  border-radius: 12px;
+  background-color: #ab3c4f;
   opacity: 0.5;
 }
 
@@ -268,41 +266,29 @@ form .field, form .actions {
 
 }
 
-section > #home::after {
-  content: '';
-  width: 100%;
-  height: 100%;
-  background-image: url('<%= image_url('bg1a.jpg') %>');
-  background-size: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-}
-
 article {
-  margin: 1.5em;
-  padding: 1.5em;
+  margin: 1.25em;
+  padding: 1.25em;
   overflow: auto;
 }
 
 article > .papel {
   background-color: #fff;
-  border-radius: 5px;
+  border-radius: 12px;
   border-width: thin;
   border-color: #000;
   overflow: hidden;
   height: 100%;
-  padding: 3.5em;
+  padding: 0.2em;
 }
 
 article > .papel-right {
-  padding: 1em;
+  padding: 0.2em;
 }
 
 article > div {
   background-color: #fff;
-  border-radius: 5px;
+  border-radius: 12px;
   border-width: thin;
   border-color: #000;
   overflow: auto;
@@ -312,7 +298,7 @@ article > div {
   display: none;
 }
 
-@media (max-width: 62em) {
+@media screen and (max-width: 62em) {
   .navbar-nav {
     padding-top: .425rem;
     padding-left: 0.75rem;
@@ -343,14 +329,17 @@ article > div {
   }
 }
 
-#custom_navbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
+@media screen and (min-width: 1201px) {
+  .relacion {
+    height: 5.8em;
+  }
 }
 
-@media (max-width: 1200px) {
+@media screen and (max-width: 1200px) {
+  .relacion {
+    height: 5.8em;
+  }
+
   #photo-collage {
   -moz-column-count:    4;
   -webkit-column-count: 4;
@@ -358,7 +347,11 @@ article > div {
   }
 }
 
-@media (max-width: 1000px) {
+@media screen and (max-width: 1000px) {
+  .relacion {
+    height: 5.8em;
+  }
+
   #photo-collage {
   -moz-column-count:    3;
   -webkit-column-count: 3;
@@ -366,7 +359,11 @@ article > div {
   }
 }
 
-@media (max-width: 800px) {
+@media screen and (max-width: 800px) {
+  .relacion {
+    height: 5.8em;
+  }
+
   #photo-collage {
   -moz-column-count:    2;
   -webkit-column-count: 2;
@@ -375,15 +372,27 @@ article > div {
 }
 
 @media screen and (max-width: 767px) {
+  .relacion {
+    height: 3em;
+  }
+}
+
+@media screen and (max-width: 640px) {
   #custom_navbar {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
   }
-}
+  #custom_navbar > .list-inline-item {
+    flex: 0 1 auto;
+    align-self: flex-end;
+  }
 
-@media (max-width: 640px) {
+  .relacion {
+    height: 0;
+  }
+
   #photo-collage {
   -moz-column-count:    1;
   -webkit-column-count: 1;

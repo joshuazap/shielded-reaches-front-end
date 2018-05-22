@@ -9,7 +9,7 @@ html,body{
     min-height: 100%;
 }
 body{
-    font-family: "Montserrat", Helvetica, Arial, sans-serif;
+    font-family: "Montserrat", "OpenSans", sans-serif;
     background: #fff;
     font-weight: 300;
     font-size: 14px;
@@ -155,7 +155,7 @@ label{
     margin-bottom: 50px!important;
 }
 .skin-bg{
-    background-color: $skin-dark;
+    background-color: #ab3c4f;
 }
 .gray-bg{
     background: #f7f9fa;

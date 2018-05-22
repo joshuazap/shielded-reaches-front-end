@@ -4,8 +4,10 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@import "_variables.scss";
+
 html {
-  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", "OpenSans", sans-serif;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
@@ -1082,7 +1084,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", "OpenSans", sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
@@ -1125,7 +1127,7 @@ img {
   height: auto;
 }
 .img-rounded {
-  border-radius: 6px;
+  border-radius: 12px;
 }
 .img-thumbnail {
   display: inline-block;
@@ -2746,7 +2748,7 @@ select[multiple].input-sm {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.3333333;
-  border-radius: 6px;
+  border-radius: 12px;
 }
 select.input-lg {
   height: 46px;
@@ -2761,7 +2763,7 @@ select[multiple].input-lg {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.3333333;
-  border-radius: 6px;
+  border-radius: 12px;
 }
 .form-group-lg select.form-control {
   height: 46px;
@@ -3058,26 +3060,26 @@ fieldset[disabled] a.btn {
 }
 .btn-default {
   color: #333;
-  background-color: #fff;
-  border-color: #ccc;
+  background-color: #CC0000;
+  border-color: #CC0000;
 }
 .btn-default:focus,
 .btn-default.focus {
-  color: #333;
-  background-color: #e6e6e6;
-  border-color: #8c8c8c;
+  color: #fff;
+  background-color: #CC0000;
+  border-color: #CC0000;
 }
 .btn-default:hover {
-  color: #333;
-  background-color: #e6e6e6;
-  border-color: #adadad;
+  color: #fff;
+  background-color: #CC0000;
+  border-color: #CC0000;
 }
 .btn-default:active,
 .btn-default.active,
 .open > .dropdown-toggle.btn-default {
-  color: #333;
-  background-color: #e6e6e6;
-  border-color: #adadad;
+  color: #fff;
+  background-color: #CC0000;
+  border-color: #CC0000;
 }
 .btn-default:active:hover,
 .btn-default.active:hover,
@@ -3088,9 +3090,9 @@ fieldset[disabled] a.btn {
 .btn-default:active.focus,
 .btn-default.active.focus,
 .open > .dropdown-toggle.btn-default.focus {
-  color: #333;
-  background-color: #d4d4d4;
-  border-color: #8c8c8c;
+  color: #fff;
+  background-color: #CC0000;
+  border-color: #CC0000;
 }
 .btn-default:active,
 .btn-default.active,
@@ -3436,7 +3438,7 @@ fieldset[disabled] .btn-link:focus {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.3333333;
-  border-radius: 6px;
+  border-radius: 12px;
 }
 .btn-sm,
 .btn-group-sm > .btn {
@@ -3840,7 +3842,7 @@ tbody.collapse.in {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.3333333;
-  border-radius: 6px;
+  border-radius: 12px;
 }
 select.input-group-lg > .form-control,
 select.input-group-lg > .input-group-addon,
@@ -3914,7 +3916,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .input-group-addon.input-lg {
   padding: 10px 16px;
   font-size: 18px;
-  border-radius: 6px;
+  border-radius: 12px;
 }
 .input-group-addon input[type="radio"],
 .input-group-addon input[type="checkbox"] {
@@ -4180,6 +4182,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-collapse {
+  color: $background-color;
+  background-color: #fff;
   padding-right: 15px;
   padding-left: 15px;
   overflow-x: visible;
@@ -4978,7 +4982,7 @@ a.badge:focus {
 .container-fluid .jumbotron {
   padding-right: 15px;
   padding-left: 15px;
-  border-radius: 6px;
+  border-radius: 12px;
 }
 .jumbotron .container {
   max-width: 100%;
@@ -5026,7 +5030,6 @@ a.thumbnail.active {
 }
 .alert {
   padding: 15px;
-  margin-bottom: 20px;
   border: 1px solid transparent;
   border-radius: 4px;
 }
@@ -5832,7 +5835,7 @@ button.list-group-item-danger.active:focus {
 }
 .well-lg {
   padding: 24px;
-  border-radius: 6px;
+  border-radius: 12px;
 }
 .well-sm {
   padding: 9px;
@@ -5909,7 +5912,7 @@ button.close {
           background-clip: padding-box;
   border: 1px solid #999;
   border: 1px solid rgba(0, 0, 0, .2);
-  border-radius: 6px;
+  border-radius: 12px;
   outline: 0;
   -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
           box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
@@ -5990,7 +5993,7 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", "OpenSans", sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: normal;
@@ -6109,7 +6112,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: "Montserrat", Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", "OpenSans", sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: normal;
@@ -6129,7 +6132,7 @@ button.close {
           background-clip: padding-box;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, .2);
-  border-radius: 6px;
+  border-radius: 12px;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
           box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
 

@@ -120,7 +120,7 @@ div.col-lg-3.col-md-3.col-sm-3.col-xs-6 img {
 .dropzone {
   background: #fff;
   border: 2px dashed #ddd;
-  border-radius: 5px;
+  border-radius: 12px;
 }
 
 .dz-message {
@@ -134,4 +134,215 @@ div.col-lg-3.col-md-3.col-sm-3.col-xs-6 img {
 .dz-message h3 {
   font-size: 200%;
   margin-bottom: 15px;
+}
+
+.gradient-image {
+  background:
+    linear-gradient(
+      90deg,
+      white 30%,
+      rgba(255,0,0,0.00) 100%
+    ),
+    url(<%= asset_path 'dotshock_321792839.jpg' %>);
+}
+
+.gradient-image-employer {
+  background:
+    linear-gradient(
+      90deg,
+      white 30%,
+      rgba(255,0,0,0.00) 100%
+    ),
+    url(<%= asset_path 'dotshock_321792839.jpg' %>);
+}
+
+.gradient-image-contract {
+  background:
+    linear-gradient(
+      90deg,
+      white 10%,
+      rgba(255,0,0,0.00) 100%
+    ),
+    url(<%= asset_path 'contract@1x.png' %>);
+}
+
+.gradient-image-getpaid {
+  background:
+    linear-gradient(
+      -90deg,
+      white 30%,
+      rgba(255,0,0,0.00) 100%
+    ),
+    url(<%= asset_path 'get_paid_slider.png' %>);
+}
+
+.get_paid_slider {
+  background-image: url(<%= asset_path('get_paid_slider.png') %>);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 250px;
+}
+
+.fill {
+  object-fit: cover;
+}
+
+.cta-parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.stacked-figures {
+  background-size: cover;
+  background-position: center;
+}
+
+div.column-slider-image1 {
+    float: left;
+    width: 50%;
+    vertical-align: middle;
+    height: auto;
+}
+
+/* Clear floats after the columns */
+.row_slider:after {
+    content: "";
+    display: table;
+    clear: both;
+    height: inherit;
+}
+.text-center {
+  text-align: center;
+  vertical-align: middle;
+}
+
+div.column-slider-image2{
+  float: right;
+  width: 50%;
+  vertical-align: middle;
+  height: auto;
+  }
+  @media only screen and (max-width: 500px) {
+      .one{
+          display: none;
+      }
+  }
+
+  div.recent_payouts {
+    background-color: #000000;
+    display: inline;
+  }
+
+  .box-shadow {
+    box-shadow: 3px 3px 3px 3px #cccccc;
+}
+
+.round-avatar {
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar-text {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  vertical-align: middle;
+  margin: 2em auto;
+}
+
+.cta-button-div {
+}
+
+.cta-button {
+  display: none;
+}
+
+.cta-holder {
+  height: 30px;
+}
+
+.cta-button-div:hover .cta-holder {
+  display: none;
+}
+
+.cta-button-div:hover .cta-button {
+  display: block;
+}
+
+.grow {
+  transition: all .1s ease-in-out;
+}
+
+.grow-png {
+  padding: 3em;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.grow:hover .grow-png {
+  transform: scale(1.5);
+}
+
+.boxed-div {
+  padding: 3em;
+}
+
+.boxed-div:hover {
+  border-radius: 3px;
+  box-shadow: 0 3px 10px #999999;
+}
+
+.flexbox {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.flexbox .col {
+  flex: 1;
+  align-self: center;
+}
+
+.flexbox .col:nth-child(1) {
+  background: #ccc;
+  order: 0;
+}
+.flexbox .col:nth-child(2) {
+  background: #eee;
+  order: 1;
+}
+.flexbox .col:nth-child(3) {
+  background: #eee;
+  order: 2;
+}
+
+.cover-image img {
+  object-fit: cover;
+}
+
+.table-row-equal {
+	display: table;
+  border-collapse: collapse;
+	width: 100%;
+	table-layout: fixed;
+	word-wrap: break-word;
+  min-height: 65vh;
+}
+
+.table-row-equal .tarjeta {
+	float: none;
+  border-collapse: collapse;
+	display: table-cell;
+	vertical-align: top;
+	width: 0;
+  padding: 0;
+  margin: 0 auto;
 }

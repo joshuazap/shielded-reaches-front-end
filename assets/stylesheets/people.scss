@@ -1,0 +1,39 @@
+/*
+*= require_self
+*= require abracadabra
+*/
+
+@import "abracadabra";
+
+
+img.rounded {
+  border-radius: 50%;
+}
+
+#side-bar {
+  float: left;
+  width: 150px;
+}
+
+#main-content {
+  margin-left: 160px;
+}
+
+.dropzone {
+  background: #fff;
+  border: 2px dashed #ddd;
+  border-radius: 5px;
+}
+
+.dz-message {
+  color: #999;
+}
+
+.dz-message:hover {
+  color: #464646;
+}
+
+.dz-message h3 {
+  font-size: 200%;
+  margin-bottom: 15px;
+}

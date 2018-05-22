@@ -22,6 +22,9 @@
       <% end %>
       <%= simple_form_for @person, url: people_path, html: { multipart: true } do |f| %>
         <div class="field">
+          <%= f.input :avatar, as: :file %>
+        </div>
+        <div class="field">
           <%= f.input :user_id, as: :hidden, value: current_user.id %>
         </div>
         <div class="field">

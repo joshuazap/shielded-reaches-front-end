@@ -9,7 +9,7 @@
           <h2 class="media-heading"><%= @user.email %></h2>
 
           <small>
-            <h6>Account type: <%= @user.role.to_s %> - <%= @user.signuprole.to_s %></h6>
+            <h6>Account type: <%= @user.role.to_s %> - <%= current_user.signuprole.to_s %></h6>
             <% if (@user.role == "member" || @user.role == "admin") %>
               <p><%= link_to('See all jobs', controller: 'jobs', action: 'index') %></p>
               <p><%= link_to('See all client accounts', controller: 'accounts', action: 'index') %></p>

@@ -14,7 +14,7 @@
   </div>
   <div class="col-8 col-sm-8 col-md-8">
     <article>
-      <div class="papel clearfix">
+      <div class="clearfix">
         <div class="container-fluid">
           <div>
             <h2 style="text-transform: uppercase;">Your Talent Profile</h2>
@@ -133,8 +133,8 @@
               </div>
               <div role="tabpanel" class="tab-pane" id="resume-info">
                 <div class="space-10"></div>
-                <%= simple_form_for @user, html: { multipart: true, class: "dropzone" } do |f| %>
-                  <div class="field dropzone-previews">
+                <%= simple_form_for @user, html: { multipart: true } do |f| %>
+                  <div class="field">
                     <%= f.input :resume,
                     label: 'Attach resume/CV/document',
                     as: :file,
@@ -143,13 +143,8 @@
                   </div>
                   <%= f.submit "Save", class: 'btn btn-success' %>
                 <% end %>
-                <div>
-                    <%= link_to "Resume Document", @user.resume.url, target: :_blank %>
-                    <iframe src="https://docs.google.com/viewer?url=<%= @user.resume.url %>&embedded=true" width="100%" height="800" frameborder="0" >
-                      <p>Your browser does not support iframes.</p>
-                    </iframe>
-                </div>
 
+                <%= render partial: 'people/resume_document', object: @resume_document %>
               </div>
             </div>
           </div>

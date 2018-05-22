@@ -1,0 +1,252 @@
+<%= simple_form_for @user do |form| %>
+<div class="row">
+  <div class="col-4 col-sm-4 col-md-4">
+    <article>
+      <div class="clearfix">
+        <div class="container-fluid">
+          <% if @account_manager %>
+            <%= render partial: 'small_card', object: @account_manager %>
+          <% else %>
+            <%= render partial: 'small_card_template' %>
+          <% end %>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <div class="col-8 col-sm-8 col-md-8">
+    <article>
+        <div class="papel clearfix">
+          <div class="container-fluid">
+            <div>
+              <h2 style="text-transform: uppercase;">Your Employer Profile</h2>
+              <p>We respect that your time is valuable, so we review every profile promptly. In the meantime, view and edit your profile to make sure it matches your needs.</p>
+            </div>
+            <div>
+
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs" role="tablist" style="margin-bottom: 0; bottom: 0;">
+                <li role="presentation" class="active"><a href="#about" aria-controls="about" role="tab" data-toggle="tab">About Us</a></li>
+                <li role="presentation"><a href="#company-profile" aria-controls="company-profile" role="tab" data-toggle="tab">Company Profile</a></li>
+              </ul>
+
+              <!-- Tab panes -->
+              <div class="tab-content" style="margin-top: 0; top: 0;">
+                <div role="tabpanel" class="tab-pane active" id="about">
+
+                  <div class="tab-pane active" id="about">
+                      <div class="space-10"></div>
+                      <h4 style="">Where are you primarily hiring?</h4>
+
+                      <%= form.input :employer_hiring_location, input_html: { value: @user.employer_hiring_location}, label: false %>
+
+                      <h4 style="">What roles are you hiring for?</h4>
+                      <%= form.input :employer_roles, input_html: { value: (@user.employer_roles || '')}, label: false %>
+
+                      <h4>What types of roles are you hiring?</h4>
+                      <%= form.input :employer_roles_type, collection: [ "Full time", "Contract", "Both full time and contract" ], selected: current_user.employer_roles_type, label: false, input_html: { value: @user.employer_roles_type } %>
+
+                      <h4>Are you open to remote candidates?</h4>
+                      <%= form.input :employer_remoteness, as: :radio_buttons, selected: current_user.employer_remoteness, label: false, input_html: { value: @user.employer_remoteness } %>
+
+                      <h4>How soon do you need to fill these roles?</h4>
+                      <%= form.input :employer_timeframe, collection: [ "As soon as possible", "In the next few months", "Not sure" ], :selected => current_user.employer_timeframe, label: false, input_html: { value: @user.employer_timeframe } %>
+
+                      <h4>Are you the right person to talk to about pricing for our services?</h4>
+                      <%= form.input :employer_pricing_authorization, input_html: { value: current_user.employer_pricing_authorization || ''}, as: :radio_buttons, label: false %>
+
+                      <%= form.submit 'Save' %>
+                  </div>
+
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="company-profile">
+                  <div class="space-10"></div>
+                  <div style="display: flex; flex-flow: column wrap; justify-content: left; align-items: left;">
+                    <p class="lead">Add a corporate logo</p>
+                    <% if @user.employer_company_profiles.first && @user.employer_company_profiles.first.logo.exists? %>
+                      <%= image_tag @user.employer_company_profiles.first.logo.url %>
+                    <% else %>
+                      <span class="fa fa-folder-o fa-3x" aria-hidden="true"></span>
+                    <% end %>
+
+                    <%= simple_fields_for @user.employer_company_profiles.first_or_initialize, html: { multipart: true, class: "dropzone" } do |field| %>
+                      <%= devise_error_messages! %>
+                      <div class="field dropzone-previews">
+                        <%= field.input :logo,
+                        as: :file %>
+                      </div>
+                      <div class="actions" style="display: flex; flex-flow: column wrap; justify-content: left; align-items: left;">
+                        <%= field.hidden_field :user_id, value: @user.id %>
+                        <%= form.submit "Update my company logo", class: "btn btn-success" %>
+                      </div>
+                    <% end %>
+                    <%= simple_fields_for form.employer_company_profiles.first_or_initialize, html: { multipart: true } do |field| %>
+                      <%= devise_error_messages! %>
+                      <p class="lead">Company or division name</p>
+                      <div class="field">
+                        <%= field.input :name, as: :string, input_html: { value: (field.name || '') } %>
+                      </div>
+                      <div class="actions" style="display: flex; flex-flow: column wrap; justify-content: left; align-items: left;">
+                        <%= field.hidden_field :user_id, value: @user.id %>
+                        <%= form.submit "Update my company", class: "btn btn-success" %>
+                      </div>
+                    <% end %>
+                  </div>
+
+                  <div class="separator">
+                    <span class="outer-line"></span>
+                    <span class="fa fa-building" aria-hidden="true" style="margin: 10px 0"></span>
+                    <span class="outer-line"></span>
+                  </div>
+
+                  <div style="display: flex; flex-flow: column wrap; justify-content: left; align-items: left;">
+                    <%= simple_fields_for @user.employer_company_profiles.first_or_initialize, html: { multipart: true } do |field| %>
+                    <%= devise_error_messages! %>
+                      <p class="lead">Show company profile to candidates active on the platform before I reach out with an interview request. (Visibility is off by default.)</p>
+                      <div class="field">
+                        <%= field.input :visibility, label: 'Show my company profile to candidates', as: :boolean, boolean_style: :inline, input_html: { value: (field.visibility || '') } %>
+                      </div>
+                      <p class="lead">Describe your corporate mission</p>
+                      <div class="field">
+                        <%= field.input :corporate_mission, label: 'Mission statement', as: :text, input_html: { style: 'width: 100%;', rows: 4, value: (field.corporate_mission || '') } %>
+                      </div>
+                      <p class="lead">If your company has multiple office/business locations, please list them.</p>
+                      <div class="field">
+                        <%= field.input :office_locations, label: 'Office locations', as: :text, input_html: { style: 'width: 100%;', rows: 4, value: (field.office_locations || '') } %>
+                      </div>
+                      <p class="lead">When was your company founded?</p>
+                      <div class="field">
+                        <%= field.input :year_founded, label: 'Year founded', as: :date, discard_day: true, discard_month: true, start_year: Date.today.year - 99, end_year: Date.today.year, input_html: { value: (field.year_founded || '') } %>
+                      </div>
+                      <p class="lead">How many employees does your company have?</p>
+                      <div class="field">
+                        <%= field.input :employees_count, label: 'Number of employees', as: :integer, input_html: { value: (field.employees_count || '') } %>
+                      </div>
+                      <p class="lead">How many engineers does your company have?</p>
+                      <div class="field">
+                        <%= field.input :engineers_count, label: 'Number of engineers', as: :integer, input_html: { value: (field.engineers_count || '') } %>
+                      </div>
+                      <p class="lead">Does your company specialize in a particular industry?</p>
+                      <div class="field">
+                        <%= field.input :industry_specialization,
+                          label: 'Industry specialization',
+                          as: :string,
+                          collection: [
+                            "Advertising",
+                            "Aerospace",
+                            "Agriculture",
+                            "Analytics",
+                            "Biotech",
+                            "Careers/Recruiting",
+                            "Cleantech",
+                            "Cloud Computing",
+                            "Consulting",
+                            "Consumer Mobile",
+                            "Ecommerce",
+                            "Education",
+                            "Electronics",
+                            "Energy",
+                            "Enterprise Solutions",
+                            "Fashion",
+                            "Finance/Insurance",
+                            "Food/Beverage",
+                            "Gaming",
+                            "Government",
+                            "Hardware",
+                            "Health/Wellness",
+                            "Information Tech",
+                            "Legal",
+                            "Local Commerce",
+                            "Manufacturing",
+                            "Marketplace",
+                            "Media/Content",
+                            "Medical Devices",
+                            "Messaging",
+                            "Natural Resources",
+                            "Non-profit",
+                            "Platform",
+                            "Real Estate",
+                            "Robotics",
+                            "Sales/Marketing",
+                            "Security",
+                            "Social",
+                            "Sports",
+                            "Telecommunications",
+                            "Transportation",
+                            "Travel"
+                          ],
+                          selected: field.industry_specialization,
+                          input_html: {  } %>
+                      </div>
+
+                      <div class="actions" style="display: flex; flex-flow: column wrap; justify-content: left; align-items: left;">
+                        <%= field.hidden_field :user_id, value: @user.id %>
+                        <%= form.submit "Update my company info", class: "btn btn-success" %>
+                      </div>
+                    <% end %>
+                  </div>
+
+                  <div class="separator">
+                    <span class="outer-line"></span>
+                    <span class="fa fa-globe" aria-hidden="true" style="margin: 10px 0"></span>
+                    <span class="outer-line"></span>
+                  </div>
+
+                  <div style="display: flex; flex-flow: column wrap; justify-content: left; align-items: left;">
+                    <%= simple_fields_for @user.employer_company_profiles.first_or_initialize, html: { multipart: true } do |field| %>
+                      <%= devise_error_messages! %>
+                      <p class="lead">What's your corporate web address?</p>
+                      <div class="field">
+                        <%= field.input :company_url, label: 'Company URL', as: :string, input_html: { value: (field.company_url || '') } %>
+                      </div>
+                      <p class="lead">What's your Crunchbase profile address?</p>
+                      <div class="field">
+                        <%= field.input :crunchbase_url, label: 'Crunchbase URL', as: :string, input_html: { value: (field.crunchbase_url || '') } %>
+                      </div>
+                      <p class="lead">What's your AngelList profile address?</p>
+                      <div class="field">
+                        <%= field.input :angellist_url, label: 'AngelList URL', as: :string, input_html: { value: (field.angellist_url || '') } %>
+                      </div>
+                      <div class="actions" style="display: flex; flex-flow: column wrap; justify-content: left; align-items: left;">
+                        <%= field.hidden_field :user_id, value: @user.id %>
+                        <%= form.submit "Update my company urls", class: "btn btn-success" %>
+                      </div>
+                    <% end %>
+                  </div>
+
+                  <div class="separator">
+                    <span class="outer-line"></span>
+                    <span class="fa fa-code" aria-hidden="true" style="margin: 10px 0"></span>
+                    <span class="outer-line"></span>
+                  </div>
+
+                  <div style="display: flex; flex-flow: column wrap; justify-content: left; align-items: left;">
+                    <%= simple_fields_for @user.employer_company_profiles.first_or_initialize, html: { multipart: true } do |field| %>
+                      <p class="lead">Which technologies comprise your company's tech stack?</p>
+                      <div class="field">
+                        <%= field.input :tech_stack, label: 'Tech stack', as: :text, input_html: { value: (field.tech_stack || '') } %>
+                      </div>
+                      <p class="lead">Which perks does your company offer?</p>
+                      <div class="field">
+                        <%= field.input :perks, label: 'Company perks', as: :text, input_html: { value: (field.perks || '') } %>
+                      </div>
+                      <p class="lead">Which benefits does your company offer?</p>
+                      <div class="field">
+                        <%= field.input :benefits, label: 'Company benefits', as: :text, input_html: { value: (field.benefits || '') } %>
+                      </div>
+                      <div class="actions" style="display: flex; flex-flow: column wrap; justify-content: left; align-items: left;">
+                        <%= field.hidden_field :user_id, value: @user.id %>
+                        <%= form.submit "Update my company details", class: "btn btn-success" %>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </article>
+  </div>
+</div>
+<% end %>

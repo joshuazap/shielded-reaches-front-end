@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700');
 @import "_variables.scss";
 @import "_mixins.scss";
 @import "_base.scss";
@@ -64,6 +64,35 @@
         }
     }
 }
+
+.hero-parallax-getpaid {
+    height: 90%;
+    width: 100%;
+    .hero-inner-getpaid {
+        display: table;
+        width: 100%;
+        height: 90%;
+        .hero-content-getpaid {
+            display: table-cell;
+            width: 100%;
+            height: 90%;
+            vertical-align: middle;
+            h1{
+                font-weight:500;
+                color: #fff;
+                font-size: 55px;
+                line-height: 70px;
+                text-transform: capitalize;
+                letter-spacing: 0px;
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+            }
+            p{
+                color: #fff;
+            }
+        }
+    }
+}
+
 .buttons{
     a{
         margin: 5px;
@@ -167,30 +196,34 @@
 }
 @media(max-width:767px){
     .navbar-default .navbar-toggle{
-        border-color: #333;
+        border-color: $background-color;
         &:focus,&:hover{
-            border-color: #333;
+            border-color: $background-color;
         }
     }
     .navbar-toggle,.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover{
-        background: #333;
+        background: #fff;
+        color: $background-color;
     }
     .navbar-default .navbar-toggle .icon-bar{
-        background: #fff;
+        background: $background-color;
+        color: #fff;
         &:focus,&:hover{
             background: #fff;
+            color: $background-color;
         }
     }
     .navbar-default.navbar-transparent{
         .navbar-nav {
             margin: 0px -15px;
-            background: rgba(51,51,51,1);
+            background: #fff;
+            color: $background-color;
         }
         .navbar-nav .open .dropdown-menu>li>a {
             font-size: 1rem;
             font-weight: 400;
             line-height: 3.5rem;
-            color: #eee;
+            color: $background-color;
             &:hover{
                 color: $skin-color;
             }
@@ -199,15 +232,16 @@
             .navbar-nav {
                 margin: 0px -15px;
                 background: #fff;
+                color: $background-color;
             }
              .navbar-nav .open .dropdown-menu>li>a {
-            color: #777;
+            color: $background-color;
             &:hover{
                 color: $skin-color;
             }
         }
         .navbar-nav .open .dropdown-menu>li>ul>li {
-          color: #777;
+          color: $background-color;
           &:hover{
             color: $skin-color;
           }

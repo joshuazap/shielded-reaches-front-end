@@ -1,0 +1,41 @@
+<section>
+    <div>
+        <div>
+            <div>
+                <div>
+                    <div class="text-center">
+                                <div>
+                                  <div class="col-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-left align-self-center text-center">
+                                    <div class="col-sm-6 col-xs-12" style="height: auto; display: inline-block;">
+                                      <%= image_tag('get_paid_slider.png', alt: 'CardinalHire', height: 'auto', width:'auto') %>
+                                    </div>
+                                  </div>
+                                  <div class="col-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-right align-self-center text-center">
+                                    <div class="align-self-center text-center">
+                                      <div class="align-self-center">
+                                        <div style="padding-bottom: 1em;"><%= image_tag('Asset 1.png', alt: 'CardinalHire', height: 'auto', width: '60em', class: 'image-responsive')%></div>
+                                        <h2 style="color: #003366; font-size: 2vw;"><b>Get Paid $100/HR to Interview</b></h2>
+                                        <p class="lead" style="color: #003366; font-size: 1.25vw;">with the World's Best Startups!*</p>
+                                        <ul class="list-inline">
+                                          <li class="list-inline list-inline-item">
+                                            <% if current_user %>
+                                              <%= link_to "Get Started", user_dashboard_path(current_user), class: "btn btn-primary", style: "color: #fff;" %>
+                                            <% else %>
+                                              <%= link_to "Get Started", welcome_new_talent_path, class: "btn btn-primary", style: "color: #fff;" %>
+                                            <% end %>
+                                          </li>
+                                        </ul>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div><!--container-->
+                </div><!--hero content-->
+            </div><!--hero inner-->
+        </div><!--parallax hero-->
+    </div><!--parallax image div-->
+</section>

@@ -6,7 +6,6 @@
     <ul class="nav nav-tabs">
       <li class=""><a href="#talent-info" data-toggle="tab">Job Seekers</a></li>
       <li class="active"><a href="#employer-info" data-toggle="tab">Employers</a></li>
-      <li class=""><a href="#recruiter-info" data-toggle="tab">Recruiters</a></li>
     </ul>
     <div class="tab-content">
       <div class="tab-pane" id="talent-info" style="justify-content: center; padding: 1em;">
@@ -93,20 +92,6 @@
             <p>Already have an account? <%= link_to "Sign in instead.", new_user_session_path %></p>
           </div>
         <% end %>
-      </div>
-
-      <div class="tab-pane" id="recruiter-info" style="justify-content: center; padding: 1em;">
-        <p style="text-align: center; justify-content: center; padding: 1em;">If you are a recruiter interested in working as a contractor with CardinalHire, sign up to gain access to our recruiter network. Additional terms and conditions apply. Recruiter accounts must be reviewed and approved.</p>
-
-        <div class="" style="text-align: center; justify-content: center; padding: 1em;">
-          <p><%= link_to "Sign up as recruiter", welcome_new_recruiter_path, class: "btn btn-xl btn-info" %></p>
-        </div>
-
-        <div class="space-10"></div>
-
-        <div class="" style="text-align: center; justify-content: center; padding: 1em;">
-          <p>Already have an account? <%= link_to "Sign in instead.", new_user_session_path %></p>
-        </div>
       </div>
 
     </div>

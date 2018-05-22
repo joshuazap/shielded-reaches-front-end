@@ -1,16 +1,40 @@
-  <article>
-    <div style="justify-content: left; align-items: left;">
-          <h2>Step 3:</h2>
-          <h3>Showing off your accomplishments with optional links to your GitHub, personal portfolio, or other sites can really supercharge your candidacy!</h3>
-          <%= simple_form_for(current_user, url: wizard_path, method: :put) do |f| %>
-            <%= f.input :personal_site, label: 'Personal or portfolio site URL' %>
-            <%= f.input :github_url, label: 'GitHub profile URL' %>
-            <%= f.input :linkedin_profile_url, label: 'LinkedIn profile URL' %>
-            <%= f.input :stack_overflow_url, label: 'Stack Overflow profile URL' %>
-            <br />
-            <%= f.submit 'Next', :class => 'btn btn-primary' %><br />
-            <%= link_to 'Previous step', previous_wizard_path %> | <%= link_to 'Skip for now', next_wizard_path %>
-          <% end %>
-      <div class="space-10"></div>
+<article>
+  <div class="row">
+
+  <div class="col-2 col-sm-2 col-md-2">
+      <div class="clearfix">
+        <div class="container-fluid">
+        </div>
+      </div>
+  </div>
+
+  <div class="col-8 col-sm-8 col-md-8">
+        <div class="papel-right clearfix">
+          <div class="container-fluid">
+            <div style="justify-content: left; align-items: left;">
+                  <h2>Add a resume</h2>
+                  <h3>When CardinalHire matches you to employers in our network, they can apply to interview you!</h3>
+                  <br />
+                  <h4>In order to make sure you put your best foot forward, please attach your latest resume.</h4>
+                  <%= simple_form_for current_user, :url => wizard_path, :method => :put, html: { multipart: true } do |f| %>
+                    <div class="field">
+                      <%= f.input :resume, as: :file %>
+                    </div>
+                    <%= f.submit 'Next', :class => 'btn btn-primary' %><br />
+                    <%= link_to 'Previous step', previous_wizard_path %> | <%= link_to 'Skip for now', next_wizard_path %>
+                  <% end %>
+              <div class="space-10"></div>
+            </div>
+          </div>
+        </div>
     </div>
-  </article>
+
+    <div class="col-2 col-sm-2 col-md-2">
+        <div class="clearfix">
+          <div class="container-fluid">
+          </div>
+        </div>
+    </div>
+    
+  </div>
+</article>

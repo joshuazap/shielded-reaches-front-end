@@ -1,20 +1,42 @@
 <div class="row">
   <div class="col-4 col-sm-4 col-md-4">
-    <article>
-      <div class="clearfix">
-        <div class="container-fluid">
-          <%= render 'advanced-search' %>
+    <div class="space-10"></div>
+      <div class="row">
+        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <%= panel do %>
+            <div class="panel-body">
+              <%= link_to '#collapseOne', role: :button, data: { parent: '#accordion', toggle: :collapse }, aria: { controls: :collapseOne, expanded: true } do %>
+              <span class="btn btn-block btn-outline-success">My searches</span>
+              <% end %>
+              <%= render 'advanced-search' %>
+            </div>
+          <% end %>
+          <%= panel do %>
+            <div class="panel-body">
+                <% if @searches.blank? %>
+                  <h5><%= "You have not performed any searches yet." %></h5>
+                <% else %>
+                  <%= render @searches %>
+                <% end %>
+
+                <% if @account_manager %>
+                  <%= render partial: 'small_card', object: @account_manager %>
+                <% else %>
+                  <%= render partial: 'small_card_template' %>
+                <% end %>
+            </div>
+          <% end %>
         </div>
       </div>
-    </article>
   </div>
   <div class="col-8 col-sm-8 col-md-8">
-    <article>
         <div class="papel-right clearfix">
-          <div class="">
-
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-12 col-sm-12 col-md-12">
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </article>
   </div>

@@ -1,0 +1,170 @@
+<section id="home" class="dzsparallaxer auto-init dzsparallaxer---window-height use-loading" style="position: relative;" data-options="{  mode_scroll: 'normal' }">
+    <div class="gradient-image-getpaid divimage dzsparallaxer--target " style="width: 100%; height: 100%; background-size: cover; background-repeat: no-repeat;">
+        <div class="hero-parallax-getpaid">
+            <div class="hero-inner-getpaid">
+                <div class="hero-content-getpaid">
+                    <div class="text-center">
+                                <div class="hero-static">
+                                  <div class="col-8 col-xs-8 col-sm-8 col-md-8 col-lg-8 pull-right align-self-center text-center" style="padding: 1em;">
+                                      <div class="text-center">
+                                          <div style="padding-bottom: 1em;"><%= image_tag('Asset 1.png', alt: 'CardinalHire', height: 'auto', width: '60em') %></div>
+                                          <h2 style="color: #003366;"><b>Get Paid $100/HR to Interview</b></h2>
+                                          <p class="lead" style="color: #003366;">with the World's Best Startups!*</p>
+
+                                          <ul class="list-inline">
+                                            <li class="list-inline list-inline-item">
+                                              <% if current_user %>
+                                                  <%= link_to "Get Started", user_dashboard_path(current_user), class: "btn btn-primary", style: "color: #fff;" %>
+                                                  <% else %>
+                                                  <%= link_to "Get Started", welcome_new_talent_path, class: "btn btn-primary", style: "color: #fff;" %>
+                                                  <% end %>
+                                            </li>
+                                          </ul>
+                                        </div>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div><!--container-->
+                </div><!--hero content-->
+            </div><!--hero inner-->
+        </div><!--parallax hero-->
+    </div><!--parallax image div-->
+</section>
+
+<section>
+  <div class="cta-skin-blue" style="padding-top: 2em; padding-bottom: 2em;">
+      <div class="row">
+        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 align-content: center;">
+          <div class="container-fluid" style="align-items: center;">
+            <div class="text-center">
+            <h2 style="color: #fff;">Find a Job</h2>
+            <p class="lead text-center" style="color: #fff;">
+                Apply privately to 8,614 Startup jobs with one application
+            </p>
+              <div class="col-8 col-xs-10 col-sm-10 col-md-8 col-lg-8 center-block align-self-center" style="align-content: center; align-self: center; justify-content: center; float: none;">
+                    <%= simple_form_for Lead.new, style: "background-color: #fff;" do |f| %>
+                    <div class="row" style="background-color: #fff; border-radius: 12px;">
+                      <div class="input-group">
+                        <%= f.input :email, required: true, label: false, style: "background-color: #fff;", placeholder: "Enter your email to get started" %>
+                        <%= f.input :device, as: :hidden %>
+                        <%= f.input :name, as: :hidden %>
+                        <%= f.input :accepts, as: :hidden, input_html: { value: '1' } %>
+                        <%= f.input :accepts_date, as: :hidden, input_html: { value: Date.today } %>
+                        <span class="input-group-btn">
+                          <%= f.button :submit, "Get a job", style: "color: #fff; background-color: #CC0000; border-color: #CC0000; display: block; width: 100%; height: 100%;" %>
+                        </span>
+                      </div><!-- /input-group -->
+                    </div>
+                    <p class="text-center" style="padding-top: 1em; color: #fff;">
+                      <i class="fa fa-fw fa-check-square-o" style="color: #fff;"></i>
+                      Update me on the latest jobs and announcements from
+                      <%= link_to root_path do %>
+                        <b style="color: #fff;">CardinalHire.</b>
+                      <% end %>
+                    </p>
+                    <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section style="margin-top: 2em; padding: 2em;">
+  <div class="row">
+    <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 center-block" style="padding-left: 2em; padding-right: 2em;">
+  <div class="row">
+<div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="row">
+      <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="text-center" style="padding: 5px 15px 5px 15px; float: none;">
+        <h2 style="color: #003366;">It's easy... Interview. Get Paid.</h2>
+        <p class="lead" style="color: #003366;">
+          How do you want to get paid?
+        </p>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="">
+    <div class="row">
+      <div class="col-6 col-xs-12 col-sm-12 col-md-6 col-lg-6 pull-left align-self-center center-block" style="align-content: center; align-self: center; justify-content: center; float: none;">
+        <div style="margin-left: 6em;">
+
+          <h2 style="color: #003366;">
+            <%= image_tag('number_1@1x.png', alt: 'CardinalHire', height: 'auto', width: '60em') %>
+            Cash
+          </h2>
+
+          <p class="lead" style="color: #003366;">
+            Hey, we get it. Cash is king. We definitely agree. If you opt for cash, we'll Venmo you your cash right on the spot. Ask your local talent agent how you can get started.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-6 col-xs-12 col-sm-12 col-md-6 col-lg-6 pull-right align-self-center center-block" style="align-content: center; align-self: center; justify-content: center; float: none;">
+        <%= image_tag("cash@1x.png", width: "auto", height: "auto", alt: "CardinalHire", style: "top: 0;") %>
+      </div>
+    </div>
+</div>
+
+<div class="">
+    <div class="row">
+      <div class="col-6 col-xs-12 col-sm-12 col-md-6 col-lg-6 pull-left align-self-center center-block" style="align-content: center; align-self: center; justify-content: center; float: none;">
+        <%= image_tag("giftcards@1x.png", width: "auto", height: "auto", alt: "CardinalHire", style: "top: 0;") %>
+      </div>
+      <div class="col-6 col-xs-12 col-sm-12 col-md-6 col-lg-6 pull-right">
+        <div style="margin-right: 6em; padding-top: 6em; justify-content: right; text-align: right;">
+          <h2 style="color: #003366;">
+            Gift Card
+            <%= image_tag('number2@1x.png', alt: 'CardinalHire', height: 'auto', width: '60em') %>
+          </h2>
+          <p class="lead" style="color: #003366; justify-content: right; text-align: right;">
+            Another great form of payment is gift cards. Have a gift card preference, no problem. Your talent agent will accomodate you.
+          </p>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="">
+    <div class="row">
+      <div class="col-8 col-xs-8 col-sm-8 col-md-8 col-lg-8 pull-left align-self-center center-block" style="align-content: left; align-self: left; justify-content: left; float: none;">
+        <div style="margin-left: 6em; padding-top: 12em;">
+              <h2 style="color: #003366;">
+                <%= image_tag('number3@1x.png', alt: 'CardinalHire', height: 'auto', width: '60em') %>
+                Bitcoin
+              </h2>
+              <p class="lead" style="color: #003366;">
+                Don't sleep on crypto. Want to stack some Bitcoin? We'll pay you in Bitcoin. It's never too late to set up a Bitcoin wallet and up your game.
+              </p>
+        </div>
+      </div>
+      <div class="col-4 col-xs-4 col-sm-4 col-md-4 col-lg-4 pull-right align-self-center center-block" style="align-content: center; align-self: center; justify-content: center; float: none;">
+        <%= image_tag("bitcoin@1x.png", width: "auto", height: "auto", alt: "CardinalHire") %>
+      </div>
+    </div>
+</div>
+
+<div class="">
+    <div class="row">
+      <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 align-self-center center-block" style="align-content: center; align-self: center; justify-content: center; float: none;">
+        <div class="text-center" style="padding: 5px 15px 5px 15px; float: none;">
+          <p style="margin-left: 6em; margin-right: 6em;">
+            <small style="color: #263238;">
+            *Up to a maximum of $1,000. $500 for interviewing for the first 30 minutes of each first technical phone interview or the first 30 minutes of a new coding test with each new client.  $500 bonus after accepting hire offer and beginning work engagement.  Payment is rewarded at our discretion in available gift cards or via Venmo or Bitcoin.  Depicted gift cards are current examples.  Phone interviews with companies are either 30 minutes or one hour. Only the first technical phone interview with each company counts.  You must apply to CardinalHire, be accepted for an interview, and complete the company interview in order to receive the payment. Must apply through CardinalHire.com website in order to be eligible.
+            </small>
+          </p>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</section>

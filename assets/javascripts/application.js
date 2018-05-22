@@ -5,7 +5,6 @@
 //= require scaffold
 //= require dropzone
 //= require bootstrap
-//= require abracadabra
 //= require messages
 //= require_self
 //= require_tree .
