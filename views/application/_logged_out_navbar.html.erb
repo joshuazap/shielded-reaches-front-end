@@ -1,3 +1,4 @@
+<<<<<<< HEAD
   <li style="align-content: center; align-self: flex-start; height: 50px;">
       <%= link_to 'About', welcome_about_path, class: 'btn' %>
   </li>
@@ -13,3 +14,18 @@
   <li style="display: flex; align-items: center; justify-content: center; align-content: center; align-self: flex-start; height: 50px;">
       <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary', style: 'margin-left: 0.5em; margin-right: 0.5em; color: #fff; background-color: #CC0000; border-color: #CC0000; align-self: center; align-content: center;' %>
   </li>
+=======
+<ul class="nav navbar-nav navbar-right flexbox-container" style="margin-right: 1em;">
+  <li><%= link_to 'About', welcome_about_path %></li>
+  <li><%= link_to "Employers", welcome_lev3_employee_path %></li>
+  <li><%= link_to "Job Seekers", welcome_new_talent_path %></li>
+  <li><%= link_to "Contractors", welcome_new_talent_path %></li>
+  <li><%= link_to "Training", welcome_new_talent_path %></li>
+  <li>
+      <%= link_to "Login", new_user_session_path, class: 'btn btn-secondary' %>
+  </li>
+  <li>
+      <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %>
+  </li>
+</ul>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b

@@ -1,23 +1,43 @@
 <div class="person inaccessible">
+<<<<<<< HEAD
   <%= panel_row column_class: 'col-sm-12', id: 'panel-row', class: :en, data: {js: 1} do %>
       <%= panel do %>
           <div class='panel-body'>
               <h3>
                 <%= link_to person, target: :_blank do %>
+=======
+
+  <%= panel_row column_class: 'col-sm-12', id: 'panel-row', class: :en, data: {js: 1} do %>
+
+      <%= panel do %>
+          <div class='panel-body'>
+              <h3>
+                <%= link_to url_for(person), target: :_blank do %>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                   <%= person.first_name unless person.first_name.nil? %>&nbsp;<%= person.last_name unless person.last_name.nil? %>
                 <% end %>
                 <small class="text-muted">
                   <% if person.active %>
+<<<<<<< HEAD
                     <%= 'Active' %>
                   <% else %>
                     <%= '' %>
+=======
+                    <%= 'Active, incomplete profile.' %>
+                  <% else %>
+                    <%= 'Inactive' %>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                   <% end %>
                 </small>
               </h3>
 
               <div class="col-6 col-md-6 col-sm-6">
                 <div class="" style="display: flex; justify-content: center;">
+<<<<<<< HEAD
                   <div class="avatar-circle">
+=======
+                  <div class=“avatar-circle”>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                     <span class="initials">
                       <%= person.name[0..1].upcase if person.name.present? %>
                     </span>
@@ -27,9 +47,14 @@
               <div class="col-6 col-md-6 col-sm-6">
                 <div class="row">
                   <p>
+<<<<<<< HEAD
                     <b><%= person.title.present? ? person.title : '' %></b>
                     <br />
                     <%= person.employer.present? ? person.employer : '' %>
+=======
+                    <b><%= person.title.present? ? person.title : 'Unknown title' %>
+                    </b> at <%= person.employer.present? ? person.employer : 'Unknown employer.' %>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                   </p>
 
                   <% if person.user %>
@@ -52,42 +77,73 @@
                 </div>
 
                 <div class="row">
+<<<<<<< HEAD
                   <div class="col-2 col-md-2 col-sm-2 col-xs-2">
+=======
+                  <div class="col-3 col-md-3 col-sm-3 col-xs-3">
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                     <ul class="list-inline">
                       <i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp;
                     </ul>
                   </div>
+<<<<<<< HEAD
                   <div class="col-10 col-md-10 col-sm-10 col-xs-10">
                     <ul class="list-inline">
                       <li class="list-inline-item"><%= truncate(person[:company_names].to_yaml, :length => 50) %><small><%= person.min_time_in_job.present? ? person.min_time_in_job : '' %></small></li>
+=======
+                  <div class="col-9 col-md-9 col-sm-9 col-xs-9">
+                    <ul class="list-inline">
+                      <li class="list-inline-item"><%= truncate(person[:company_names].to_yaml, :length => 50, :omission => '... (continued)') %><small><%= person.min_time_in_job.present? ? person.min_time_in_job : '' %></small></li>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                     </ul>
                   </div>
                 </div>
 
                 <div class="row">
+<<<<<<< HEAD
                   <div class="col-2 col-md-2 col-sm-2 col-xs-2">
+=======
+                  <div class="col-3 col-md-3 col-sm-3 col-xs-3">
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                     <ul class="list-inline">
                       <i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbsp;
                     </ul>
                   </div>
+<<<<<<< HEAD
                   <div class="col-10 col-md-10 col-sm-10 col-xs-10">
                     <ul class="list-inline">
                       <li class="list-inline-item"><%= truncate(person[:school_names].to_yaml, :length => 50) %><small><%= person.degrees.present? ? person.degrees : '' %></small></li>
+=======
+                  <div class="col-9 col-md-9 col-sm-9 col-xs-9">
+                    <ul class="list-inline">
+                      <li class="list-inline-item"><%= truncate(person[:school_names].to_yaml, :length => 50, :omission => '... (continued)') %><small><%= person.degrees.present? ? person.degrees : '' %></small></li>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                     </ul>
                   </div>
                 </div>
 
                 <div class="row">
                   <% unless person.skills.blank? %>
+<<<<<<< HEAD
                     <div class="col-2 col-md-2 col-sm-2 col-xs-2">
+=======
+                    <div class="col-3 col-md-3 col-sm-3 col-xs-3">
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                         <ul class="list-inline">
                             <i class="fa fa-wrench" aria-hidden="true"></i>&nbsp;
                         </ul>
                     </div>
+<<<<<<< HEAD
                     <div class="col-10 col-md-10 col-sm-10 col-xs-10">
                       <ul class="list-inline">
                           <% if person.skills %>
                             <li class="list-inline-item"><%= person.skills.to_s.tr('"', '') %></li>
+=======
+                    <div class="col-9 col-md-9 col-sm-9 col-xs-9">
+                      <ul class="list-inline">
+                          <% if person.skills %>
+                            <li class="list-inline-item"><%= person.skills.to_yaml %></li>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                           <% end %>
                           <li class="list-inline-item">See more...</li>
                       </ul>
@@ -96,6 +152,7 @@
                 </div>
 
                 <div class="" style="display: flex; flex-wrap: wrap; flex-direction: row; justify-content: space-evenly;">
+<<<<<<< HEAD
                   <% if person.linkedin_profile_url.present? %>
                       <%= link_to person.linkedin_profile_url, target: :_blank do %>
                         <span class="label label-primary" style="padding: 0.1em; margin: 0.1em;">
@@ -105,33 +162,78 @@
                   <% end %>
                   <% unless person.phone_number_ids.blank? %>
                     <%= link_to url_for(Person.find(person.id)), target: :_blank do %>
+=======
+                  <% if person.linkedin_profiles.first && person.linkedin_profiles.first.public_profile_url.present? %>
+                      <%= link_to person.linkedin_profiles.first.public_profile_url, target: :_blank do %>
+                        <span class="label label-primary" style="padding: 0.1em; margin: 0.1em;">
+                          LINKEDIN
+                        </span>
+                      <% end %>
+                  <% end %>
+                  <% if person.linkedin_profile_url.present? %>
+                      <%= link_to person.linkedin_profile_url, target: :_blank do %>
+                        <span class="label label-primary" style="padding: 0.1em; margin: 0.1em;">
+                          LINKEDIN (ALT)
+                        </span>
+                      <% end %>
+                  <% end %>
+                  <% unless person.email_address_ids.blank? %>
+                    <%= link_to person, target: :_blank do %>
+                      <span class="label label-primary" style="padding: 0.1em; margin: 0.1em;">
+                        EMAIL
+                      </span>
+                    <% end %>
+                  <% end %>
+                  <% unless person.phone_number_ids.blank? %>
+                    <%= link_to person, target: :_blank do %>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                       <span class="label label-warning" style="padding: 0.2em;">
                         PHONE
                       </span>
                     <% end %>
                   <% end %>
                   <% if person.top_school_status == true %>
+<<<<<<< HEAD
                     <%= link_to url_for(Person.find(person.id)), target: :_blank do %>
+=======
+                    <%= link_to person, target: :_blank do %>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                       <span class="label label-default" style="padding: 0.2em;">TOP SCHOOL</span>
                     <% end %>
                   <% end %>
                   <% if person.top_company_status == true %>
+<<<<<<< HEAD
                     <%= link_to url_for(Person.find(person.id)), target: :_blank do %>
+=======
+                    <%= link_to person, target: :_blank do %>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                       <span class="label label-danger" style="padding: 0.2em;">TOP COMPANY</span>
                     <% end %>
                   <% end %>
                   <% if person.active == true %>
+<<<<<<< HEAD
                     <%= link_to url_for(Person.find(person.id)), target: :_blank do %>
+=======
+                    <%= link_to person, target: :_blank do %>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                       <span class="label label-default" style="padding: 0.2em;">ACTIVE</span>
                     <% end %>
                   <% end %>
                   <% if person.recently_added == true %>
+<<<<<<< HEAD
                     <%= link_to url_for(Person.find(person.id)), target: :_blank do %>
+=======
+                    <%= link_to person, target: :_blank do %>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                       <span class="label label-warning" style="padding: 0.2em;">RECENTLY ADDED</span>
                     <% end %>
                   <% end %>
                   <% if person.recently_added == true %>
+<<<<<<< HEAD
                     <%= link_to url_for(Person.find(person.id)), target: :_blank do %>
+=======
+                    <%= link_to person, target: :_blank do %>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                       <span class="label label-warning" style="padding: 0.2em;">RECENTLY ADDED</span>
                     <% end %>
                   <% end %>
@@ -145,11 +247,67 @@
                     <div class="postBody">
                         <div class="postBody__content">
 
+<<<<<<< HEAD
+=======
+                          <% if person.email_addresses.first && person.email_addresses.first.email %>
+                          <div class="person_email">
+                            <% if (current_user.role == "member" || current_user.role == "admin") %>
+                              <p style="text-align: left; color: black;">
+                                  <i class="fa fa-fw fa-envelope"></i>
+                                    Email: <%= person.email_addresses.first.email %>
+                                    <% if person.email_addresses.count > 1 %>
+                                     and <%= (person.email_addresses.count - 1) %> <%= link_to 'more email addresses found.', person_path(person), target: :_blank %>
+                                    <% end %>
+                              </p>
+                            <% else %>
+                              <p style="text-align: left; color: black;">
+                                <i class="fa fa-fw fa-envelope"></i>
+                                Email addresses found for this candidate.
+                              </p>
+                            <% end %>
+                          </div>
+                          <% end %>
+
+                          <% if person.phone_numbers.first && person.phone_numbers.first.value %>
+                            <div class="person_phone">
+                              <% if (current_user.role == "member" || current_user.role == "admin" ) %>
+                                <p style="text-align: left; color: black;">
+                                  <i class="fa fa-fw fa-phone"></i>
+                                    Phone numbers: <%= person.phone_numbers.first.value %>
+                                    <% if person.phone_numbers.count > 1 %>
+                                     and <%= (person.phone_numbers.count - 1) %> <%= link_to 'more phone numbers found.', person_path(person), target: :_blank %>
+                                    <% end %>
+                                </p>
+                              <% else %>
+                                <p style="text-align: left; color: black;">
+                                  <i class="fa fa-fw fa-phone"></i>
+                                  Phone numbers found for this candidate.
+                                </p>
+                              <% end %>
+                            </div>
+                          <% end %>
+
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                           <% if person.company_names.present? %>
                             <div class="person_employer">
                               <p style="text-align: left; color: black;">
                                 <i class="fa fa-fw fa-building"></i>
+<<<<<<< HEAD
                                 Companies: <%= truncate(person[:company_names].to_s, :length => 50) %>
+=======
+                                Companies: <%= truncate(person[:company_names].to_s, :length => 50, :omission => '... (continued)') %>
+                              </p>
+                            </div>
+                          <% end %>
+                          <% if person.linkedin_profiles.first && person.linkedin_profiles.first.public_profile_url %>
+                            <div class="person_links">
+                              <p style="text-align: left; color: black;">
+                                <i class="fa fa-fw fa-link"></i>
+                                Links: <%= person.linkedin_profiles.first.public_profile_url %>
+                                <% if person.linkedin_profiles.count > 1 %>
+                                 and <%= (person.linkedin_profiles.count - 1) %> <%= link_to 'more external links found.', person_path(person), target: :_blank %>
+                                <% end %>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                               </p>
                             </div>
                           <% end %>
@@ -157,7 +315,11 @@
                             <div class="person_skills">
                               <p style="text-align: left; color: black;">
                               <i class="fa fa-fw fa-envelope-o"></i>
+<<<<<<< HEAD
                                   Skills: <%= truncate(person[:skills].to_s, :length => 50) %>
+=======
+                                  Skills: <%= truncate(person[:skills].to_s, :length => 50, :omission => '... (continued)') %>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                               </p>
                             </div>
                           <% end %>
@@ -226,6 +388,7 @@
 
                 <div class="" style="display: flex; flex-wrap: wrap; flex-direction: row; justify-content: space-evenly;">
                   <div class="actions" style="text-align: left; color: black; align-items: left;">
+<<<<<<< HEAD
                     <ul class="list-inline">
 
                       <% if current_user && (current_user.role == "employer") %>
@@ -307,13 +470,29 @@
                     </ul>
                   </div>
 
+=======
+                      <% if current_user %>
+                        <%= render partial: 'people/action-items', locals: {person: person} %>
+                      <% end %>
+                  </div>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                   <%= modal title: 'More detail', size: :large, id: 'modal', button: {class: :en} do %>
                     <div class="modal-body">
 
                       <div class="post" style="display: flex; flex-direction: column;">
                         <div class="postUser" style="width: auto; height: auto; position: static;">
                           <div class="postUser__portrait" style="min-width: 125; min-height: 125; justify-content: left; align-items: left;">
+<<<<<<< HEAD
                                 <%= image_tag "placeholder.png", class: 'rounded', width: 125, height: 125 %>
+=======
+                            <%= link_to person_path(person), target: :_blank do %>
+                              <% if person.linkedin_profiles.first && person.linkedin_profiles.first.picture_url.present? %>
+                                <%= image_tag person.linkedin_profiles.first.picture_url, class: 'rounded', width: 125, height: 125 %>
+                              <% else %>
+                                <%= image_tag "placeholder.png", class: 'rounded', width: 125, height: 125 %>
+                              <% end %>
+                            <% end %>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                           </div>
                         </div>
 
@@ -341,20 +520,83 @@
                                     <% end %>
                                 </div>
 
+<<<<<<< HEAD
+=======
+                                <% if person.email_addresses.first && person.email_addresses.first.email %>
+                                <div class="person_email">
+                                  <% if (current_user.role == "member" || current_user.role == "admin") %>
+                                    <p style="text-align: left; color: black;">
+                                        <i class="fa fa-fw fa-envelope"></i>
+                                          Email: <%= person.email_addresses.first.email %>
+                                          <% if person.email_addresses.count > 1 %>
+                                           and <%= (person.email_addresses.count - 1) %> <%= link_to 'more email addresses found.', person_path(person), target: :_blank %>
+                                          <% end %>
+                                    </p>
+                                  <% else %>
+                                    <p style="text-align: left; color: black;">
+                                      <i class="fa fa-fw fa-envelope"></i>
+                                      Email addresses found for this candidate.
+                                    </p>
+                                  <% end %>
+                                </div>
+                                <% end %>
+
+                                <% if person.phone_numbers.first && person.phone_numbers.first.value %>
+                                  <div class="person_phone">
+                                    <% if (current_user.role == "member" || current_user.role == "admin" ) %>
+                                      <p style="text-align: left; color: black;">
+                                        <i class="fa fa-fw fa-phone"></i>
+                                          Phone numbers: <%= person.phone_numbers.first.value %>
+                                          <% if person.phone_numbers.count > 1 %>
+                                           and <%= (person.phone_numbers.count - 1) %> <%= link_to 'more phone numbers found.', person_path(person), target: :_blank %>
+                                          <% end %>
+                                      </p>
+                                    <% else %>
+                                      <p style="text-align: left; color: black;">
+                                        <i class="fa fa-fw fa-phone"></i>
+                                        Phone numbers found for this candidate.
+                                      </p>
+                                    <% end %>
+                                  </div>
+                                <% end %>
+
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                                 <% if person.company_names.present? %>
                                   <div class="person_employer">
                                     <p style="text-align: left; color: black;">
                                       <i class="fa fa-fw fa-building"></i>
+<<<<<<< HEAD
                                       Companies: <%= truncate(person[:company_names].to_s, :length => 50) %>
                                     </p>
                                   </div>
                                 <% end %>
 
+=======
+                                      Companies: <%= truncate(person[:company_names].to_s, :length => 50, :omission => '... (continued)') %>
+                                    </p>
+                                  </div>
+                                <% end %>
+                                <% if person.linkedin_profiles.first && person.linkedin_profiles.first.public_profile_url %>
+                                  <div class="person_links">
+                                    <p style="text-align: left; color: black;">
+                                      <i class="fa fa-fw fa-link"></i>
+                                      Links: <%= person.linkedin_profiles.first.public_profile_url %>
+                                      <% if person.linkedin_profiles.count > 1 %>
+                                       and <%= (person.linkedin_profiles.count - 1) %> <%= link_to 'more external links found.', person_path(person), target: :_blank %>
+                                      <% end %>
+                                    </p>
+                                  </div>
+                                <% end %>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                                 <% if person.skills.present? %>
                                   <div class="person_skills">
                                     <p style="text-align: left; color: black;">
                                     <i class="fa fa-fw fa-envelope-o"></i>
+<<<<<<< HEAD
                                         Skills: <%= truncate(person[:skills].to_s, :length => 50) %>
+=======
+                                        Skills: <%= truncate(person[:skills].to_s, :length => 50, :omission => '... (continued)') %>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                                     </p>
                                   </div>
                                 <% end %>

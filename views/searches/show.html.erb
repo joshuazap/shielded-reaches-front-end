@@ -1,5 +1,6 @@
 <div class="row">
   <div class="col-4 col-sm-4 col-md-4">
+<<<<<<< HEAD
     <div class="space-10"></div>
       <div class="row">
         <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -11,6 +12,15 @@
               <%= render 'advanced-search' %>
             </div>
           <% end %>
+=======
+    <article>
+      <div class="clearfix">
+        <div class="container-fluid">
+          <%= link_to '#collapseOne', role: :button, data: { parent: '#accordion', toggle: :collapse }, aria: { controls: :collapseOne, expanded: true } do %>
+            <span class="btn btn-block btn-primary">My searches</span>
+          <% end %>
+          <%= render 'advanced-search' %>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
           <%= panel do %>
             <div class="panel-body">
                 <% if @searches.blank? %>
@@ -28,6 +38,7 @@
           <% end %>
         </div>
       </div>
+<<<<<<< HEAD
   </div>
   <div class="col-8 col-sm-8 col-md-8">
     <article>
@@ -50,6 +61,29 @@
           <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <small><%= paginate @people.results %><br /></small>
             <small><%= page_entries_info @people.results %></small>
+=======
+    </article>
+  </div>
+  <div class="col-8 col-sm-8 col-md-8">
+    <article>
+        <div class="papel-right clearfix">
+          <div class="container-fluid">
+              <div class="row" style="font-size: 0.7em;">
+                <%= page_entries_info @people.results %><br />
+                <%= paginate @people.results %>
+              </div>
+
+              <div class="row">
+                <% @people.results.each do |person| %>
+                    <%= render partial: 'people/person', object: person %>
+                <% end %>
+              </div>
+
+              <div class="row" style="font-size: 0.7em;">
+                <%= paginate @people.results %><br />
+                <%= page_entries_info @people.results %>
+              </div>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
           </div>
         </div>
       </article>

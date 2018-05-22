@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <section>
     <div class="table-row-equal">
       <div class="tarjeta get_paid_slider">
@@ -60,6 +61,58 @@
               </div>
             </div>
           </div>
+=======
+    <section id="home" class="dzsparallaxer auto-init dzsparallaxer---window-height use-loading" style="position: relative; height: 800px;" data-options="{  mode_scroll: 'normal' }">
+        <div class="divimage dzsparallaxer--target " data-src="<%= image_url('bg1a.jpg') %>" style="width: 100%; height: 100%; background-image: url('<%= image_url('bg1a.jpg') %>'); background-size: cover;">
+            <div class="hero-parallax">
+                <div class="hero-inner">
+                    <div class="hero-content">
+                        <div class="container text-center">
+                            <div class="row">
+                                <div class="col-sm-10 col-sm-offset-1">
+                                    <div class="hero-static">
+                                      <img src="<%= image_path("Asset 1.png") %>" alt="" class="double-size">
+                                        <h1>CardinalHire</h1>
+                                        <p class="lead">
+                                            Top tech talent meets top tech companies.
+                                        </p>
+                                        <div class="buttons main">
+                                          <% if current_user %>
+                                            <%= link_to "Find a tech job", user_dashboard_path(current_user), class: "btn btn-xl btn-success" %>
+                                          <% else %>
+                                            <%= link_to "Find a tech job", welcome_careers_path, class: "btn btn-xl btn-success" %>
+                                          <% end %>
+                                          <% if current_user %>
+                                            <%= link_to "Recruit top talent", user_dashboard_path(current_user), class: "btn btn-xl btn-info" %>
+                                          <% else %>
+                                            <%= link_to "Recruit top talent", welcome_new_employer_path, class: "btn btn-xl btn-info" %>
+                                          <% end %>
+                                        </div>
+                                        <div class="buttons learn-more">
+                                          <%= link_to "Learn More", welcome_about_path, class: "btn btn-xl btn-white-border" %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!--container-->
+                    </div><!--hero content-->
+                </div><!--hero inner-->
+
+            </div><!--parallax hero-->
+        </div><!--parallax image div-->
+    </section>
+    <!--intro section end-->
+
+    <div class="cta-skin">
+        <div class="container text-center">
+            <h2>Join now for free.</h2>
+            <p>Access the <b>world's largest</b> database of top candiates from Google, Stanford, Facebook, MIT and more available now for interviews!</p>
+            <% if current_user %>
+              <%= link_to "Join now for free", user_dashboard_path(current_user), class: "btn btn-xl btn-white-border" %>
+            <% else %>
+              <%= link_to "Join now for free", welcome_new_employer_path, class: "btn btn-xl btn-white-border" %>
+            <% end %>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
         </div>
     </div>
   </div>

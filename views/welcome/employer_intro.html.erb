@@ -74,6 +74,15 @@
                         <%= employer_form.input :logo,
                         as: :file %>
                       </div>
+<<<<<<< HEAD
+=======
+                      <div class="actions" style="display: flex; flex-flow: column wrap; justify-content: left; align-items: left;">
+                        <%= f.hidden_field :user_id, value: @user.id %>
+                        <%= f.submit "Update my company logo", class: "btn btn-success" %>
+                      </div>
+                    <% end %>
+                    <%= simple_form_for @user.employer_company_profiles.first_or_initialize, html: { multipart: true } do |f| %>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                       <p class="lead">Company or division name</p>
                       <div class="field">
                           <%= employer_form.input :name %>

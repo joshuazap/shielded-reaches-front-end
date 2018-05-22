@@ -84,7 +84,11 @@
                   <div class="person_employer">
                     <p style="text-align: left; color: black;">
                       <i class="fa fa-fw fa-building"></i>
+<<<<<<< HEAD
                       Companies: <%= truncate(@person[:company_names].to_s, :length => 50) %>
+=======
+                      Companies: <%= truncate(@person[:company_names].to_s, :length => 50, :omission => '... (continued)') %>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                     </p>
                   </div>
                 <% end %>
@@ -103,7 +107,11 @@
                   <div class="person_skills">
                     <p style="text-align: left; color: black;">
                     <i class="fa fa-fw fa-envelope-o"></i>
+<<<<<<< HEAD
                         Skills: <%= truncate(@person[:skills].to_s, :length => 25) %>
+=======
+                        Skills: <%= truncate(@person[:skills].to_s, :length => 25, :omission => '... (continued)') %>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                     </p>
                   </div>
                 <% end %>

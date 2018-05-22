@@ -18,6 +18,7 @@
   </div>
   <div id="navbar" class="navbar-collapse collapse">
     <div id="custom_navbar">
+<<<<<<< HEAD
       <ul class="nav navbar-nav navbar-right" style="display: flex; align-items: center; justify-content: center;">
         <% if current_user %>
           <% if current_user.role == 'admin' %>
@@ -43,6 +44,31 @@
           <%= render 'logged_out_navbar' %>
         <% end %>
       </ul>
+=======
+      <% if current_user %>
+        <% if current_user.role == 'admin' %>
+          <%= render 'admin_navbar' %>
+        <% elsif current_user.role == 'member' %>
+          <%= render 'member_navbar' %>
+        <% elsif current_user.role == 'guest' && current_user.signuprole == 'talent' %>
+          <%= render 'guest_navbar' %>
+        <% elsif current_user.role == 'guest' && current_user.signuprole == 'employer' %>
+          <%= render 'employer_navbar' %>
+        <% elsif current_user.role == 'guest' && current_user.signuprole == 'recruiter' %>
+          <%= render 'recruiter_navbar' %>
+        <% elsif current_user.role == 'talent' %>
+          <%= render 'job_seeker_navbar' %>
+        <% elsif current_user.role == 'employer' %>
+          <%= render 'employer_navbar' %>
+        <% elsif current_user.role == 'recruiter' %>
+          <% render 'recruiter_navbar' %>
+        <% else %>
+          <%= render 'guest_navbar' %>
+        <% end %>
+      <% else %>
+        <%= render 'logged_out_navbar' %>
+      <% end %>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
     </div>
   </div>
 </nav><!--static nav-collapse end-->

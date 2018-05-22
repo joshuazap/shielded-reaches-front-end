@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <article>
   <div class="row">
 
@@ -22,3 +23,33 @@
     </div>
   </div>
 </article>
+=======
+<div class="row">
+
+  <div class="col-8 col-sm-8 col-md-8">
+    <article>
+        <div class="papel-right clearfix">
+          <div class="container-fluid">
+            <div class="row">
+                <%= render @person %>
+            </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="col-4 col-sm-4 col-md-4">
+      <article>
+        <div class="clearfix">
+          <div class="container-fluid">
+            <% if @account_manager %>
+              <%= render partial: 'small_card', object: @account_manager %>
+            <% else %>
+              <%= render partial: 'small_card_template' %>
+            <% end %>
+          </div>
+        </div>
+      </article>
+    </div>
+
+  </div>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b

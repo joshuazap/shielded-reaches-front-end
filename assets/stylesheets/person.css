@@ -6,7 +6,11 @@
 .avatar-circle {
   width: 100px;
   height: 100px;
+<<<<<<< HEAD
   background-color: #003366;
+=======
+  background-color: #ab3c4f;
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
   text-align: center;
   border-radius: 50%;
   -webkit-border-radius: 50%;

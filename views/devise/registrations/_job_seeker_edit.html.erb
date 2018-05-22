@@ -13,7 +13,13 @@
 <div class="tab-content">
   <div role="tabpanel" class="tab-pane active" id="account-settings">
     <div class="space-10"></div>
+<<<<<<< HEAD
       <%= simple_form_for @user, html: {multipart: true} do |f| %>
+=======
+    <div style="display: flex; flex-flow: column wrap; justify-content: left; align-items: left;">
+      <%= simple_form_for @user, html: {multipart: true} do |f| %>
+        <%= devise_error_messages! %>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
         <div class="field">
                 <%= f.input :first_name, as: :string, value: @user.first_name %>
               </div>
@@ -30,9 +36,16 @@
                 <%= f.input :location, as: :string, value: @user.location %>
               </div>
         <div class="actions" style="display: flex; justify-content: left;">
+<<<<<<< HEAD
                 <%= f.submit "Update my basic info", class: "btn btn-block btn-success" %>
               </div>
       <% end %>
+=======
+                <%= f.submit "Update my basic info", class: "btn btn-success" %>
+              </div>
+      <% end %>
+    </div>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
 
     <div class="separator">
       <span class="outer-line"></span>
@@ -40,6 +53,10 @@
       <span class="outer-line"></span>
     </div>
 
+<<<<<<< HEAD
+=======
+    <div style="display: flex; flex-flow: column wrap; justify-content: left; align-items: left;">
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
       <%= simple_form_for @user, html: {multipart: true} do |f| %>
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
@@ -59,9 +76,16 @@
               </div>
         <% end %>
         <div class="actions" style="display: flex; justify-content: left;">
+<<<<<<< HEAD
                 <%= f.submit "Update my password info", class: "btn btn-block btn-success" %>
               </div>
       <% end %>
+=======
+                <%= f.submit "Update my password info", class: "btn btn-success" %>
+              </div>
+      <% end %>
+    </div>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
 
     <div class="separator">
       <span class="outer-line"></span>
@@ -69,6 +93,10 @@
       <span class="outer-line"></span>
     </div>
 
+<<<<<<< HEAD
+=======
+    <div style="display: flex; flex-flow: column wrap; justify-content: left; align-items: left;">
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
       <%= simple_form_for @user, multipart: true do |f| %>
       <div style="display: flex; flex-flow: column wrap; justify-content: left; align-items: left;">
         <h3>Cancel my account</h3>
@@ -76,11 +104,20 @@
         <%= button_to "Cancel my account", registration_path(resource_name), class: "btn btn-danger", data: { confirm: "Are you sure?" }, method: :delete %></p>
       </div>
       <% end %>
+<<<<<<< HEAD
+=======
+    </div>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
   </div>
 
   <div role="tabpanel" class="tab-pane" id="mailing-address">
     <div class="space-10"></div>
+<<<<<<< HEAD
         <%= simple_form_for [@user, @user.user_mailing_addresses.first_or_initialize], html: {multipart: true} do |f| %>
+=======
+    <div style="display: flex; flex-flow: column wrap; justify-content: left; align-items: left;">
+        <%= simple_form_for @user.user_mailing_addresses.first_or_initialize, html: {multipart: true} do |f| %>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
           <%= devise_error_messages! %>
           <div class="field">
             <%= f.input :address_line_1, as: :string, value: @user.user_mailing_addresses.first.address_line_1 %>
@@ -104,6 +141,7 @@
             <%= f.input :time_zone, as: :time_zone, value: @user.user_mailing_addresses.first.time_zone %>
           </div>
           <div class="field">
+<<<<<<< HEAD
             <%= f.input :legal_age, as: :boolean, label: 'I am not of legal drinking age and/or prefer not to receive alcohol as a gift', value: @user.user_mailing_addresses.first.legal_age %>
           </div>
           <div class="actions" style="display: flex; justify-content: left;">
@@ -125,6 +163,37 @@
             <p class="lead">I want to receive emails for reminders such as interview dates and times</p>
           <%= f.input :subscribe_reminders, label: 'Subscribe me to reminders', as: :boolean %>
         </div>
+=======
+            <%= f.input :legal_age, as: :boolean, boolean_style: :inline, label: 'I am not of legal drinking age and/or prefer not to receive alcohol as a gift', value: @user.user_mailing_addresses.first.legal_age %>
+          </div>
+          <div class="actions" style="display: flex; justify-content: left;">
+            <%= f.hidden_field :user_id, value: @user.id %>
+            <%= f.submit "Update my mailing address", class: "btn btn-success" %>
+          </div>
+        <% end %>
+    </div>
+  </div>
+
+  <div role="tabpanel" class="tab-pane" id="contact-preferences">
+    <div class="space-10"></div>
+    <div style="display: flex; flex-flow: column wrap; justify-content: left; align-items: left;">
+      <%= simple_form_for @user.user_contact_preferences.first_or_initialize, html: {multipart: true} do |f| %>
+        <%= devise_error_messages! %>
+        <div class="field">
+            <p class="lead">I want to receive emails for new candidate matches</p>
+          <%= f.input :subscribe_candidate_matches, label: 'Subscribe me to new candidate matches', as: :boolean, boolean_style: :inline %>
+        </div>
+        <div class="field">
+            <p class="lead">I want to receive emails for reminders such as interview dates and times</p>
+          <%= f.input :subscribe_reminders, label: 'Subscribe me to reminders', as: :boolean, boolean_style: :inline %>
+        </div>
+        <div class="actions" style="display: flex; justify-content: left;">
+          <%= f.hidden_field :user_id, value: @user.id %>
+          <%= f.submit "Update my subscriptions", class: "btn btn-success" %>
+        </div>
+      <% end %>
+    </div>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
 
     <div class="separator">
       <span class="outer-line"></span>
@@ -132,10 +201,25 @@
       <span class="outer-line"></span>
     </div>
 
+<<<<<<< HEAD
         <div class="field">
             <p class="lead">I want to unsubscribe from all emails</p>
           <%= f.input :subscribe_all, label: 'Unsubscribe from all emails', as: :boolean %>
         </div>
+=======
+    <div style="display: flex; flex-flow: column wrap; justify-content: left; align-items: left;">
+      <%= simple_form_for @user.user_contact_preferences.first_or_initialize, html: {multipart: true} do |f| %>
+        <div class="field">
+            <p class="lead">I want to unsubscribe from all emails</p>
+          <%= f.input :subscribe_all, label: 'Unsubscribe from all emails', as: :boolean, boolean_style: :inline %>
+        </div>
+        <div class="actions" style="display: flex; justify-content: left;">
+          <%= f.hidden_field :user_id, value: @user.id %>
+          <%= f.submit "Update all my subscriptions", class: "btn btn-success" %>
+        </div>
+      <% end %>
+    </div>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
 
     <div class="separator">
       <span class="outer-line"></span>
@@ -143,6 +227,11 @@
       <span class="outer-line"></span>
     </div>
 
+<<<<<<< HEAD
+=======
+    <div style="display: flex; flex-flow: column wrap; justify-content: left; align-items: left;">
+      <%= simple_form_for @user.user_contact_preferences.first_or_initialize, html: {multipart: true} do |f| %>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
         <div class="field">
             <p class="lead">I'm not active on the platform right now. Your team can check in with me later to see if my situation changes.</p>
           <%= f.input :followup_date,
@@ -156,7 +245,16 @@
             label_method: :second,
             value_method: :first %>
         </div>
+<<<<<<< HEAD
     <%= f.submit "Update my subscriptions", class: "btn btn-block btn-success" %>
     <% end %>
+=======
+        <div class="actions" style="display: flex; justify-content: left;">
+          <%= f.hidden_field :user_id, value: @user.id %>
+          <%= f.submit "Update my contact preferences", class: "btn btn-success" %>
+        </div>
+      <% end %>
+    </div>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
   </div>
 </div>

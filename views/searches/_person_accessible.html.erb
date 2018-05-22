@@ -14,7 +14,11 @@
                 <% if person.user %>
                   <%= person.user.position_desc.present? ? person.user.position_desc : 'Active, incomplete profile.' %>
                 <% else %>
+<<<<<<< HEAD
                   <%= '' %>
+=======
+                  <%= 'Inactive' %>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                 <% end %>
               </small>
             </h3>
@@ -124,7 +128,11 @@
                 <% if person.linkedin_profile_url.present? %>
                     <%= link_to person.linkedin_profile_url, target: :_blank do %>
                       <span class="label label-primary" style="padding: 0.1em; margin: 0.1em;">
+<<<<<<< HEAD
                         LinkedIn
+=======
+                        LINKEDIN (ALT)
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                       </span>
                     <% end %>
                 <% end %>
@@ -234,7 +242,11 @@
                                 <div class="person_employer">
                                   <p style="text-align: left; color: black;">
                                     <i class="fa fa-fw fa-building"></i>
+<<<<<<< HEAD
                                     Companies: <%= truncate(person[:company_names].to_s, :length => 25) %>
+=======
+                                    Companies: <%= truncate(person[:company_names].to_s, :length => 25, :omission => '... (continued)') %>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                                   </p>
                                 </div>
                               <% end %>
@@ -253,7 +265,11 @@
                                 <div class="person_skills">
                                   <p style="text-align: left; color: black;">
                                   <i class="fa fa-fw fa-envelope-o"></i>
+<<<<<<< HEAD
                                       Skills: <%= truncate(person[:skills].to_s, :length => 25) %>
+=======
+                                      Skills: <%= truncate(person[:skills].to_s, :length => 25, :omission => '... (continued)') %>
+>>>>>>> d043a64b3d6fd9342e2ce864dfdbfd5bcec4e82b
                                   </p>
                                 </div>
                               <% end %>
