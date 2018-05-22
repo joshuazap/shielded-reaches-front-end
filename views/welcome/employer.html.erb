@@ -43,20 +43,14 @@
 <div class="cta-skin-red">
     <div class="row">
       <div class="col-6 col-xs-12 col-sm-6 col-md-6 pull-left">
-        <div class="container-fluid" style="">
-          <div class="">
-            <div>
-              <div>
-                <%= image_tag("figures@1x.png", width: "100%", height: "auto", alt: "CardinalHire") %>
-              </div>
-            </div>
-          </div>
+        <div class="stacked-figures">
+          <%= image_tag("arm_figures@1x.png", width: "auto", height: "auto", alt: "CardinalHire", style: "left: 0; top: 0;") %>
         </div>
       </div>
-        <div class="col-6 col-xs-12 col-sm-6 col-md-6">
+        <div class="col-6 col-xs-12 col-sm-6 col-md-6 pull-right align-self-center">
           <div class="container-fluid">
-            <div class="text-left">
-            <h2 style="color: white;">Fastest Growing Recruiting Platform in the Bay Area</h2>
+            <div class="text-left" style="padding: 5px 15px 5px 15px;">
+            <h1 style="color: white;">Fastest Growing Recruiting Platform in the Bay Area</h1>
             <p>
               <ul style="color: white;">
                 <li class="lead" style="list-style: circle;">Get 20 awesome candidates qualified within 24-48 hours!</li>
@@ -90,55 +84,17 @@
                                         <h2 style="margin-top: 3em; margin-bottom: 1em; color: #003366;">It's simple to get started</h2>
                                         <p class="lead">It takes 3 steps to get started. Anytime along the way feel free to contact our customer support team.</p>
                                     </div>
-                                    <div class="col-12 col-md-12 col-sm-12" style="justify-content: center;">
-                                        <div class="space-40"></div>
-
-                                        <div class="row justify-content-xs-center justify-content-sm-center justifycontent-md-center justify-content-lg-center">
-                                            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                                <p class="lead"><b>Sign up for an account</b></p>
-                                            </div>
-                                        </div>
-
-                                        <div class="row justify-content-xs-center justify-content-sm-center justifycontent-md-center justify-content-lg-center">
-                                            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                              <%= image_tag('Vector_Smart_Object@1x.png', height: 'auto', width: '150em') %>
-                                            </div>
-                                        </div>
-
-                                        <div class="space-40"></div>
-
-                                        <div class="row justify-content-xs-center justify-content-sm-center justifycontent-md-center justify-content-lg-center">
-                                            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                                <p class="lead"><b>Confirm your email address and add profile</b></p>
-                                            </div>
-                                        </div>
-
-                                        <div class="row justify-content-xs-center justify-content-sm-center justifycontent-md-center justify-content-lg-center">
-                                            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                              <%= image_tag('confirmation@1x.png', height: 'auto', width: '150em') %>
-                                            </div>
-                                        </div>
-
-                                        <div class="space-40"></div>
-
-                                        <div class="row justify-content-xs-center justify-content-sm-center justifycontent-md-center justify-content-lg-center">
-                                            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                                <p class="lead"><b>Hand-pick the perfect candidate for your company</b></p>
-                                            </div>
-                                        </div>
-
-                                        <div class="row justify-content-xs-center justify-content-sm-center justifycontent-md-center justify-content-lg-center">
-                                            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
-                                              <%= image_tag('choose@1x.png', height: 'auto', width: '150em') %>
-                                            </div>
-                                        </div>
+                                    <div class="col-12 col-md-12 col-sm-12 align-self-center" style="justify-content: center;">
+                                      <div class="row">
+                                        <%= image_tag("hiw@1x.png", width: "80%", height: "auto", alt: "CardinalHire", style: "top: 0;") %>
+                                      </div>
                                     </div>
                                     <div class="col-sm-12 col-md-12" style="justify-content: center;">
-                                      <p class="lead">CardinalHire is the fastest growing technical recruiting marketplace in the San Francisco Bay Area.</p>
+                                      <p class="lead" style="padding: 1em;">CardinalHire is the fastest growing technical recruiting marketplace in the San Francisco Bay Area.</p>
                                       <% if current_user %>
-                                      <%= link_to "Join CardinalHire Today", user_dashboard_path(current_user), class: "btn btn-xl btn-primary" %>
+                                        <%= link_to "Join CardinalHire Today", user_dashboard_path(current_user), class: "btn btn-xl btn-primary" %>
                                       <% else %>
-                                      <%= link_to "Join CardinalHire Today", welcome_new_employer_path, class: "btn btn-xl btn-primary" %>
+                                        <%= link_to "Join CardinalHire Today", welcome_new_employer_path, class: "btn btn-xl btn-primary" %>
                                       <% end %>
                                       <div class="space-20"></div>
                                     </div>

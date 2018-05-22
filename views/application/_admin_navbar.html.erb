@@ -3,7 +3,6 @@
     <button type="button" class="btn btn-success">Add candidate</button>
   <% end %>
 <% end %>
-<ul class="nav navbar-nav navbar-right flexbox-container">
   <% if current_user && (current_user.role == "member") %>
     <li><%= link_to "Search Candidates", new_search_path %></li>
   <% elsif current_user && (current_user.role == "employer") %>
@@ -85,4 +84,3 @@
         </div>
       </li>
     <% end %>
-</ul>

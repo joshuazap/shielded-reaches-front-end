@@ -1,17 +1,28 @@
 <div class="row">
   <div class="col-4 col-sm-4 col-md-4">
-      <div class="clearfix">
-        <div class="container-fluid">
-          <%= link_to '#collapseOne', role: :button, data: { parent: '#accordion', toggle: :collapse }, aria: { controls: :collapseOne, expanded: true } do %>
-            <span class="btn btn-block btn-primary">My searches</span>
+    <div class="space-10"></div>
+      <div class="row">
+        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <%= panel do %>
+            <div class="panel-body">
+              <%= link_to '#collapseOne', role: :button, data: { parent: '#accordion', toggle: :collapse }, aria: { controls: :collapseOne, expanded: true } do %>
+              <span class="btn btn-block btn-outline-success">My searches</span>
+              <% end %>
+              <%= render 'advanced-search' %>
+            </div>
           <% end %>
-          <%= render 'advanced-search' %>
           <%= panel do %>
             <div class="panel-body">
                 <% if @searches.blank? %>
                   <h5><%= "You have not performed any searches yet." %></h5>
                 <% else %>
                   <%= render @searches %>
+                <% end %>
+
+                <% if @account_manager %>
+                  <%= render partial: 'small_card', object: @account_manager %>
+                <% else %>
+                  <%= render partial: 'small_card_template' %>
                 <% end %>
             </div>
           <% end %>
@@ -22,26 +33,8 @@
         <div class="papel-right clearfix">
           <div class="container-fluid">
             <div class="row">
-
-              <div class="col-6 col-sm-6 col-md-6">
-                    <div class="clearfix">
-                      <div class="container-fluid">
-                        <p class="lead">Search for candidates using the filters on the left. Your CardinalHire account manager can collaborate on your searches after you perform them and suggest candidates just for you.</p>
-                      </div>
-                    </div>
-                </div>
-
-                <div class="col-6 col-sm-6 col-md-6">
-                    <div class="clearfix">
-                      <div class="container-fluid">
-                        <% if @account_manager %>
-                          <%= render partial: 'small_card', object: @account_manager %>
-                        <% else %>
-                          <%= render partial: 'small_card_template' %>
-                        <% end %>
-                      </div>
-                    </div>
-                </div>
+              <div class="col-12 col-sm-12 col-md-12">
+              </div>
             </div>
           </div>
         </div>

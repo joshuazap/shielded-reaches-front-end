@@ -1,7 +1,9 @@
 <div class="row" style="padding-top: 1em;">
   <div class="col-12 col-sm-12 col-md-12 col-centered" style="flex-direction: column; justify-content: center; align-items: center; align-content: center;">
       <h4 class="text-center" style="align-self: center;">Alex Jones</h4>
-      <div class="text-center" style="align-self: center;"><%= image_tag('alex-jones.jpeg', alt: 'Alex Jones', class: '', width: '100rem', height: '100rem', style: 'border-radius: 50%;') %></div>
+      <div class="text-center" style="align-self: center;">
+      <%= image_tag('alex-jones.jpeg', alt: 'Alex Jones', class: '', width: '100rem', height: '100rem', style: 'border-radius: 50%;') %>
+      </div>
       <div class="separator">
         <span class="outer-line"></span>
         <i class="fa fa-fw fa-vcard" aria-hidden="true" style="margin: 10px 0"></i>
@@ -51,16 +53,12 @@
         <h3>
         <small class="text-muted">
           <% if @latest_conversations.any? %>
-            <%= pluralize(@latest_conversations.count, 'candidate') %>
+            <%= render 'conversations/latest_conversations' %>
           <% else %>
-            <%= 'No messages' %>
+            <%= 'No recent conversations.' %>
           <% end %>
         </small>
         </h3>
-
-        <% if @latest_conversations.any? %>
-          <%= render 'conversations/latest_conversations' %>
-        <% end %>
       </div>
     </div>
   </div>

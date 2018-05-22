@@ -3,110 +3,102 @@
         <div class="hero-parallax">
             <div class="hero-inner">
                 <div class="hero-content">
-                    <div class="container text-center">
-                        <div class="row">
-                            <div class="col-sm-10 col-sm-offset-1">
-                                <div class="hero-static">
-                                  <div class="row">
-                                    <div class="col col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-left">
-                                      <div style="padding-bottom: 1em;"><%= image_tag('Asset 1.png', alt: 'CardinalHire', height: 'auto', width: '60em') %>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="row">
-                                      <div class="col col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-left" style="margin: 1em; padding: 1em; background-color: #2B4A73; opacity: 30%; border-radius: 6px; color: #fff;">
-                                        <div>
-                                          <h2 style="color: #fff;">Find work today.</h2>
-                                          <p class="lead">
+                  <div class="hero-static">
+                    <div class="container">
+                    <div class="row">
+                        <div class="col-6 col-xs-12 col-sm-12 col-md-6 col-lg-6 pull-left">
+                                        <div class="text-center">
+                                          <div style="padding: 1em;">
+                                            <%= image_tag('Asset 1.png', alt: 'CardinalHire', height: 'auto', width: '60em') %>
+                                          </div>
+
+                                          <div style="background-color: rgba(0, 51, 102, 0.9); border-radius: 12px; margin-left: 6em; margin-right: 6em; padding: 1em;">
+                                            <h2 style="color: #fff">
+                                              Find work today.
+                                            </h2>
+                                            <p class="lead" style="color: #fff">
                                               Top tech talent meets top tech companies.
-                                          </p>
-                                        </div>
-                                      </div>
-                                  </div>
-
-                                  <div class="row">
-                                    <div class="col col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-left">
-                                        <div class="row list-inline">
-                                          <li class="list-inline-item">
-                                            <% if current_user %>
-                                                <%= link_to "Recruit Top Talent", user_dashboard_path(current_user), class: "btn btn-primary", style: "margin: 1em; color: #fff;" %>
-                                            <% else %>
-                                                <%= link_to "Recruit Top Talent", welcome_new_employer_path, class: "btn btn-primary", style: "margin: 1em; color: #fff;" %>
-                                            <% end %>
-                                          </li>
-                                          <li class="list-inline-item">
-                                            <% if current_user %>
-                                                <%= link_to "Find Contract Work", user_dashboard_path(current_user), class: "btn btn-primary", style: "background-color: $skin-color-blue; color: #fff; margin: 1em; align-self: center;"%>
-                                            <% else %>
-                                                <%= link_to "Find Contract Work", welcome_new_recruiter_path, class: "btn btn-primary", style: "background-color: $skin-color-blue; color: #fff; margin: 1em; align-self: center;"%>
-                                            <% end %>
-                                          </li>
-                                        </div>
-
-
+                                            </p>
                                           </div>
-                                          </div>
+
+                                          <% if current_user %>
+                                          <%= link_to "Recruit Top Talent", user_dashboard_path(current_user), class: "btn btn-primary", style: "margin: 1em; color: #fff; padding: 1em;" %>
+                                          <% else %>
+                                          <%= link_to "Recruit Top Talent", welcome_new_employer_path, class: "btn btn-primary", style: "margin: 1em; color: #fff; padding: 1em;" %>
+                                          <% end %>
+                                          <% if current_user %>
+                                          <%= link_to "Find Contract Work", user_dashboard_path(current_user), class: "btn btn-secondary", style: "background-color: $skin-color-blue; color: #fff; padding: 1em; margin: 1em; align-self: center;"%>
+                                          <% else %>
+                                          <%= link_to "Find Contract Work", welcome_new_talent_path, class: "btn btn-secondary", style: "background-color: $skin-color-blue; color: #fff; padding: 1em; margin: 1em; align-self: center;"%>
+                                          <% end %>
+
                                         </div>
-                                      </div>
-                                  </div>
                                 </div>
+                              </div>
                             </div>
+                            </div>
+                          </div>
                         </div>
                     </div><!--container-->
                 </div><!--hero content-->
-            </div><!--hero inner-->
-        </div><!--parallax hero-->
-    </div><!--parallax image div-->
 </section>
 
 <div class="cta-skin-blue">
     <div class="row">
-        <div class="col-12 col-xs-12 col-sm-12 col-md-12 pull-right">
+        <div class="col-12 col-xs-12 col-sm-12 col-md-12">
           <div class="container-fluid" style="align-items: center;">
             <div class="text-center">
             <h2 style="color: white;">Looking for contract work?</h2>
-            <p class="lead">
+            <p class="lead text-center">
               <ul style="color: white;">
-                <li style="list-style: none;">Apply privately to 34,456 Startup jobs with one application!</li>
+                <li style="list-style: none;">Apply privately to 8,614 Startup jobs with one application!</li>
               </ul>
-              <div class="col-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 center-block" style="width: 50%; float: none;">
+            </p>
+              <div class="col-6 col-xs-6 col-sm-6 col-md-6 col-lg-6 center-block align-self-center" style="width: 90%; float: none;">
                 <% if current_user %>
                   <%= simple_form_for Lead.new, remote: true do |f| %>
-                    <div class="row">
-                      <div class="col-lg-6">
-                          <div class="input-group" style="border-radius: 6px; background-color: #fff; border-radius: 6px;">
+                        <div class="input-group" style="border-radius: 12px; background-color: #fff; padding: 1em; border-radius: 12px;">
+                          <div class="row">
                             <%= f.input :email, required: true, label: false, placeholder: "Enter your email to get started" %>
                             <%= f.input :device, as: :hidden %>
                             <%= f.input :name, as: :hidden %>
                             <%= f.input :accepts, as: :hidden, input_html: { value: '1' } %>
                             <%= f.input :accepts_date, as: :hidden, input_html: { value: Date.today } %>
                             <span class="input-group-btn">
-                                <%= f.button :submit, "Get a job" %>
+                              <%= f.button :submit, "Get a job", class: "btn btn-primary" %>
                             </span>
-                          </div><!-- /input-group -->
-                      </div><!-- /.col-lg-6 -->
-                    </div><!-- /.row -->
+                          </div>
+                          <div class="row">
+
+                                  <label class="toggle-checkbox">
+                                      <div title="Update me on the latest jobs and announcements from CardinalHire">
+                                        <%= f.check_box :accepts, as: :boolean, boolean_style: :inline %>
+                                        <i class="fa fa-fw fa-check-square-o unchecked" aria-hidden="true" style="font-size: 1.6em"></i>
+                                        <i class="fa fa-fw fa-check-square-o checked" style="font-size: 1.6em;"></i>
+                                          Update me on the latest jobs and announcements from
+                                          <%= link_to root_path do %>
+                                            <b style="color: $skin-color-red;">CardinalHire.</b>
+                                          <% end %>
+                                      </div>
+                                  </label>
+                          </div>
+                        </div><!-- /input-group -->
                   <% end %>
                 <% else %>
-                  <%= simple_form_for Lead.new, remote: true, style: "background-color: #fff;" do |f| %>
-                    <div class="row">
-                      <div class="col-lg-6">
-                          <div class="input-group" style="border-radius: 6px; background-color: #fff; border-radius: 6px;">
+                  <%= simple_form_for Lead.new, remote: true, style: "background-color: #fff; padding: 1em;" do |f| %>
+                          <div class="input-group" style="border-radius: 12px; background-color: #fff; padding: 1em; border-radius: 12px;">
                             <%= f.input :email, required: true, label: false, placeholder: "Enter your email to get started" %>
                             <%= f.input :device, as: :hidden %>
                             <%= f.input :name, as: :hidden %>
                             <%= f.input :accepts, as: :hidden, input_html: { value: '1' } %>
                             <%= f.input :accepts_date, as: :hidden, input_html: { value: Date.today } %>
                             <span class="input-group-btn">
-                                <%= f.button :submit, "Get a job" %>
+                                <%= f.button :submit, "Get a job", class: "btn btn-secondary" %>
                             </span>
                           </div><!-- /input-group -->
-                        </div><!-- /.col-lg-6 -->
-                      </div><!-- /.row -->
                   <% end %>
                 <% end %>
               </div>
-            </p>
             </div>
           </div>
         </div>

@@ -88,7 +88,7 @@
   <div role="tabpanel" class="tab-pane" id="mailing-address">
     <div class="space-10"></div>
     <div style="display: flex; flex-flow: column wrap; justify-content: left; align-items: left;">
-        <%= simple_form_for @user.user_mailing_addresses.first_or_initialize, html: {multipart: true} do |f| %>
+        <%= simple_form_for [@user, @user.user_mailing_addresses.first_or_initialize], html: {multipart: true} do |f| %>
           <%= devise_error_messages! %>
           <div class="field">
             <%= f.input :address_line_1, as: :string, value: @user.user_mailing_addresses.first.address_line_1 %>

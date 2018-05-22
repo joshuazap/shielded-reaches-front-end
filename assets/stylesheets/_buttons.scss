@@ -32,6 +32,23 @@ Buttons
         border:2px solid $button-primary-color;
     }
 }
+.btn-secondary{
+  background: $button-secondary-color;
+  color: #fff;
+  border:2px solid $button-secondary-color;
+  &:hover{
+      background-color: $button-primary-hover-color;
+      background: $button-primary-hover-color;
+      color: #fff;
+      border-color: $button-primary-hover-color;
+  }
+  &:focus{
+      background: $button-secondary-color;
+      color: #fff;
+      border:2px solid $button-secondary-color;
+  }
+
+}
 .btn-white-border{
     background: transparent;
     color: #fff;
@@ -106,6 +123,6 @@ Buttons
     }
 }
 .btn-default{
-    background: #f5f5f5;
-        text-shadow: 0 1px 0 white;
+    background: #CC0000;
+    color: #fff;
 }

@@ -1,5 +1,5 @@
 <%= alert_box context: :warning, dismissable: true, id: 'alert', class: :en , data: {js: 1} do %>
-  <em>Awaiting new candidate submittals</em>
+  <em>Thank you for signing up!  A CardinalHire account manager will be in touch with you within 24 hours!  Once your registration has been approved you will be able to search and request interviews with world-class candidates by clicking Find Talent on your dashboard!  In the meantime, please spend a couple of minutes filling out your company profile on the link above.</em>
   <% if current_user.role != 'employer' %>
     <i class="fa fa-fw fa-lg fa-question-circle" style="font-size: 1.5em;" aria-hidden="true" data-placement="left" data-toggle="tooltip" data-html="true" title="Your guest account must be reviewed and approved by our recruiting team before you begin receiving targeted candidate submittals from our team."></i>
   <% end %>

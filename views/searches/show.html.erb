@@ -1,12 +1,16 @@
 <div class="row">
   <div class="col-4 col-sm-4 col-md-4">
-    <article>
-      <div class="clearfix">
-        <div class="container-fluid">
-          <%= link_to '#collapseOne', role: :button, data: { parent: '#accordion', toggle: :collapse }, aria: { controls: :collapseOne, expanded: true } do %>
-            <span class="btn btn-block btn-primary">My searches</span>
+    <div class="space-10"></div>
+      <div class="row">
+        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <%= panel do %>
+            <div class="panel-body">
+              <%= link_to '#collapseOne', role: :button, data: { parent: '#accordion', toggle: :collapse }, aria: { controls: :collapseOne, expanded: true } do %>
+              <span class="btn btn-block btn-outline-success">My searches</span>
+              <% end %>
+              <%= render 'advanced-search' %>
+            </div>
           <% end %>
-          <%= render 'advanced-search' %>
           <%= panel do %>
             <div class="panel-body">
                 <% if @searches.blank? %>
@@ -24,27 +28,28 @@
           <% end %>
         </div>
       </div>
-    </article>
   </div>
   <div class="col-8 col-sm-8 col-md-8">
     <article>
-        <div class="papel-right clearfix">
-          <div class="container-fluid">
-              <div class="row" style="font-size: 0.7em;">
-                <%= page_entries_info @people.results %><br />
-                <%= paginate @people.results %>
-              </div>
+        <div class="row">
+          <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <small><%= page_entries_info @people.results %><br /></small>
+            <small><%= paginate @people.results %></small>
+          </div>
+        </div>
 
-              <div class="row">
-                <% @people.results.each do |person| %>
-                    <%= render partial: 'people/person', object: person %>
-                <% end %>
-              </div>
+        <div class="row">
+          <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <% @people.results.each do |person| %>
+                <%= render partial: 'people/person_2', locals: { person: person, person_id: person.id } %>
+            <% end %>
+          </div>
+        </div>
 
-              <div class="row" style="font-size: 0.7em;">
-                <%= paginate @people.results %><br />
-                <%= page_entries_info @people.results %>
-              </div>
+        <div class="row">
+          <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <small><%= paginate @people.results %><br /></small>
+            <small><%= page_entries_info @people.results %></small>
           </div>
         </div>
       </article>

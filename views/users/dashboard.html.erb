@@ -1,19 +1,17 @@
-<div class="row">
+<article>
+  <div class="row">
   <div class="col-4 col-sm-4 col-md-4">
-    <article>
       <div class="clearfix">
         <div class="container-fluid">
           <% if @account_manager %>
             <%= render partial: 'small_card', object: @account_manager %>
           <% else %>
-            <%= render partial: 'small_card_template' %>
+            <%= render partial: 'users/small_card_template' %>
           <% end %>
         </div>
       </div>
-    </article>
   </div>
   <div class="col-8 col-sm-8 col-md-8">
-    <article>
         <div class="papel-right clearfix">
           <div class="container-fluid">
               <% if current_user && current_user.signuprole == 'talent' %>
@@ -33,6 +31,6 @@
               <% end %>
           </div>
         </div>
-      </article>
     </div>
   </div>
+</article>

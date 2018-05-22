@@ -18,16 +18,15 @@
 
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist" style="margin-bottom: 0; bottom: 0;">
-          <li role="presentation" class="active"><a href="#incoming-candidates" aria-controls="incoming-candidates" role="tab" data-toggle="tab">Incoming</a></li>
-          <li role="presentation"><a href="#requested-candidates" aria-controls="requested-candidates" role="tab" data-toggle="tab">Requested</a></li>
-          <li role="presentation"><a href="#hidden-candidates" aria-controls="hidden-candidates" role="tab" data-toggle="tab">Hidden</a></li>
+          <li role="presentation"><a href="#incoming-candidates" aria-controls="incoming-candidates" role="tab" data-toggle="tab">Incoming</a></li>
+          <li role="presentation" class="active"><a href="#requested-candidates" aria-controls="requested-candidates" role="tab" data-toggle="tab">Requested</a></li>
         </ul>
 
         <!-- Tab panes -->
         <div class="tab-content" style="margin-top: 0; top: 0;">
-          <div role="tabpanel" class="tab-pane active" id="incoming-candidates">
+          <div role="tabpanel" class="tab-pane" id="incoming-candidates">
 
-            <div class="tab-pane active" id="incoming-candidates">
+            <div class="tab-pane" id="incoming-candidates">
               <div class="space-10"></div>
               <h3>Candidates just for you
               <small class="text-muted">
@@ -43,26 +42,26 @@
               <div style="min-height: 400px;">
                 <% if @candidate_submittals.any? %>
                   <% @candidate_submittals.each do |candidate| %>
-                    <%= render :partial => 'people/person', :locals => { :person => Person.find(candidate.followable.id) } %>
+                    <%= render :partial => 'follows/follow', locals: { person: Person.find(candidate.followable_id) } %>
                   <% end %>
                 <% else %>
-                  <%= render :partial => 'users/submittal-slide' %>
+
                 <% end %>
               </div>
             </div>
 
           </div>
 
-          <div role="tabpanel" class="tab-pane" id="requested-candidates">
+          <div role="tabpanel" class="tab-pane active" id="requested-candidates">
 
-            <div class="tab-pane" id="requested-candidates">
+            <div class="tab-pane active" id="requested-candidates">
               <div class="space-10"></div>
               <h3>Candidates you requested
               <small class="text-muted">
                 <% if @requested_candidates.any? %>
                   <%= pluralize(@requested_candidates.count, 'candidate') %>
                 <% else %>
-                  <%= 'No incoming candidates at this time' %>
+                  <%= 'No requested candidates to show' %>
                 <% end %>
               </small>
               </h3>
@@ -71,41 +70,12 @@
               <div style="min-height: 400px;">
                 <% if @requested_candidates.any? %>
                   <% @requested_candidates.each do |candidate| %>
-                    <%= render :partial => 'people/person', :locals => { :person => Person.find(candidate.followable.id) } %>
+                    <%= render :partial => 'follows/follow', locals: { person: Person.find(candidate.followable_id) } %>
                   <% end %>
-                <% else %>
-                  <%= render :partial => 'users/submittal-slide' %>
                 <% end %>
               </div>
             </div>
 
-          </div>
-
-          <div role="tabpanel" class="tab-pane" id="hidden-candidates">
-            <div class="space-10"></div>
-
-            <div class="tab-pane" id="hidden-candidates">
-              <h3>Candidates you have hidden
-              <small class="text-muted">
-                <% if @hidden_candidates.any? %>
-                  <%= pluralize(@hidden_candidates, 'candidate') %>
-                <% else %>
-                  <%= 'No hidden candidates' %>
-                <% end %>
-              </small>
-              </h3>
-              <div class="space-10"></div>
-
-              <div style="min-height: 400px;">
-                <% if @hidden_candidates.any? %>
-                  <% @hidden_candidates.each do |candidate| %>
-                    <%= render :partial => 'people/person', :locals => { :person => Person.find(candidate.id) } %>
-                  <% end %>
-                <% else %>
-                  <%= render :partial => 'users/submittal-slide' %>
-                <% end %>
-              </div>
-            </div>
           </div>
         </div>
       </div>

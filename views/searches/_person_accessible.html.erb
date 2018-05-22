@@ -14,7 +14,7 @@
                 <% if person.user %>
                   <%= person.user.position_desc.present? ? person.user.position_desc : 'Active, incomplete profile.' %>
                 <% else %>
-                  <%= 'Inactive' %>
+                  <%= '' %>
                 <% end %>
               </small>
             </h3>
@@ -124,7 +124,7 @@
                 <% if person.linkedin_profile_url.present? %>
                     <%= link_to person.linkedin_profile_url, target: :_blank do %>
                       <span class="label label-primary" style="padding: 0.1em; margin: 0.1em;">
-                        LINKEDIN (ALT)
+                        LinkedIn
                       </span>
                     <% end %>
                 <% end %>
@@ -234,7 +234,7 @@
                                 <div class="person_employer">
                                   <p style="text-align: left; color: black;">
                                     <i class="fa fa-fw fa-building"></i>
-                                    Companies: <%= truncate(person[:company_names].to_s, :length => 25, :omission => '... (continued)') %>
+                                    Companies: <%= truncate(person[:company_names].to_s, :length => 25) %>
                                   </p>
                                 </div>
                               <% end %>
@@ -253,7 +253,7 @@
                                 <div class="person_skills">
                                   <p style="text-align: left; color: black;">
                                   <i class="fa fa-fw fa-envelope-o"></i>
-                                      Skills: <%= truncate(person[:skills].to_s, :length => 25, :omission => '... (continued)') %>
+                                      Skills: <%= truncate(person[:skills].to_s, :length => 25) %>
                                   </p>
                                 </div>
                               <% end %>

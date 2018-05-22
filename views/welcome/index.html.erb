@@ -1,101 +1,278 @@
-    <section id="home" class="dzsparallaxer auto-init dzsparallaxer---window-height use-loading" style="position: relative; height: 800px;" data-options="{  mode_scroll: 'normal' }">
-        <div class="divimage dzsparallaxer--target " data-src="<%= image_url('bg1a.jpg') %>" style="width: 100%; height: 100%; background-image: url('<%= image_url('bg1a.jpg') %>'); background-size: cover;">
-            <div class="hero-parallax">
-                <div class="hero-inner">
-                    <div class="hero-content">
-                        <div class="container text-center">
-                            <div class="row">
-                                <div class="col-sm-10 col-sm-offset-1">
-                                    <div class="hero-static">
-                                      <img src="<%= image_path("Asset 1.png") %>" alt="" class="double-size">
-                                        <h1>CardinalHire</h1>
-                                        <p class="lead">
-                                            Top tech talent meets top tech companies.
-                                        </p>
-                                        <div class="buttons main">
-                                          <% if current_user %>
-                                            <%= link_to "Find a tech job", user_dashboard_path(current_user), class: "btn btn-xl btn-success" %>
-                                          <% else %>
-                                            <%= link_to "Find a tech job", welcome_careers_path, class: "btn btn-xl btn-success" %>
-                                          <% end %>
-                                          <% if current_user %>
-                                            <%= link_to "Recruit top talent", user_dashboard_path(current_user), class: "btn btn-xl btn-info" %>
-                                          <% else %>
-                                            <%= link_to "Recruit top talent", welcome_new_employer_path, class: "btn btn-xl btn-info" %>
-                                          <% end %>
-                                        </div>
-                                        <div class="buttons learn-more">
-                                          <%= link_to "Learn More", welcome_about_path, class: "btn btn-xl btn-white-border" %>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!--container-->
-                    </div><!--hero content-->
-                </div><!--hero inner-->
+<section>
+    <div class="table-row-equal">
+      <div class="tarjeta get_paid_slider">
+      </div>
+      <div class="tarjeta" style="text-align: center; vertical-align: middle;">
+          <div class="text-center">
+            <div style="padding: 1em;">
+              <%= image_tag('Asset 1.png', alt: 'CardinalHire', height: 'auto', width: '60em') %>
+            </div>
+            <h2 style="color: #003366;"><b>Get Paid $100/HR to Interview</b></h2>
+            <p class="lead" style="color: #003366;">with the World's Best Startups!*</p>
 
-            </div><!--parallax hero-->
-        </div><!--parallax image div-->
-    </section>
-    <!--intro section end-->
-
-    <div class="cta-skin">
-        <div class="container text-center">
-            <h2>Join now for free.</h2>
-            <p>Access the <b>world's largest</b> database of top candiates from Google, Stanford, Facebook, MIT and more available now for interviews!</p>
-            <% if current_user %>
-              <%= link_to "Join now for free", user_dashboard_path(current_user), class: "btn btn-xl btn-white-border" %>
-            <% else %>
-              <%= link_to "Join now for free", welcome_new_employer_path, class: "btn btn-xl btn-white-border" %>
-            <% end %>
-        </div>
+            <ul class="list-inline">
+              <li class="list-inline list-inline-item">
+                <% if current_user %>
+                <%= link_to "Get Started", user_dashboard_path(current_user), class: "btn btn-primary", style: "color: #fff;" %>
+                <% else %>
+                <%= link_to "Get Started", welcome_new_talent_path, class: "btn btn-primary", style: "color: #fff;" %>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+      </div>
     </div>
 
-    <section class="steps">
-        <div class="space-90"></div>
-        <div class="container">
-            <div class="center-title">
-              <h1>How it works</h1>
-                <p> Credit card is required to sign up and will not be charged until the 31st day of use. Cancel any time in the first 30 days and you will not be charged.</p>
-            </div>
-            <div class="row">
-                <div class="col-sm-4 margin-b-30">
-                    <div class="step-box">
-                        <h1>01</h1>
-                        <h2>Select the candidates you would like to interview</h2>
-                        <h4>Access the <b>world's largest</b> database of top candiates from Google, Stanford, Facebook, MIT and more available now for interviews!</h4>
-                    </div>
-                </div>
-                <div class="col-sm-4 margin-b-30">
-                    <div class="step-box">
-                        <h1>02</h1>
-                        <h2>Interview the candidates</h2>
-                        <h4>Request interviews and connect with candidates on CardinalHire.</h4>
-                    </div>
-                </div>
-                <div class="col-sm-4 margin-b-30">
-                    <div class="step-box">
-                        <h1>03</h1>
-                        <h2>Hire the ones you like!</h2>
-                        <h4>Low cost pricing options include a monthly subscription and per-hire rates.</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-              <img src="<%= image_path('shot3.png') %>" alt="" class="img-responsive center-img">
-            </div>
-        </div>
-        <div class="space-60"></div>
-    </section>
+</section>
 
-    <div class="cta-skin">
-        <div class="container text-center">
-            <h2>Join now for free.</h2>
-            <p>Access the <b>world's largest</b> database of top candiates from Google, Stanford, Facebook, MIT and more available now for interviews!</p>
-            <% if current_user %>
-              <%= link_to "Join now for free", user_dashboard_path(current_user), class: "btn btn-xl btn-white-border" %>
-            <% else %>
-              <%= link_to "Join now for free", welcome_new_employer_path, class: "btn btn-xl btn-white-border" %>
-            <% end %>
+<section>
+  <div class="cta-skin-blue" style="padding-top: 2em; padding-bottom: 2em;">
+      <div class="row">
+        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 align-content: center;">
+          <div class="container-fluid" style="align-items: center;">
+            <div class="text-center">
+            <h2 style="color: #fff;">Find a Job</h2>
+            <p class="lead text-center" style="color: #fff;">
+                Apply privately to 8,614 Startup jobs with one application
+            </p>
+              <div class="col-8 col-xs-10 col-sm-10 col-md-8 col-lg-8 center-block align-self-center" style="align-content: center; align-self: center; justify-content: center; float: none;">
+                    <%= simple_form_for Lead.new, style: "background-color: #fff;" do |f| %>
+                    <div class="row" style="background-color: #fff; border-radius: 12px;">
+                      <div class="input-group">
+                        <%= f.input :email, required: true, label: false, style: "background-color: #fff;", placeholder: "Enter your email to get started" %>
+                        <%= f.input :device, as: :hidden %>
+                        <%= f.input :name, as: :hidden %>
+                        <%= f.input :accepts, as: :hidden, input_html: { value: '1' } %>
+                        <%= f.input :accepts_date, as: :hidden, input_html: { value: Date.today } %>
+                        <span class="input-group-btn">
+                          <%= f.button :submit, "Get a job", style: "color: #fff; background-color: #CC0000; border-color: #CC0000; display: block; width: 100%; height: 100%;" %>
+                        </span>
+                      </div><!-- /input-group -->
+                    </div>
+                    <p class="text-center" style="padding-top: 1em; color: #fff;">
+                      <i class="fa fa-fw fa-check-square-o" style="color: #fff;"></i>
+                      Update me on the latest jobs and announcements from
+                      <%= link_to root_path do %>
+                        <b style="color: #CC0000;">CardinalHire.</b>
+                      <% end %>
+                    </p>
+                    <% end %>
+              </div>
+            </div>
+          </div>
         </div>
     </div>
+  </div>
+</section>
+
+<section style="margin-top: 2em; padding: 2">
+  <div class="row">
+        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+          <div class="row">
+            <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="text-center" style="padding: 5px 15px 5px 15px; float: none;">
+                <h2 style="color: #003366;">It's easy... Interview. Test. Get Hired. Get Paid.</h2>
+                <p class="lead" style="color: #003366;">
+                  How do you want to get paid?
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+
+            <div class="col-4 col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="row">
+                  <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 cta-button-div grow boxed-div">
+                    <div class="text-center grow-png" style="padding: 15px 15px 15px 15px; float: none;">
+                      <%= image_tag('bitcoin.png', alt: 'CardinalHire Bitcoin', height: 'auto', width: '60em') %>
+                    </div>
+                    <h2 class="text-center" style="color: #003366; padding-bottom: 0.5em;">
+                      Bitcoin
+                    </h2>
+                    <p class="text-center">
+                      Don't sleep on crypto. Want to stack some Bitcoin? We'll pay you in Bitcoin.
+                    </p>
+                    <div class="cta-holder">
+                    </div>
+                    <% if current_user %>
+                    <%= link_to "Get Started", user_dashboard_path(current_user), class: "btn btn-primary cta-button", style: "color: #fff;" %>
+                    <% else %>
+                    <%= link_to "Get Started", welcome_new_talent_path, class: "btn btn-primary cta-button", style: "color: #fff;" %>
+                    <% end %>
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-4 col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="row">
+                  <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 cta-button-div grow boxed-div">
+                    <div class="text-center grow-png" style="padding: 15px 15px 15px 15px; float: none;">
+                      <%= image_tag('cash.png', alt: 'CardinalHire Cold Hard Cash', height: 'auto', width: '60em') %>
+                    </div>
+                    <h2 class="text-center" style="color: #003366; padding-bottom: 0.5em;">
+                      Cash
+                    </h2>
+                    <p class="text-center">
+                      Hey, we get it. Cash is king. We definitely agree. If you opt for cash, we'll Venmo you your cash right on the spot.
+                    </p>
+                    <div class="cta-holder">
+                    </div>
+                    <% if current_user %>
+                    <%= link_to "Get Started", user_dashboard_path(current_user), class: "btn btn-primary cta-button", style: "color: #fff;" %>
+                    <% else %>
+                    <%= link_to "Get Started", welcome_new_talent_path, class: "btn btn-primary cta-button", style: "color: #fff;" %>
+                    <% end %>
+                  </div>
+                </div>
+            </div>
+
+            <div class="col-4 col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                <div class="row">
+                  <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 cta-button-div grow boxed-div">
+                    <div class="text-center grow-png" style="padding: 15px 15px 15px 15px; float: none;">
+                      <%= image_tag('gift_card.png', alt: 'CardinalHire Gift Card', height: 'auto', width: '60em') %>
+                    </div>
+                    <h2 class="text-center" style="color: #003366; padding-bottom: 0.5em;">
+                      Gift Card
+                    </h2>
+                    <p class="text-center">
+                      Another great form of payment is gift cards. Have a gift card preference, no problem.
+                    </p>
+                    <div class="cta-holder">
+                    </div>
+                    <% if current_user %>
+                    <%= link_to "Get Started", user_dashboard_path(current_user), class: "btn btn-primary cta-button", style: "color: #fff;" %>
+                    <% else %>
+                    <%= link_to "Get Started", welcome_new_talent_path, class: "btn btn-primary cta-button", style: "color: #fff;" %>
+                    <% end %>
+                  </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+          <div class="col-2 col-xs-2 col-sm-2 col-md-2 col-lg-2">
+          </div>
+
+          <div class="col-10 col-xs-10 col-sm-10 col-md-10 col-lg-10 align-self-center center-block" style="align-content: left; align-self: left; justify-content: left; float: none;">
+            <div class="text-center" style="padding: 5px 15px 5px 15px; float: none;">
+              <p>
+                <small style="color: #263238;font-weight: 300;">
+                  *Up to a maximum of $1,000. $500 for interviewing for the first 30 minutes of each first technical phone interview or the first 30 minutes of a new coding test with each new client.  $500 bonus after accepting hire offer and beginning work engagement.  Payment is rewarded at our discretion in available gift cards or via Venmo or Bitcoin.  Depicted gift cards are current examples.  Phone interviews with companies are either 30 minutes or one hour. Only the first technical phone interview with each company counts.  You must apply to CardinalHire, be accepted for an interview, and complete the company interview in order to receive the payment. Must apply through CardinalHire.com website in order to be eligible.
+                </small>
+              </p>
+            </div>
+          </div>
+
+          <div class="col-2 col-xs-2 col-sm-2 col-md-2 col-lg-2 align-self-center center-block" style="align-content: center; align-self: center; justify-content: center; float: none;">
+          </div>
+        </div>
+
+      </div>
+  </div>
+</section>
+
+<section class= "recent_payouts_panel row-eq-height" style="background: #eeeeee; width: 100%; height: auto; display: inline-block;">
+  <div class="col-6 col-lg-6 col-md-6 col-sm-6 col-xs-12" style="height: 100%; display: inline-block;">
+    <div class="row" style="margin: 5em 5em 5em 5em;">
+      <div style="display: flex; flex-flow: column; justify-content: center; align-items: center; text-align: center; width: 100%; height: 100%;">
+        <h2 style="align-self: center;">Recent Payouts</h2>
+        <p style="align-self: center;">This is a live and up-to-date feed of our recent payouts at CardinalHire. Our mission is to.... This is a live and up-to-date feed of our recent payouts at CardinalHire. Our mission is to.... This is a live and up-to-date feed of our recent payouts at CardinalHire. Our mission is to....</p>
+        <ul class="list-inline">
+          <li class="list-inline list-inline-item">
+            <% if current_user %>
+              <%= link_to "Read More", user_dashboard_path(current_user), class: "btn btn-primary", style: "color: #fff;" %>
+              <% else %>
+              <%= link_to "Read More", welcome_new_talent_path, class: "btn btn-primary", style: "color: #fff;" %>
+              <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-6 col-lg-6 col-md-6 col-sm-6 col-xs-12" style="height: 100%; display: inline-block;">
+    <div class="box-shadow" style="border-radius: 12px; margin: 1em; background: #fff; box-shadow: 10px #000;">
+        <div class="flexbox row" style="border-bottom: .125rem solid #cccccc; margin: 1em; padding: 1em 0 1em 0; align-items: stretch;">
+            <div class="col-4 col-xs-4 col-sm-4 col-md-4 col-lg-4" style="align-content: center; justify-content: center; align-items: center; align-self: center;">
+              <%= image_tag('avatar2.jpg', class:"round-avatar") %>
+            </div>
+            <div class="avatar-text col-8 col-xs-8 col-sm-8 col-md-8 col-lg-8">
+              <p style="text-align: left; font-size: 16px; font-weight: 400; line-height: 1.4;">
+              Chesley from San Francisco was paid $200 by CardinalHire for interviews.
+              </p>
+            </div>
+        </div>
+
+        <div class="flexbox row" style="border-bottom: .125rem solid #cccccc; margin: 1em; padding: 1em 0 1em 0; align-items: stretch;">
+            <div class="col-4 col-xs-4 col-sm-4 col-md-4 col-lg-4" style="align-content: center; justify-content: center; align-items: center; align-self: center;">
+              <%= image_tag('avatar1.jpg', class:"round-avatar") %>
+            </div>
+            <div class="avatar-text col-8 col-xs-8 col-sm-8 col-md-8 col-lg-8">
+              <p style="text-align: left; font-size: 16px; font-weight: 400; line-height: 1.4;">
+              Ian from San Francisco was hired by Haven and was paid $1000 by CardinalHire for testing and interviews.
+              </p>
+            </div>
+        </div>
+
+        <div class="flexbox row" style="border-bottom: .125rem solid #cccccc; margin: 1em; padding: 1em 0 1em 0; align-items: stretch;">
+            <div class="col-4 col-xs-4 col-sm-4 col-md-4 col-lg-4" style="align-content: center; justify-content: center; align-items: center; align-self: center;">
+              <%= image_tag('avatar3.jpg', class:"round-avatar") %>
+            </div>
+            <div class="avatar-text col-8 col-xs-8 col-sm-8 col-md-8 col-lg-8">
+              <p style="text-align: left; font-size: 16px; font-weight: 400; line-height: 1.4;">
+              Joe from San Francisco was paid $400 by CardinalHire for testing.
+              </p>
+            </div>
+        </div>
+
+        <div class="flexbox row" style="margin: 1em; padding: 1em 0 1em 0; align-items: stretch;">
+            <div class="col-4 col-xs-4 col-sm-4 col-md-4 col-lg-4" style="align-content: center; justify-content: center; align-items: center; align-self: center;">
+              <%= image_tag('avatar4.jpg', class:"round-avatar") %>
+            </div>
+            <div class="avatar-text col-8 col-xs-8 col-sm-8 col-md-8 col-lg-8">
+              <p style="text-align: left; font-size: 16px; font-weight: 400; line-height: 1.4;">
+              Elena was paid $400 by CardinalHire for interviews.
+              </p>
+            </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="showcase-section">
+  <div class="cta-skin-blue" style="padding-top: 3em; padding-bottom: 3em;">
+    <div class="container text-center">
+        <div class="row">
+          <div class="col-6 col-xs-12 col-sm-12 col-md-6 col-lg-6;">
+            <div class="container-fluid" style="align-items: center;">
+              <div class="text-center" style="">
+                <h4 style="color: #fff;">Not ready yet?</h4>
+                <p class="text-center" style="color: #fff;">
+                  Join our mailing list for career insights and updates regarding top tech start-ups and companies.
+                </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-6 col-xs-12 col-sm-12 col-md-6 col-lg-6;" style="margin-top: 1em;">
+              <%= simple_form_for Lead.new, style: "background-color: #fff;" do |f| %>
+                <div class="row" style="background-color: #fff; border-radius: 12px;">
+                  <div class="input-group">
+                    <%= f.input :email, required: true, label: false, style: "background-color: #fff;", placeholder: "Email address" %>
+                    <%= f.input :device, as: :hidden %>
+                    <%= f.input :name, as: :hidden %>
+                    <%= f.input :accepts, as: :hidden, input_html: { value: '1' } %>
+                    <%= f.input :accepts_date, as: :hidden, input_html: { value: Date.today } %>
+                    <span class="input-group-btn">
+                      <%= f.button :submit, "Subscribe", style: "color: #fff; background-color: #CC0000; border-color: #CC0000; display: block; width: 100%; height: 100%;" %>
+                    </span>
+                  </div><!-- /input-group -->
+                </div>
+              <% end %>
+            </div>
+          </div>
+    </div>
+  </div>
+</section>

@@ -13,7 +13,6 @@
 *= require_self
 *= require bootstrap
 *= require font-awesome
-*= require abracadabra
 *= require dropzone
 *= require_tree .
 */
@@ -23,7 +22,6 @@
 @import "bootstrap/theme";
 @import "font-awesome";
 @import "font-awesome-sprockets";
-@import "abracadabra";
 @import "dropzone/dropzone";
 @import "_variables";
 @import "_mixins";
@@ -173,7 +171,7 @@ form .field, form .actions {
 
 .dropzone {
   border: 2px dashed #ddd;
-  border-radius: 6px;
+  border-radius: 12px;
 }
 
 .dz-message {
@@ -259,25 +257,13 @@ form .field, form .actions {
 
 .empapelar {
   padding: 2em;
-  border-radius: 6px;
+  border-radius: 12px;
   background-color: #ab3c4f;
   opacity: 0.5;
 }
 
 .empapelar::after {
 
-}
-
-section > #home::after {
-  content: '';
-  width: 100%;
-  height: 100%;
-  background-image: url('<%= image_url('bg1a.jpg') %>');
-  background-size: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
 }
 
 article {
@@ -288,21 +274,21 @@ article {
 
 article > .papel {
   background-color: #fff;
-  border-radius: 6px;
+  border-radius: 12px;
   border-width: thin;
   border-color: #000;
   overflow: hidden;
   height: 100%;
-  padding: 3.5em;
+  padding: 0.2em;
 }
 
 article > .papel-right {
-  padding: 0.5em;
+  padding: 0.2em;
 }
 
 article > div {
   background-color: #fff;
-  border-radius: 6px;
+  border-radius: 12px;
   border-width: thin;
   border-color: #000;
   overflow: auto;
@@ -310,13 +296,6 @@ article > div {
 
 .moused-search {
   display: none;
-}
-
-#custom_navbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
 }
 
 @media screen and (max-width: 62em) {
@@ -399,6 +378,17 @@ article > div {
 }
 
 @media screen and (max-width: 640px) {
+  #custom_navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  #custom_navbar > .list-inline-item {
+    flex: 0 1 auto;
+    align-self: flex-end;
+  }
+
   .relacion {
     height: 0;
   }

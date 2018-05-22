@@ -12,7 +12,7 @@
                   <% if person.active %>
                     <%= 'Active, incomplete profile.' %>
                   <% else %>
-                    <%= 'Inactive' %>
+                    <%= '' %>
                   <% end %>
                 </small>
               </h3>
@@ -56,7 +56,7 @@
                   </div>
                   <div class="col-9 col-md-9 col-sm-9 col-xs-9">
                     <ul class="list-inline">
-                      <li class="list-inline-item"><%= truncate(person[:company_names].to_yaml, :length => 50, :omission => '... (continued)') %><small><%= person.min_time_in_job.present? ? person.min_time_in_job : '' %></small></li>
+                      <li class="list-inline-item"><%= truncate(person[:company_names].to_yaml, :length => 50) %><small><%= person.min_time_in_job.present? ? person.min_time_in_job : '' %></small></li>
                     </ul>
                   </div>
                 </div>
@@ -69,7 +69,7 @@
                   </div>
                   <div class="col-9 col-md-9 col-sm-9 col-xs-9">
                     <ul class="list-inline">
-                      <li class="list-inline-item"><%= truncate(person[:school_names].to_yaml, :length => 50, :omission => '... (continued)') %><small><%= person.degrees.present? ? person.degrees : '' %></small></li>
+                      <li class="list-inline-item"><%= truncate(person[:school_names].to_yaml, :length => 50) %><small><%= person.degrees.present? ? person.degrees : '' %></small></li>
                     </ul>
                   </div>
                 </div>
@@ -103,7 +103,7 @@
                   <% if person.linkedin_profile_url.present? %>
                       <%= link_to person.linkedin_profile_url, target: :_blank do %>
                         <span class="label label-primary" style="padding: 0.1em; margin: 0.1em;">
-                          LINKEDIN (ALT)
+                          LinkedIn
                         </span>
                       <% end %>
                   <% end %>
@@ -155,50 +155,11 @@
                   <div class="postUser" style="width: auto; height: auto; position: static;">
                     <div class="postBody">
                         <div class="postBody__content">
-
-                          <% if person.email_addresses.first && person.email_addresses.first.email %>
-                          <div class="person_email">
-                            <% if (current_user.role == "member" || current_user.role == "admin") %>
-                              <p style="text-align: left; color: black;">
-                                  <i class="fa fa-fw fa-envelope"></i>
-                                    Email: <%= person.email_addresses.first.email %>
-                                    <% if person.email_addresses.count > 1 %>
-                                     and <%= (person.email_addresses.count - 1) %> <%= link_to 'more email addresses found.', person_path(person), target: :_blank %>
-                                    <% end %>
-                              </p>
-                            <% else %>
-                              <p style="text-align: left; color: black;">
-                                <i class="fa fa-fw fa-envelope"></i>
-                                Email addresses found for this candidate.
-                              </p>
-                            <% end %>
-                          </div>
-                          <% end %>
-
-                          <% if person.phone_numbers.first && person.phone_numbers.first.value %>
-                            <div class="person_phone">
-                              <% if (current_user.role == "member" || current_user.role == "admin" ) %>
-                                <p style="text-align: left; color: black;">
-                                  <i class="fa fa-fw fa-phone"></i>
-                                    Phone numbers: <%= person.phone_numbers.first.value %>
-                                    <% if person.phone_numbers.count > 1 %>
-                                     and <%= (person.phone_numbers.count - 1) %> <%= link_to 'more phone numbers found.', person_path(person), target: :_blank %>
-                                    <% end %>
-                                </p>
-                              <% else %>
-                                <p style="text-align: left; color: black;">
-                                  <i class="fa fa-fw fa-phone"></i>
-                                  Phone numbers found for this candidate.
-                                </p>
-                              <% end %>
-                            </div>
-                          <% end %>
-
                           <% if person.company_names.present? %>
                             <div class="person_employer">
                               <p style="text-align: left; color: black;">
                                 <i class="fa fa-fw fa-building"></i>
-                                Companies: <%= truncate(person[:company_names].to_s, :length => 50, :omission => '... (continued)') %>
+                                Companies: <%= truncate(person[:company_names].to_s, :length => 50) %>
                               </p>
                             </div>
                           <% end %>
@@ -217,7 +178,7 @@
                             <div class="person_skills">
                               <p style="text-align: left; color: black;">
                               <i class="fa fa-fw fa-envelope-o"></i>
-                                  Skills: <%= truncate(person[:skills].to_s, :length => 50, :omission => '... (continued)') %>
+                                  Skills: <%= truncate(person[:skills].to_s, :length => 50) %>
                               </p>
                             </div>
                           <% end %>
@@ -287,7 +248,7 @@
                 <div class="" style="display: flex; flex-wrap: wrap; flex-direction: row; justify-content: space-evenly;">
                   <div class="actions" style="text-align: left; color: black; align-items: left;">
                       <% if current_user %>
-                        <%= render partial: 'action-items', locals: {person: person} %>
+                        <%= render partial: 'people/action-items-2', locals: {person: person} %>
                       <% end %>
                   </div>
                   <%= modal title: 'More detail', size: :large, id: 'modal', button: {class: :en} do %>
@@ -326,53 +287,15 @@
 
                                 <div class="actions" style="text-align: left; color: black; align-items: left;">
                                     <% if current_user %>
-                                      <%= render partial: 'action-items', locals: {person: person} %>
+                                      <%= render partial: 'people/action-items-2', locals: {person: person} %>
                                     <% end %>
                                 </div>
-
-                                <% if person.email_addresses.first && person.email_addresses.first.email %>
-                                <div class="person_email">
-                                  <% if (current_user.role == "member" || current_user.role == "admin") %>
-                                    <p style="text-align: left; color: black;">
-                                        <i class="fa fa-fw fa-envelope"></i>
-                                          Email: <%= person.email_addresses.first.email %>
-                                          <% if person.email_addresses.count > 1 %>
-                                           and <%= (person.email_addresses.count - 1) %> <%= link_to 'more email addresses found.', person_path(person), target: :_blank %>
-                                          <% end %>
-                                    </p>
-                                  <% else %>
-                                    <p style="text-align: left; color: black;">
-                                      <i class="fa fa-fw fa-envelope"></i>
-                                      Email addresses found for this candidate.
-                                    </p>
-                                  <% end %>
-                                </div>
-                                <% end %>
-
-                                <% if person.phone_numbers.first && person.phone_numbers.first.value %>
-                                  <div class="person_phone">
-                                    <% if (current_user.role == "member" || current_user.role == "admin" ) %>
-                                      <p style="text-align: left; color: black;">
-                                        <i class="fa fa-fw fa-phone"></i>
-                                          Phone numbers: <%= person.phone_numbers.first.value %>
-                                          <% if person.phone_numbers.count > 1 %>
-                                           and <%= (person.phone_numbers.count - 1) %> <%= link_to 'more phone numbers found.', person_path(person), target: :_blank %>
-                                          <% end %>
-                                      </p>
-                                    <% else %>
-                                      <p style="text-align: left; color: black;">
-                                        <i class="fa fa-fw fa-phone"></i>
-                                        Phone numbers found for this candidate.
-                                      </p>
-                                    <% end %>
-                                  </div>
-                                <% end %>
 
                                 <% if person.company_names.present? %>
                                   <div class="person_employer">
                                     <p style="text-align: left; color: black;">
                                       <i class="fa fa-fw fa-building"></i>
-                                      Companies: <%= truncate(person[:company_names].to_s, :length => 50, :omission => '... (continued)') %>
+                                      Companies: <%= truncate(person[:company_names].to_s, :length => 50) %>
                                     </p>
                                   </div>
                                 <% end %>
@@ -391,7 +314,7 @@
                                   <div class="person_skills">
                                     <p style="text-align: left; color: black;">
                                     <i class="fa fa-fw fa-envelope-o"></i>
-                                        Skills: <%= truncate(person[:skills].to_s, :length => 50, :omission => '... (continued)') %>
+                                        Skills: <%= truncate(person[:skills].to_s, :length => 50) %>
                                     </p>
                                   </div>
                                 <% end %>
